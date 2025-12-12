@@ -1,0 +1,864 @@
+{
+  "course_name": "Strivers A2Z DSA Course Sheet",
+  "total_steps": 18,
+  "steps_breakdown": [
+    {
+      "step_number": 1,
+      "step_name": "Learn the basics",
+      "total_lectures": 6,
+      "total_problems": 31,
+      "difficulty_breakdown": {
+        "Easy": 28,
+        "Medium": 3,
+        "Hard": 0
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Things to Know in C++/Java/Python or any language",
+          "total_problems": 9,
+          "difficulty_breakdown": {
+            "Easy": 9,
+            "Medium": 0,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Build-up Logical Thinking",
+          "total_problems": 1,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 0,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Learn STL/Java-Collections or similar thing in your",
+          "total_problems": 2,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "Know Basic Maths",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 7,
+            "Medium": 0,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 5,
+          "lecture_name": "Learn Basic Recursion",
+          "total_problems": 9,
+          "difficulty_breakdown": {
+            "Easy": 8,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 6,
+          "lecture_name": "Learn Basic Hashing",
+          "total_problems": 3,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 1,
+            "Hard": 0
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "step_name": "Learn Important Sorting Techniques",
+      "total_lectures": 2,
+      "total_problems": 7,
+      "difficulty_breakdown": {
+        "Easy": 6,
+        "Medium": 1,
+        "Hard": 0
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Sorting-I",
+          "total_problems": 3,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 0,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Sorting-II",
+          "total_problems": 4,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 1,
+            "Hard": 0
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "step_name": "Solve Problems on Arrays [Easy -> Medium -> Hard]",
+      "total_lectures": 3,
+      "total_problems": 40,
+      "difficulty_breakdown": {
+        "Easy": 17,
+        "Medium": 18,
+        "Hard": 5
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Easy",
+          "total_problems": 14,
+          "difficulty_breakdown": {
+            "Easy": 10,
+            "Medium": 4,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Medium",
+          "total_problems": 14,
+          "difficulty_breakdown": {
+            "Easy": 6,
+            "Medium": 8,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Hard",
+          "total_problems": 12,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 6,
+            "Hard": 5
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "step_name": "Binary Search [1D, 2D Arrays, Search Space]",
+      "total_lectures": 3,
+      "total_problems": 32,
+      "difficulty_breakdown": {
+        "Easy": 11,
+        "Medium": 9,
+        "Hard": 12
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "BS on 1D Arrays",
+          "total_problems": 13,
+          "difficulty_breakdown": {
+            "Easy": 8,
+            "Medium": 4,
+            "Hard": 1
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "BS on Answers",
+          "total_problems": 14,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 3,
+            "Hard": 9
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "BS on 2D Arrays",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 2,
+            "Hard": 2
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "step_name": "Strings [Basic and Medium]",
+      "total_lectures": 2,
+      "total_problems": 15,
+      "difficulty_breakdown": {
+        "Easy": 9,
+        "Medium": 5,
+        "Hard": 1
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Basic and Easy String Problems",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 5,
+            "Medium": 2,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Medium String Problems",
+          "total_problems": 8,
+          "difficulty_breakdown": {
+            "Easy": 4,
+            "Medium": 3,
+            "Hard": 1
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "step_name": "Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]",
+      "total_lectures": 5,
+      "total_problems": 31,
+      "difficulty_breakdown": {
+        "Easy": 10,
+        "Medium": 18,
+        "Hard": 3
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Learn 1D LinkedList",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 4,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Learn Doubly LinkedList",
+          "total_problems": 4,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 2,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Medium Problems of LL",
+          "total_problems": 15,
+          "difficulty_breakdown": {
+            "Easy": 4,
+            "Medium": 11,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "Medium Problems of DLL",
+          "total_problems": 3,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 3,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 5,
+          "lecture_name": "Hard Problems of LL",
+          "total_problems": 4,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 1,
+            "Hard": 3
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 7,
+      "step_name": "Recursion [PatternWise]",
+      "total_lectures": 3,
+      "total_problems": 24,
+      "difficulty_breakdown": {
+        "Easy": 2,
+        "Medium": 14,
+        "Hard": 8
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Get a Strong Hold",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 2,
+            "Hard": 1
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Subsequences Pattern",
+          "total_problems": 12,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 10,
+            "Hard": 2
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Trying out all Combos / Hard",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 2,
+            "Hard": 5
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 8,
+      "step_name": "Bit Manipulation [Concepts & Problems]",
+      "total_lectures": 3,
+      "total_problems": 18,
+      "difficulty_breakdown": {
+        "Easy": 12,
+        "Medium": 6,
+        "Hard": 0
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Learn Bit Manipulation",
+          "total_problems": 8,
+          "difficulty_breakdown": {
+            "Easy": 7,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Interview Problems",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 2,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Advanced Maths",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 3,
+            "Hard": 0
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 9,
+      "step_name": "Stack and Queues [Learning, Pre-In-Post-fix, Monotonic Stack, Implementation]",
+      "total_lectures": 4,
+      "total_problems": 30,
+      "difficulty_breakdown": {
+        "Easy": 5,
+        "Medium": 19,
+        "Hard": 6
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Learning",
+          "total_problems": 8,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 5,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Prefix, Infix, PostFix Conversion Problems",
+          "total_problems": 6,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 6,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Monotonic Stack/Queue Problems [VVV. Imp]",
+          "total_problems": 11,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 7,
+            "Hard": 2
+          }
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "Implementation Problems",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 1,
+            "Hard": 4
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 10,
+      "step_name": "Sliding Window & Two Pointer Combined Problems",
+      "total_lectures": 2,
+      "total_problems": 12,
+      "difficulty_breakdown": {
+        "Easy": 1,
+        "Medium": 8,
+        "Hard": 3
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Medium Problems",
+          "total_problems": 8,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 7,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Hard Problems",
+          "total_problems": 4,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 1,
+            "Hard": 3
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 11,
+      "step_name": "Heaps [Learning, Medium, Hard Problems]",
+      "total_lectures": 3,
+      "total_problems": 17,
+      "difficulty_breakdown": {
+        "Easy": 5,
+        "Medium": 10,
+        "Hard": 2
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Learning",
+          "total_problems": 4,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 4,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Medium Problems",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 4,
+            "Medium": 2,
+            "Hard": 1
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Hard Problems",
+          "total_problems": 6,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 4,
+            "Hard": 1
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 12,
+      "step_name": "Greedy Algorithms [Easy, Medium/Hard]",
+      "total_lectures": 2,
+      "total_problems": 16,
+      "difficulty_breakdown": {
+        "Easy": 2,
+        "Medium": 13,
+        "Hard": 1
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Easy Problems",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 3,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Medium/Hard",
+          "total_problems": 11,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 10,
+            "Hard": 1
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 13,
+      "step_name": "Binary Trees [Traversals, Medium and Hard Problems]",
+      "total_lectures": 3,
+      "total_problems": 39,
+      "difficulty_breakdown": {
+        "Easy": 14,
+        "Medium": 18,
+        "Hard": 7
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Traversals",
+          "total_problems": 13,
+          "difficulty_breakdown": {
+            "Easy": 11,
+            "Medium": 2,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Medium Problems",
+          "total_problems": 12,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 8,
+            "Hard": 1
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Hard Problems",
+          "total_problems": 14,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 8,
+            "Hard": 6
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 14,
+      "step_name": "Binary Search Trees [Concept and Problems]",
+      "total_lectures": 2,
+      "total_problems": 16,
+      "difficulty_breakdown": {
+        "Easy": 5,
+        "Medium": 8,
+        "Hard": 3
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Concepts",
+          "total_problems": 3,
+          "difficulty_breakdown": {
+            "Easy": 2,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Practice Problems",
+          "total_problems": 13,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 7,
+            "Hard": 3
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 15,
+      "step_name": "Graphs [Concepts & Problems]",
+      "total_lectures": 6,
+      "total_problems": 54,
+      "difficulty_breakdown": {
+        "Easy": 3,
+        "Medium": 12,
+        "Hard": 39
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Learning",
+          "total_problems": 6,
+          "difficulty_breakdown": {
+            "Easy": 3,
+            "Medium": 1,
+            "Hard": 2
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Problems on BFS/DFS",
+          "total_problems": 14,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 4,
+            "Hard": 10
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Topo Sort and Problems",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 7
+          }
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "Shortest Path Algorithms and Problems",
+          "total_problems": 13,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 5,
+            "Hard": 8
+          }
+        },
+        {
+          "lecture_number": 5,
+          "lecture_name": "MinimumSpanningTree/Disjoint Set and Problems",
+          "total_problems": 11,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 2,
+            "Hard": 9
+          }
+        },
+        {
+          "lecture_number": 6,
+          "lecture_name": "Other Algorithms",
+          "total_problems": 3,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 3
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 16,
+      "step_name": "Dynamic Programming [Patterns and Problems]",
+      "total_lectures": 9,
+      "total_problems": 56,
+      "difficulty_breakdown": {
+        "Easy": 0,
+        "Medium": 20,
+        "Hard": 36
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Introduction to DP",
+          "total_problems": 1,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 1,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "1D DP",
+          "total_problems": 5,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 5,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "2D/3D DP and DP on Grids",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 7,
+            "Hard": 0
+          }
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "DP on Subsequences",
+          "total_problems": 11,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 6,
+            "Hard": 5
+          }
+        },
+        {
+          "lecture_number": 5,
+          "lecture_name": "DP on Strings",
+          "total_problems": 10,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 1,
+            "Hard": 9
+          }
+        },
+        {
+          "lecture_number": 6,
+          "lecture_name": "DP on Stocks",
+          "total_problems": 6,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 6
+          }
+        },
+        {
+          "lecture_number": 7,
+          "lecture_name": "DP on LIS",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 7
+          }
+        },
+        {
+          "lecture_number": 8,
+          "lecture_name": "MCM DP | Partition DP",
+          "total_problems": 7,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 7
+          }
+        },
+        {
+          "lecture_number": 9,
+          "lecture_name": "DP on Squares",
+          "total_problems": 2,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 2
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 17,
+      "step_name": "Tries",
+      "total_lectures": 2,
+      "total_problems": 7,
+      "difficulty_breakdown": {
+        "Easy": 0,
+        "Medium": 2,
+        "Hard": 5
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Theory",
+          "total_problems": 1,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 0,
+            "Hard": 1
+          }
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Problems",
+          "total_problems": 6,
+          "difficulty_breakdown": {
+            "Easy": 0,
+            "Medium": 2,
+            "Hard": 4
+          }
+        }
+      ]
+    },
+    {
+      "step_number": 18,
+      "step_name": "Strings",
+      "total_lectures": 1,
+      "total_problems": 9,
+      "difficulty_breakdown": {
+        "Easy": 1,
+        "Medium": 3,
+        "Hard": 5
+      },
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Hard Problems",
+          "total_problems": 9,
+          "difficulty_breakdown": {
+            "Easy": 1,
+            "Medium": 3,
+            "Hard": 5
+          }
+        }
+      ]
+    }
+  ],
+  "overall_statistics": {
+    "total_problems": 454,
+    "total_lectures": 61,
+    "difficulty_distribution": {
+      "Easy": 131,
+      "Medium": 187,
+      "Hard": 136
+    },
+    "difficulty_percentages": {
+      "Easy": "28.9%",
+      "Medium": "41.2%",
+      "Hard": "30.0%"
+    }
+  }
+}

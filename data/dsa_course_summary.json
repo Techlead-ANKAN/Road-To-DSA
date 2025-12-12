@@ -1,0 +1,116 @@
+{
+  "course": "Strivers A2Z DSA Course Sheet",
+  "description": "Complete DSA Course to Crack FAANG or PBCs",
+  "total_steps": 18,
+  "total_problems": 454,
+  "steps": [
+    {
+      "step_number": 1,
+      "step_name": "Learn the basics",
+      "total_lectures": 6,
+      "total_problems": 31,
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Things to Know in C++/Java/Python or any language",
+          "problems": [
+            {"name": "User Input / Output", "difficulty": "Easy"},
+            {"name": "Data Types", "difficulty": "Easy"},
+            {"name": "If Else statements", "difficulty": "Easy"},
+            {"name": "Switch Statement", "difficulty": "Easy"},
+            {"name": "What are arrays, strings?", "difficulty": "Easy"},
+            {"name": "For loops", "difficulty": "Easy"},
+            {"name": "While loops", "difficulty": "Easy"},
+            {"name": "Functions (Pass by Reference and Value)", "difficulty": "Easy"},
+            {"name": "Time Complexity [Learn Basics, and then analyse in next Steps]", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Build-up Logical Thinking",
+          "problems": [
+            {"name": "Patterns", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 3,
+          "lecture_name": "Learn STL/Java-Collections or similar thing in your language",
+          "problems": [
+            {"name": "C++ STL", "difficulty": "Medium"},
+            {"name": "Java Collections", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 4,
+          "lecture_name": "Know Basic Maths",
+          "problems": [
+            {"name": "Count Digits", "difficulty": "Easy"},
+            {"name": "Reverse a Number", "difficulty": "Easy"},
+            {"name": "Check Palindrome", "difficulty": "Easy"},
+            {"name": "GCD Or HCF", "difficulty": "Easy"},
+            {"name": "Armstrong Numbers", "difficulty": "Easy"},
+            {"name": "Print all Divisors", "difficulty": "Easy"},
+            {"name": "Check for Prime", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 5,
+          "lecture_name": "Learn Basic Recursion",
+          "problems": [
+            {"name": "Understand recursion by print something N times", "difficulty": "Easy"},
+            {"name": "Print name N times using recursion", "difficulty": "Easy"},
+            {"name": "Print 1 to N using recursion", "difficulty": "Easy"},
+            {"name": "Print N to 1 using recursion", "difficulty": "Easy"},
+            {"name": "Sum of first N numbers", "difficulty": "Easy"},
+            {"name": "Factorial of N numbers", "difficulty": "Easy"},
+            {"name": "Reverse an array", "difficulty": "Easy"},
+            {"name": "Check if a string is palindrome or not", "difficulty": "Medium"},
+            {"name": "Fibonacci Number", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 6,
+          "lecture_name": "Learn Basic Hashing",
+          "problems": [
+            {"name": "Hashing Theory", "difficulty": "Medium"},
+            {"name": "Counting frequencies of array elements", "difficulty": "Easy"},
+            {"name": "Find the highest/lowest frequency element", "difficulty": "Easy"}
+          ]
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "step_name": "Learn Important Sorting Techniques",
+      "total_lectures": 2,
+      "total_problems": 7,
+      "lectures": [
+        {
+          "lecture_number": 1,
+          "lecture_name": "Sorting-I",
+          "problems": [
+            {"name": "Selection Sort", "difficulty": "Easy"},
+            {"name": "Bubble Sort", "difficulty": "Easy"},
+            {"name": "Insertion Sort", "difficulty": "Easy"}
+          ]
+        },
+        {
+          "lecture_number": 2,
+          "lecture_name": "Sorting-II",
+          "problems": [
+            {"name": "Merge Sort", "difficulty": "Medium"},
+            {"name": "Recursive Bubble Sort", "difficulty": "Easy"},
+            {"name": "Recursive Insertion Sort", "difficulty": "Easy"},
+            {"name": "Quick Sort", "difficulty": "Easy"}
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "extraction_date": "2025-12-12",
+    "source": "Strivers A2Z DSA Course Sheet HTML",
+    "difficulty_levels": ["Easy", "Medium", "Hard"],
+    "note": "This is a curated summary. Full course data available in dsa_course_data.json"
+  }
+}
