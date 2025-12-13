@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 
-import { fetchUserProgress, initUserProgress } from '../api/progress.js'
+import { fetchUserProgress, initUserProgress, logProblemRevision } from '../api/progress.js'
 
 export const useProgressData = ({ userId, courseId, enabled = true }) => {
   const shouldFetch = Boolean(enabled && userId && courseId)
   const ensured = useRef(false)
+  const queryClient = useQueryClient()
 
   const progressQuery = useQuery({
     queryKey: ['progress', userId, courseId],
@@ -38,12 +39,52 @@ export const useProgressData = ({ userId, courseId, enabled = true }) => {
     }
   }, [progressQuery.error, shouldFetch, initMutation, userId, courseId])
 
+  const addRevisionMutation = useMutation({
+    mutationFn: logProblemRevision,
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData(['progress', userId, courseId], (prev) => {
+        if (!prev) return prev
+
+        const { stepIndex, topicIndex, problemIndex } = variables
+
+        const updatedSteps = prev.steps.map((step) => {
+          if (step.step_index !== stepIndex) return step
+
+          const updatedTopics = step.topics.map((topic) => {
+            if (topic.topic_index !== topicIndex) return topic
+
+            const problemsCopy = [...topic.problems]
+            if (!problemsCopy[problemIndex]) return topic
+
+            problemsCopy[problemIndex] = {
+              ...problemsCopy[problemIndex],
+              revisions: data.revisions
+            }
+
+            return { ...topic, problems: problemsCopy }
+          })
+
+          return { ...step, topics: updatedTopics }
+        })
+
+        return { ...prev, steps: updatedSteps }
+      })
+
+      toast.success('Revision logged')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    }
+  })
+
   return {
     progress: progressQuery.data,
     metrics: progressQuery.data?.metrics,
     isLoading: progressQuery.isLoading || initMutation.isLoading,
     isInitializing: initMutation.isLoading,
     error: progressQuery.error,
-    refetch: progressQuery.refetch
+    refetch: progressQuery.refetch,
+    logRevision: addRevisionMutation.mutateAsync,
+    isLoggingRevision: addRevisionMutation.isLoading
   }
 }

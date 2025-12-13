@@ -18,7 +18,8 @@ export const cloneCourseToProgress = (course) => {
         completedAt: null,
         code: '',
         codeLang: 'cpp',
-        notes: ''
+        notes: '',
+        revisions: []
       }))
     }))
   }))

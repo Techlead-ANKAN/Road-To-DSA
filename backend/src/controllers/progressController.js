@@ -173,6 +173,93 @@ export const saveProblemCode = async (req, res) => {
   })
 }
 
+export const addProblemRevision = async (req, res) => {
+  const { userId, courseId, stepIndex, topicIndex, problemIndex, status, note, revisedAt } = req.body || {}
+
+  if (!userId) {
+    const error = new Error('userId is required')
+    error.statusCode = 400
+    throw error
+  }
+
+  const course = await resolveCourse(courseId)
+  const progress = await Progress.findOne({ userId, courseId: course._id })
+
+  if (!progress) {
+    const error = new Error('Progress not initialized')
+    error.statusCode = 404
+    throw error
+  }
+
+  const safeStepIndex = ensureIndexBoundary(stepIndex)
+  const safeTopicIndex = ensureIndexBoundary(topicIndex)
+  const safeProblemIndex = ensureIndexBoundary(problemIndex)
+
+  const { problem } = getProgressProblem(progress, safeStepIndex, safeTopicIndex, safeProblemIndex)
+
+  const cleanedStatus = status === 'needs_review' ? 'needs_review' : 'solid'
+  const parsedDate = revisedAt ? new Date(revisedAt) : new Date()
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    const error = new Error('Invalid revisedAt value')
+    error.statusCode = 400
+    throw error
+  }
+
+  const revisionEntry = {
+    revisedAt: parsedDate,
+    status: cleanedStatus,
+    note: typeof note === 'string' ? note.trim() : ''
+  }
+
+  problem.revisions.unshift(revisionEntry)
+  if (problem.revisions.length > 50) {
+    problem.revisions = problem.revisions.slice(0, 50)
+  }
+
+  await progress.save()
+
+  res.status(201).json({
+    problem_index: problem.problem_index,
+    revisions: problem.revisions,
+    latest: problem.revisions[0]
+  })
+}
+
+export const getProblemRevisions = async (req, res) => {
+  const { userId } = req.params
+  const { courseId, stepIndex, topicIndex, problemIndex, limit } = req.query
+
+  if (!userId) {
+    const error = new Error('userId is required')
+    error.statusCode = 400
+    throw error
+  }
+
+  const course = await resolveCourse(courseId)
+  const progress = await Progress.findOne({ userId, courseId: course._id })
+
+  if (!progress) {
+    const error = new Error('Progress not initialized')
+    error.statusCode = 404
+    throw error
+  }
+
+  const safeStepIndex = ensureIndexBoundary(stepIndex)
+  const safeTopicIndex = ensureIndexBoundary(topicIndex)
+  const safeProblemIndex = ensureIndexBoundary(problemIndex)
+
+  const { problem } = getProgressProblem(progress, safeStepIndex, safeTopicIndex, safeProblemIndex)
+
+  const parsedLimit = Number(limit) || 10
+  const sliceLimit = parsedLimit > 0 ? Math.min(parsedLimit, 50) : 10
+
+  res.json({
+    problem_index: problem.problem_index,
+    revisions: problem.revisions.slice(0, sliceLimit)
+  })
+}
+
 export const exportSolvedCsv = async (req, res) => {
   const { userId } = req.params
   const { courseId } = req.query

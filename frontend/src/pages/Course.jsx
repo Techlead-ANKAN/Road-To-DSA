@@ -151,6 +151,31 @@ const CoursePage = () => {
     setCodeModal({ open: true, indices, progress })
   }
 
+  const handleLogRevision = async ({ indices, status, note }) => {
+    if (!user.userId) {
+      toast.error('Create your profile first')
+      return
+    }
+    if (!courseId) {
+      toast.error('Course not ready yet')
+      return
+    }
+
+    try {
+      await progressState.logRevision({
+        userId: user.userId,
+        courseId,
+        stepIndex: indices.stepIndex,
+        topicIndex: indices.topicIndex,
+        problemIndex: indices.problemIndex,
+        status,
+        note
+      })
+    } catch (error) {
+      // notification handled by hook
+    }
+  }
+
   const handleSaveCode = ({ code, codeLang, notes }) => {
     if (!codeModal.indices) return
     if (!courseId) {
@@ -271,6 +296,7 @@ const CoursePage = () => {
                     }}
                     onToggleComplete={handleToggleComplete}
                     onOpenCode={handleOpenCode}
+                    onLogRevision={handleLogRevision}
                   />
                   )
                 })}

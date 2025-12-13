@@ -1,5 +1,18 @@
 import mongoose from 'mongoose'
 
+const ProgressRevisionSchema = new mongoose.Schema(
+  {
+    revisedAt: { type: Date, default: Date.now },
+    note: { type: String, default: '' },
+    status: {
+      type: String,
+      enum: ['solid', 'needs_review'],
+      default: 'solid'
+    }
+  },
+  { _id: false }
+)
+
 const ProgressProblemSchema = new mongoose.Schema(
   {
     problem_index: { type: Number, required: true },
@@ -10,7 +23,8 @@ const ProgressProblemSchema = new mongoose.Schema(
     completedAt: { type: Date, default: null },
     code: { type: String, default: '' },
     codeLang: { type: String, default: 'cpp' },
-    notes: { type: String, default: '' }
+    notes: { type: String, default: '' },
+    revisions: { type: [ProgressRevisionSchema], default: [] }
   },
   { _id: false }
 )

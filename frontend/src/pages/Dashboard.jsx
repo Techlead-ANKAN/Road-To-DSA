@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { BookOpen, CheckCircle2, Target, Trophy } from 'lucide-react'
+import { BookOpen, CheckCircle2, History, Target, Trophy } from 'lucide-react'
 
 import { fetchCourseOverview } from '../api/course.js'
 import { useUser } from '../context/UserContext.jsx'
@@ -66,6 +66,12 @@ const DashboardPage = () => {
         accent: 'emerald'
       },
       {
+        label: 'Revisions (7d)',
+        value: metrics?.revisions?.recent7Days ?? 0,
+        helper: `${metrics?.revisions?.total ?? 0} total logged`,
+        icon: History
+      },
+      {
         label: 'Total problems',
         value: total,
         helper: 'Across all steps',
@@ -103,7 +109,7 @@ const DashboardPage = () => {
         <p className="mt-2 text-sm text-slate-500">{courseQuery.data.description}</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {statCards.map((card) => (
           <SmallStatCard key={card.label} {...card} />
         ))}
@@ -111,7 +117,7 @@ const DashboardPage = () => {
 
       <DashboardCharts difficulty={metrics?.difficulty} steps={metrics?.steps} />
 
-      <RecentActivity activity={metrics?.lastCompleted} />
+      <RecentActivity activity={metrics?.lastCompleted} revision={metrics?.revisions?.last} />
     </div>
   )
 }

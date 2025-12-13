@@ -28,3 +28,15 @@ export const exportSolvedCsv = ({ userId, courseId }) => {
     responseType: 'blob'
   })
 }
+
+export const logProblemRevision = async (payload) => {
+  const { data } = await apiClient.post('/progress/revisions', payload)
+  return data
+}
+
+export const fetchProblemRevisions = async ({ userId, courseId, stepIndex, topicIndex, problemIndex, limit }) => {
+  const { data } = await apiClient.get(`/progress/revisions/${userId}`, {
+    params: { courseId, stepIndex, topicIndex, problemIndex, limit }
+  })
+  return data
+}

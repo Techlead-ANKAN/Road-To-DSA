@@ -49,6 +49,11 @@ export const computeProgressMetrics = (progressDoc, courseDoc) => {
   const stepSummaries = []
   let completedProblems = 0
   let lastCompleted = null
+  let totalRevisions = 0
+  let recentRevisions = 0
+  let needsReviewCount = 0
+  let lastRevision = null
+  const recentBoundary = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
 
   progressDoc.steps.forEach((step) => {
     const totalInStep = stepTotals[step.step_index] || 0
@@ -73,6 +78,34 @@ export const computeProgressMetrics = (progressDoc, courseDoc) => {
               }
             }
           }
+        }
+
+        if (Array.isArray(problem.revisions)) {
+          problem.revisions.forEach((revision) => {
+            if (!revision) return
+            const revisedAt = revision.revisedAt ? new Date(revision.revisedAt) : null
+            totalRevisions += 1
+
+            if (revision.status === 'needs_review') {
+              needsReviewCount += 1
+            }
+
+            if (revisedAt && revisedAt >= recentBoundary) {
+              recentRevisions += 1
+            }
+
+            if (revisedAt) {
+              if (!lastRevision || revisedAt > new Date(lastRevision.revisedAt)) {
+                lastRevision = {
+                  problem_name: problem.problem_name,
+                  topic_name: topic.topic_name,
+                  step_name: step.step_name,
+                  revisedAt,
+                  status: revision.status
+                }
+              }
+            }
+          })
         }
       })
     })
@@ -107,6 +140,12 @@ export const computeProgressMetrics = (progressDoc, courseDoc) => {
     completionPercentage,
     steps: stepSummaries.sort((a, b) => a.step_index - b.step_index),
     difficulty: difficultyBreakdown,
-    lastCompleted
+    lastCompleted,
+    revisions: {
+      total: totalRevisions,
+      recent7Days: recentRevisions,
+      needsReview: needsReviewCount,
+      last: lastRevision
+    }
   }
 }
