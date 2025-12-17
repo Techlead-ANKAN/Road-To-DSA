@@ -36,7 +36,7 @@ export const CodeModal = ({ open, onClose, onSave, problemName, initialData }) =
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 px-4">
-        <div className="flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-surface shadow-2xl">
+        <div className="flex h-[90vh] w-full max-w-[90vw] flex-col overflow-hidden rounded-2xl bg-surface shadow-2xl">
           <div className="flex items-center justify-between border-b border-surface-border px-6 py-4">
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{problemName.trim()}</h3>
@@ -52,7 +52,7 @@ export const CodeModal = ({ open, onClose, onSave, problemName, initialData }) =
             </button>
           </div>
 
-          <div className="space-y-4 overflow-y-auto px-6 py-4">
+          <div className="flex-1 space-y-4 overflow-y-auto px-6 py-4">
             <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
               <div>
                 <label className="text-xs uppercase tracking-wide text-slate-500">Language</label>
@@ -70,32 +70,33 @@ export const CodeModal = ({ open, onClose, onSave, problemName, initialData }) =
               </div>
             </div>
 
-            <div className="h-[50vh] overflow-hidden rounded-xl border border-surface-border">
-              <Editor
-                height="100%"
-                defaultLanguage="cpp"
-                language={language === 'javascript' ? 'javascript' : language}
-                theme={theme === 'dark' ? 'vs-dark' : 'vs-light'}
-                value={code}
-                onChange={(value) => setCode(value || '')}
-                options={{
-                  minimap: { enabled: false },
-                  lineNumbers: 'on',
-                  fontSize: 14,
-                  automaticLayout: true
-                }}
-              />
-            </div>
+            <div className="grid gap-4 lg:grid-cols-[1.5fr,1fr] xl:grid-cols-[1.1fr,1fr] lg:items-start">
+              <div className="h-[50vh] overflow-hidden rounded-xl border border-surface-border">
+                <Editor
+                  height="100%"
+                  defaultLanguage="cpp"
+                  language={language === 'javascript' ? 'javascript' : language}
+                  theme={theme === 'dark' ? 'vs-dark' : 'vs-light'}
+                  value={code}
+                  onChange={(value) => setCode(value || '')}
+                  options={{
+                    minimap: { enabled: false },
+                    lineNumbers: 'on',
+                    fontSize: 14,
+                    automaticLayout: true
+                  }}
+                />
+              </div>
 
-            <div>
-              <label className="text-xs uppercase tracking-wide text-slate-500">Notes</label>
-              <textarea
-                value={notes}
-                onChange={(event) => setNotes(event.target.value)}
-                className="mt-1 w-full rounded-lg border border-surface-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
-                rows={4}
-                placeholder="Key ideas, tricky cases, or reminders"
-              />
+              <div className="flex h-[50vh] flex-col">
+                <label className="text-xs uppercase tracking-wide text-slate-500">Notes</label>
+                <textarea
+                  value={notes}
+                  onChange={(event) => setNotes(event.target.value)}
+                  className="mt-1 h-full resize-none rounded-lg border border-surface-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  placeholder="Key ideas, tricky cases, or reminders"
+                />
+              </div>
             </div>
           </div>
 
