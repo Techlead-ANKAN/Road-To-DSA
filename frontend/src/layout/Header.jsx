@@ -8,6 +8,7 @@ import clsx from 'clsx'
 const navItems = [
   { label: 'Dashboard', to: '/' },
   { label: 'Course', to: '/course' },
+  { label: 'Interview Prep', to: '/interview-prep' },
   { label: 'Profile', to: '/profile' }
 ]
 
@@ -89,7 +90,14 @@ export const Header = () => {
               <span>{user?.name || 'Guest'}</span>
             </button>
             {isUserMenuOpen && (
-              <div className="absolute right-0 mt-2 w-40 rounded-lg border border-surface-border bg-surface p-1 shadow-lg">
+              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-surface-border bg-surface p-1 shadow-lg">
+                <Link
+                  to="/admin/interview-questions"
+                  className="block w-full rounded-md px-3 py-2 text-left text-sm text-slate-600 transition hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary dark:text-slate-200"
+                  onClick={() => setUserMenuOpen(false)}
+                >
+                  Manage Questions
+                </Link>
                 <button
                   type="button"
                   className="w-full rounded-md px-3 py-2 text-left text-sm text-slate-600 transition hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary dark:text-slate-200"

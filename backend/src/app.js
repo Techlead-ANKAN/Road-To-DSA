@@ -7,6 +7,7 @@ import morgan from 'morgan'
 import courseRoutes from './routes/courseRoutes.js'
 import progressRoutes from './routes/progressRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import interviewQuestionRoutes from './routes/interviewQuestionRoutes.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 
 export const createApp = () => {
@@ -28,6 +29,7 @@ export const createApp = () => {
   app.use('/api/course', courseRoutes)
   app.use('/api/progress', progressRoutes)
   app.use('/api/users', userRoutes)
+  app.use('/api/interview-questions', interviewQuestionRoutes)
 
   app.use(notFoundHandler)
   app.use(errorHandler)
