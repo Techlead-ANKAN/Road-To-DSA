@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { BookOpen, ChevronDown, ChevronUp, Code, FileText, Tag } from 'lucide-react'
+import { BookOpen, Code, FileText, Tag } from 'lucide-react'
 import clsx from 'clsx'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { fetchSubjects, fetchQuestionsBySubject, fetchTags } from '../api/interviewQuestion.js'
 
 const LoadingState = () => (
@@ -28,15 +30,17 @@ const EmptyState = ({ subject }) => (
   </div>
 )
 
-const QuestionCard = ({ question, isExpanded, onToggle }) => {
+const QuestionCard = ({ question }) => {
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
       case 'Easy':
         return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
       case 'Hard':
         return 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'
-      default:
+      case 'Medium':
         return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+      default:
+        return 'bg-slate-100 text-slate-700 dark:bg-slate-800/30 dark:text-slate-400'
     }
   }
 
@@ -52,72 +56,106 @@ const QuestionCard = ({ question, isExpanded, onToggle }) => {
   }
 
   return (
-    <div className="rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-card">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="w-full p-5 text-left focus:outline-none focus:ring-2 focus:ring-primary/40"
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <span className={clsx('rounded-full px-2.5 py-0.5 text-xs font-semibold', getDifficultyColor(question.difficulty))}>
-                {question.difficulty}
-              </span>
-              {question.tags && question.tags.length > 0 && (
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  {question.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-                    >
-                      <Tag className="h-3 w-3" />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
-              {question.question}
-            </h3>
-          </div>
-          <div className="flex items-center gap-2">
+    <div className="rounded-2xl border border-surface-border bg-surface shadow-sm hover:shadow-md transition-shadow">
+      <div className="border-b border-surface-border bg-gradient-to-r from-primary/5 to-transparent p-5">
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 leading-tight">
+            {question.question}
+          </h3>
+          <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-slate-400">
               {getFormatIcon(question.answerFormat)}
             </span>
-            {isExpanded ? (
-              <ChevronUp className="h-5 w-5 text-slate-400" />
-            ) : (
-              <ChevronDown className="h-5 w-5 text-slate-400" />
-            )}
           </div>
         </div>
-      </button>
-
-      {isExpanded && (
-        <div className="border-t border-surface-border p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-semibold uppercase tracking-wide text-primary">Answer</span>
-            <span className="text-xs text-slate-500">({question.answerFormat})</span>
-          </div>
-          {question.answerFormat === 'code' ? (
-            <pre className="rounded-xl bg-slate-900 p-4 text-sm text-slate-100 overflow-x-auto">
-              <code>{question.answer}</code>
-            </pre>
-          ) : question.answerFormat === 'markdown' ? (
-            <div className="prose prose-sm max-w-none dark:prose-invert">
-              <div className="whitespace-pre-wrap text-sm text-slate-700 dark:text-slate-300">
-                {question.answer}
-              </div>
-            </div>
-          ) : (
-            <p className="whitespace-pre-wrap text-sm text-slate-700 dark:text-slate-300">
-              {question.answer}
-            </p>
+        <div className="flex items-center gap-2 flex-wrap">
+          {question.difficulty && (
+            <span className={clsx('rounded-full px-2.5 py-0.5 text-xs font-semibold', getDifficultyColor(question.difficulty))}>
+              {question.difficulty}
+            </span>
+          )}
+          {question.tags && question.tags.length > 0 && (
+            <>
+              {question.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+                >
+                  <Tag className="h-3 w-3" />
+                  {tag}
+                </span>
+              ))}
+            </>
           )}
         </div>
-      )}
+      </div>
+
+      <div className="p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-xs font-semibold uppercase tracking-wide text-primary">Answer</span>
+        </div>
+        {question.answerFormat === 'code' ? (
+          <pre className="rounded-xl bg-slate-900 p-4 text-sm text-slate-100 overflow-x-auto">
+            <code>{question.answer}</code>
+          </pre>
+        ) : question.answerFormat === 'markdown' ? (
+          <div className="prose prose-sm max-w-none dark:prose-invert text-slate-700 dark:text-slate-300">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  return inline ? (
+                    <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-mono dark:bg-slate-800" {...props}>
+                      {children}
+                    </code>
+                  ) : (
+                    <pre className="rounded-lg bg-slate-900 p-3 text-sm overflow-x-auto">
+                      <code className="text-slate-100" {...props}>
+                        {children}
+                      </code>
+                    </pre>
+                  )
+                },
+                table({ children }) {
+                  return (
+                    <div className="overflow-x-auto my-4">
+                      <table className="min-w-full border-collapse border border-slate-300 dark:border-slate-600">
+                        {children}
+                      </table>
+                    </div>
+                  )
+                },
+                thead({ children }) {
+                  return <thead className="bg-slate-100 dark:bg-slate-800">{children}</thead>
+                },
+                th({ children }) {
+                  return (
+                    <th className="border border-slate-300 dark:border-slate-600 px-4 py-2 text-left font-semibold text-slate-900 dark:text-slate-100">
+                      {children}
+                    </th>
+                  )
+                },
+                td({ children }) {
+                  return (
+                    <td className="border border-slate-300 dark:border-slate-600 px-4 py-2 text-slate-700 dark:text-slate-300">
+                      {children}
+                    </td>
+                  )
+                },
+                tr({ children }) {
+                  return <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/50">{children}</tr>
+                }
+              }}
+            >
+              {question.answer}
+            </ReactMarkdown>
+          </div>
+        ) : (
+          <p className="whitespace-pre-wrap text-sm text-slate-700 dark:text-slate-300">
+            {question.answer}
+          </p>
+        )}
+      </div>
     </div>
   )
 }
@@ -125,7 +163,6 @@ const QuestionCard = ({ question, isExpanded, onToggle }) => {
 const InterviewPrepPage = () => {
   const [selectedSubject, setSelectedSubject] = useState(null)
   const [selectedTag, setSelectedTag] = useState(null)
-  const [expandedQuestions, setExpandedQuestions] = useState(new Set())
 
   const subjectsQuery = useQuery({
     queryKey: ['interviewSubjects'],
@@ -144,22 +181,9 @@ const InterviewPrepPage = () => {
     enabled: Boolean(selectedSubject)
   })
 
-  const toggleQuestion = (questionId) => {
-    setExpandedQuestions((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(questionId)) {
-        newSet.delete(questionId)
-      } else {
-        newSet.add(questionId)
-      }
-      return newSet
-    })
-  }
-
   const handleSubjectChange = (subject) => {
     setSelectedSubject(subject)
     setSelectedTag(null)
-    setExpandedQuestions(new Set())
   }
 
   if (subjectsQuery.isLoading) {
@@ -256,7 +280,7 @@ const InterviewPrepPage = () => {
               ) : questions.length === 0 ? (
                 <EmptyState subject={selectedSubject} />
               ) : (
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 gap-6">
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
                       {selectedTag ? `${selectedTag} Questions` : `${selectedSubject} Questions`}
@@ -265,14 +289,14 @@ const InterviewPrepPage = () => {
                       {questions.length} question{questions.length !== 1 ? 's' : ''}
                     </span>
                   </div>
-                  {questions.map((question) => (
-                    <QuestionCard
-                      key={question._id}
-                      question={question}
-                      isExpanded={expandedQuestions.has(question._id)}
-                      onToggle={() => toggleQuestion(question._id)}
-                    />
-                  ))}
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                    {questions.map((question) => (
+                      <QuestionCard
+                        key={question._id}
+                        question={question}
+                      />
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
