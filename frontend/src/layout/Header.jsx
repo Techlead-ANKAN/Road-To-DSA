@@ -8,7 +8,9 @@ import clsx from 'clsx'
 const navItems = [
   { label: 'Dashboard', to: '/' },
   { label: 'Course', to: '/course' },
+  { label: 'Visualize', to: '/visualize' },
   { label: 'Interview Prep', to: '/interview-prep' },
+  { label: 'Web Practice', to: '/web-practice' },
   { label: 'Profile', to: '/profile' }
 ]
 
@@ -50,7 +52,7 @@ export const Header = () => {
             aria-label="Road2DSA home"
           >
             <img src="/logo.png" alt="Road2DSA logo" className="h-10 w-auto" />
-            <span>Road2DSA</span>
+            
           </Link>
         </div>
 
@@ -97,6 +99,13 @@ export const Header = () => {
                   onClick={() => setUserMenuOpen(false)}
                 >
                   Manage Questions
+                </Link>
+                <Link
+                  to="/admin/web-assignments"
+                  className="block w-full rounded-md px-3 py-2 text-left text-sm text-slate-600 transition hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary dark:text-slate-200"
+                  onClick={() => setUserMenuOpen(false)}
+                >
+                  Manage Web Assignments
                 </Link>
                 <button
                   type="button"

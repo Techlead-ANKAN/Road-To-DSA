@@ -8,6 +8,9 @@ import CoursePage from './pages/Course.jsx'
 import ProfilePage from './pages/Profile.jsx'
 import InterviewPrepPage from './pages/InterviewPrep.jsx'
 import AdminInterviewQuestionsPage from './pages/AdminInterviewQuestions.jsx'
+import AdminWebAssignmentsPage from './pages/AdminWebAssignments.jsx'
+import WebPracticePage from './pages/WebPractice.jsx'
+import CodeVisualizePage from './pages/CodeVisualize.jsx'
 import { Toaster } from 'react-hot-toast'
 
 const queryClient = new QueryClient()
@@ -22,8 +25,11 @@ function App() {
               <Routes>
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="/course" element={<CoursePage />} />
+                <Route path="/visualize" element={<CodeVisualizePage />} />
                 <Route path="/interview-prep" element={<InterviewPrepPage />} />
+                <Route path="/web-practice" element={<WebPracticePage />} />
                 <Route path="/admin/interview-questions" element={<AdminInterviewQuestionsPage />} />
+                <Route path="/admin/web-assignments" element={<AdminWebAssignmentsPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
