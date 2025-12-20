@@ -108,6 +108,11 @@ export const saveSolution = async (req, res) => {
     const { id } = req.params;
     const { userId, htmlCode, cssCode, jsCode } = req.body;
 
+    // Validate required fields
+    if (!userId) {
+      return res.status(400).json({ message: 'UserId is required' });
+    }
+
     const assignment = await WebAssignment.findById(id);
     if (!assignment) {
       return res.status(404).json({ message: 'Assignment not found' });
@@ -148,6 +153,13 @@ export const saveSolution = async (req, res) => {
     await assignment.save();
     res.json(assignment);
   } catch (error) {
+    console.error('Error saving solution:', error);
+    console.error('Assignment ID:', req.params.id);
+    console.error('Error details:', {
+      message: error.message,
+      name: error.name,
+      stack: error.stack
+    });
     res.status(500).json({ message: 'Error saving solution', error: error.message });
   }
 };
