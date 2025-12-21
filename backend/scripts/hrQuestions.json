@@ -1,0 +1,391 @@
+[
+  {
+    "order": 1,
+    "subject": "HR",
+    "question": "Tell me about yourself.",
+    "answer": "Hello, my name is Ankan Maity. I'm 22 years old and currently pursuing my final year of B.Tech in Computer Science and Engineering, expected to graduate in 2026. I completed my Diploma in Computer Science and Technology from Techno Main Polytechnic between 2020 and 2023, and before that, I completed my Class X from ICSE board in 2019.\n\nTechnically, I'm proficient in web development technologies including HTML, CSS, JavaScript, and React for frontend development. I also have strong programming skills in Java. I'm passionate about building efficient and user-friendly applications.\n\nOutside of academics and technology, I enjoy playing cricket and football, which helps me maintain a healthy work-life balance and has taught me valuable lessons about teamwork and perseverance.\n\nI'm eager to apply my technical skills and continue learning in a professional environment where I can contribute to meaningful projects while growing as a developer.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "introduction",
+      "personal",
+      "background"
+    ]
+  },
+  {
+    "order": 2,
+    "subject": "HR",
+    "question": "Why should I hire you?",
+    "answer": "You should hire me because I bring a unique combination of technical skills, educational background, and personal qualities that align well with this position:\n\n**Technical Competence**: I have hands-on experience with modern web technologies including React, JavaScript, HTML, CSS, and Java. My diploma and B.Tech education have given me a strong foundation in computer science fundamentals.\n\n**Fresh Perspective**: As a recent graduate, I bring current knowledge of the latest technologies and trends, along with enthusiasm and fresh ideas that can benefit your team.\n\n**Quick Learner**: Throughout my academic journey, I've consistently demonstrated my ability to quickly grasp new concepts and technologies, which will help me adapt to your company's tech stack efficiently.\n\n**Team Player**: My experience in sports like cricket and football has taught me the importance of teamwork, communication, and working towards common goals.\n\n**Commitment**: I'm at the beginning of my career and looking for a company where I can grow long-term. I'm committed to putting in the effort required to excel in this role and contribute to the company's success.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "value-proposition",
+      "skills",
+      "strengths"
+    ]
+  },
+  {
+    "order": 3,
+    "subject": "HR",
+    "question": "What are your strengths and weaknesses?",
+    "answer": "**Strengths:**\n\n- **Technical Proficiency**: I have strong skills in web development with React, JavaScript, and Java, which allows me to build full-stack applications effectively.\n\n- **Quick Learner**: I adapt quickly to new technologies and concepts, as evidenced by my diverse skill set acquired during my diploma and B.Tech programs.\n\n- **Problem-Solving**: My computer science background has honed my analytical and problem-solving abilities, enabling me to tackle complex technical challenges.\n\n- **Team Collaboration**: Through sports and group projects, I've developed strong teamwork and communication skills.\n\n- **Dedication**: When I commit to a task or project, I see it through to completion with full dedication.\n\n**Weaknesses:**\n\n- **Limited Professional Experience**: As a final-year student, I don't have extensive industry experience yet. However, I'm actively working on projects and am eager to learn from experienced professionals.\n\n- **Perfectionism**: Sometimes I spend extra time perfecting details, which can affect timelines. I'm working on balancing quality with efficiency and learning when \"good enough\" is appropriate.\n\n- **Public Speaking**: I'm working on improving my presentation skills by actively participating in college seminars and technical discussions.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "strengths",
+      "weaknesses",
+      "self-assessment"
+    ]
+  },
+  {
+    "order": 4,
+    "subject": "HR",
+    "question": "Why do you want to work at our company?",
+    "answer": "I'm excited about the opportunity to work at your company for several reasons:\n\n**Company Reputation**: Your company has an excellent reputation in the industry for innovation and technical excellence, and I want to be part of an organization that values quality and growth.\n\n**Learning Opportunities**: I've researched your company and am impressed by the cutting-edge projects and technologies you work with. This environment would provide me with invaluable learning experiences and help me grow as a developer.\n\n**Career Growth**: Your company is known for investing in employee development and providing clear career progression paths, which aligns perfectly with my long-term career goals.\n\n**Company Culture**: From what I've learned, your company fosters a collaborative and innovative work environment that encourages creativity and continuous improvement, which resonates with my work style.\n\n**Technical Alignment**: The tech stack and projects your company works on align well with my current skills in React, JavaScript, and Java, while also offering opportunities to expand my expertise.\n\n**Making an Impact**: I want to work somewhere where my contributions matter, and I believe your company provides the platform to make meaningful contributions while working on projects that have real-world impact.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "motivation",
+      "company-fit",
+      "career-goals"
+    ]
+  },
+  {
+    "order": 5,
+    "subject": "HR",
+    "question": "What is the difference between confidence and over confidence?",
+    "answer": "**Confidence** and **overconfidence** differ significantly in their foundation and outcomes:\n\n**Confidence:**\n- Based on realistic assessment of one's abilities and knowledge\n- Acknowledges both strengths and limitations\n- Open to learning and feedback\n- Backed by actual skills and experience\n- Leads to calculated risk-taking\n- Maintains humility and respect for others\n- Example: \"I can solve this problem, and if I face challenges, I'll research or ask for help.\"\n\n**Overconfidence:**\n- Based on inflated or unrealistic self-assessment\n- Ignores weaknesses and limitations\n- Dismissive of feedback or alternative viewpoints\n- May lack the actual skills to back up claims\n- Leads to reckless decisions\n- Often accompanied by arrogance\n- Example: \"I know everything about this; I don't need anyone's input.\"\n\n**Key Difference:** Confidence is being sure of what you know and humble about what you don't. Overconfidence is assuming you know more than you actually do and being closed to learning.\n\nIn a professional setting, confidence helps you take on challenges while remaining coachable, whereas overconfidence can lead to mistakes, damaged relationships, and missed learning opportunities.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "behavioral",
+      "self-awareness",
+      "attitude"
+    ]
+  },
+  {
+    "order": 6,
+    "subject": "HR",
+    "question": "What is the difference between hard work and smart work?",
+    "answer": "**Hard Work** and **Smart Work** are both valuable, but they differ in approach:\n\n**Hard Work:**\n- Focuses on putting in effort and time\n- Emphasizes dedication and persistence\n- May involve doing tasks the traditional way\n- Can sometimes lead to burnout if not balanced\n- Example: Manually testing an application feature by feature repeatedly\n\n**Smart Work:**\n- Focuses on efficiency and strategy\n- Emphasizes finding better methods and shortcuts\n- Involves planning and prioritization\n- Aims to achieve more with optimized effort\n- Example: Writing automated tests that can run repeatedly with one command\n\n**The Ideal Approach:**\n\nThe best approach is combining both. Smart work without hard work may lack the dedication needed for excellence, while hard work without smart work can be inefficient.\n\n**In My Practice:**\n- I use smart work by leveraging tools, frameworks, and best practices (like using React for UI instead of vanilla JS for complex apps)\n- I apply hard work by dedicating time to thoroughly understand concepts and debug issues\n- I prioritize tasks to focus on high-impact activities first\n- I automate repetitive tasks when possible\n- I continuously learn new techniques to work more efficiently\n\nThe goal is to work both hard and smart - putting in dedicated effort while continuously finding better ways to achieve results.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "behavioral",
+      "work-ethic",
+      "efficiency"
+    ]
+  },
+  {
+    "order": 7,
+    "subject": "HR",
+    "question": "How do you feel about working nights and weekends?",
+    "answer": "I understand that the tech industry sometimes requires flexibility, especially during critical project phases, deployments, or urgent issues. Here's my perspective:\n\n**I'm Willing When Necessary:**\nI'm committed to meeting project deadlines and supporting the team when critical situations arise. If there's a production issue or an important deadline, I'm prepared to put in extra hours, including nights or weekends, to ensure the job gets done.\n\n**With Reasonable Expectations:**\nWhile I'm flexible for occasional requirements, I believe that regularly working nights and weekends may indicate planning or resource issues. I'd prefer working in an environment where such instances are exceptions rather than the norm.\n\n**Work-Life Balance:**\nI'm most productive when I maintain a healthy work-life balance. This helps me stay focused, creative, and energized during regular work hours. I believe quality output comes from sustainable work practices.\n\n**Communication:**\nI would appreciate advance notice when possible for off-hours work, so I can plan accordingly and ensure I'm able to give my full attention to the task.\n\n**My Commitment:**\nUltimately, I'm committed to the team's success and understand that flexibility is part of professional life. I'm ready to step up when the situation demands it, and I trust that the company respects work-life balance during normal circumstances.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "work-life-balance",
+      "flexibility",
+      "commitment"
+    ]
+  },
+  {
+    "order": 8,
+    "subject": "HR",
+    "question": "Can you work under pressure?",
+    "answer": "Yes, I can work effectively under pressure. Here's how I handle high-pressure situations:\n\n**My Experience:**\nDuring my diploma and B.Tech studies, I've often faced tight deadlines for multiple projects, exams, and assignments simultaneously. These experiences have taught me to stay calm and focused under pressure.\n\n**My Approach:**\n\n- **Stay Calm**: I take a moment to assess the situation clearly rather than panicking\n\n- **Prioritize**: I quickly identify what's most critical and tackle high-priority tasks first\n\n- **Break Down Problems**: I divide large, overwhelming tasks into smaller, manageable steps\n\n- **Focus on Solutions**: Instead of dwelling on the problem, I concentrate on finding practical solutions\n\n- **Communicate**: I keep stakeholders informed about progress and any challenges that arise\n\n- **Time Management**: I allocate time efficiently and set realistic mini-deadlines\n\n**Example:**\nDuring my academic projects, there were instances where requirements changed close to submission dates. I remained composed, quickly re-prioritized tasks, worked efficiently, and sometimes collaborated with teammates to distribute the workload, ultimately delivering quality results on time.\n\n**Continuous Improvement:**\nI view pressure situations as opportunities to prove my capabilities and learn. Each experience under pressure makes me more confident in handling future challenges.\n\nWhile I work well under pressure, I also believe in proactive planning to minimize last-minute stress whenever possible.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "stress-management",
+      "work-style",
+      "problem-solving"
+    ]
+  },
+  {
+    "order": 9,
+    "subject": "HR",
+    "question": "Are you willing to relocate or travel?",
+    "answer": "**Relocation:**\nYes, I am willing to relocate for the right opportunity. As I'm at the beginning of my career and currently completing my B.Tech, I'm flexible and open to moving to a new city if the position offers good learning opportunities and career growth. I understand that being in the right environment and working with the right team is crucial for professional development.\n\nI don't have any binding commitments that would prevent relocation, and I see it as an exciting opportunity to experience new places and expand my professional network.\n\n**Travel:**\nI'm also willing to travel as required by the job. Whether it's for client meetings, conferences, training sessions, or project work, I'm comfortable with business travel. I understand that in many roles, especially in tech, occasional travel might be necessary for collaboration, learning, or client engagement.\n\n**My Perspective:**\nI view both relocation and travel as opportunities for growth - professionally through exposure to different work environments and personally through new experiences. I'm adaptable and can adjust quickly to new settings.\n\n**Reasonable Expectations:**\nFor relocation, I would appreciate if the company provides standard support during the transition. For travel, I'd expect clear communication about frequency and duration to help me plan effectively.\n\nOverall, I'm flexible and ready to go where the opportunity takes me, as long as it contributes to mutual growth and success.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "flexibility",
+      "relocation",
+      "travel",
+      "adaptability"
+    ]
+  },
+  {
+    "order": 10,
+    "subject": "HR",
+    "question": "What are your goals?",
+    "answer": "I have set both short-term and long-term goals for my career:\n\n**Short-Term Goals (1-2 years):**\n\n- **Complete B.Tech Successfully**: Graduate in 2026 with a strong academic record\n\n- **Secure a Developer Position**: Join a reputable company where I can apply my skills in React, JavaScript, and Java\n\n- **Gain Industry Experience**: Learn industry best practices, work on real-world projects, and understand the complete software development lifecycle\n\n- **Expand Technical Skills**: Deepen my expertise in current technologies and learn new ones like backend frameworks, databases, and cloud platforms\n\n- **Become a Productive Team Member**: Contribute meaningfully to projects and earn the trust of my team\n\n**Medium-Term Goals (3-5 years):**\n\n- **Become a Senior Developer**: Grow into a senior role with increased responsibilities\n\n- **Specialize**: Develop deep expertise in a specific area, whether it's frontend architecture, full-stack development, or a particular domain\n\n- **Mentor Others**: Help junior developers grow, sharing the knowledge I've gained\n\n- **Contribute to Important Projects**: Work on challenging projects that have significant impact\n\n**Long-Term Goals (5+ years):**\n\n- **Technical Leadership**: Move into a tech lead or architect role where I can guide technical decisions\n\n- **Continuous Learning**: Stay updated with evolving technologies and continue growing professionally\n\n- **Make an Impact**: Work on products or services that solve real problems and positively impact users\n\nI'm committed to continuous learning and growth, and I'm looking for a company that can support these goals.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "career-goals",
+      "ambition",
+      "future-plans"
+    ]
+  },
+  {
+    "order": 11,
+    "subject": "HR",
+    "question": "What motivates you to do good job?",
+    "answer": "Several factors motivate me to perform at my best:\n\n**1. Sense of Achievement:**\nSuccessfully solving complex problems or completing challenging projects gives me immense satisfaction. The feeling of overcoming obstacles and seeing tangible results drives me to excel.\n\n**2. Learning and Growth:**\nI'm genuinely excited about technology and constantly learning new things. Every project is an opportunity to acquire new skills and knowledge, which motivates me to give my best effort.\n\n**3. Making an Impact:**\nKnowing that my work contributes to a larger goal or helps users/clients solve their problems is highly motivating. I want my code to make a difference.\n\n**4. Team Success:**\nMy experience in team sports like cricket and football has taught me the value of collective success. Contributing to my team's achievements and seeing the team succeed motivates me to do my part well.\n\n**5. Professional Pride:**\nI take pride in the quality of my work. Producing clean, efficient code and building reliable applications reflects on my professional identity, which pushes me to maintain high standards.\n\n**6. Recognition:**\nWhile not the primary driver, receiving acknowledgment for good work from managers and peers validates my efforts and encourages me to continue performing well.\n\n**7. Challenges:**\nI thrive on challenges. Difficult tasks that push my capabilities motivate me to think creatively and expand my skill set.\n\n**8. Personal Growth:**\nEvery good job I do builds my competence and confidence, bringing me closer to my career goals, which is a strong motivating factor.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "motivation",
+      "work-ethic",
+      "values"
+    ]
+  },
+  {
+    "order": 12,
+    "subject": "HR",
+    "question": "What makes you angry?",
+    "answer": "I generally maintain a calm demeanor, but there are certain situations that can frustrate me:\n\n**1. Dishonesty and Lack of Integrity:**\nWhen people are dishonest or don't take responsibility for their mistakes, it bothers me. I value transparency and accountability in professional relationships.\n\n**2. Unfairness:**\nSeeing someone being treated unfairly or credit being taken for someone else's work frustrates me. I believe in giving credit where it's due.\n\n**3. Lack of Commitment:**\nWhen team members don't pull their weight or show casual attitude toward their responsibilities, especially when it affects the entire team's work, it can be frustrating.\n\n**4. Poor Communication:**\nUnnecessary confusion caused by lack of communication or unclear requirements can be frustrating, especially when it leads to wasted effort.\n\n**5. Waste of Time:**\nPoorly organized meetings or processes that waste people's time without adding value can be annoying.\n\n**How I Handle Anger:**\n\n- I don't let emotions control my reactions. I take a moment to calm down and think rationally\n- I try to understand the situation from different perspectives\n- I communicate concerns professionally and constructively\n- I focus on finding solutions rather than dwelling on the problem\n- I learn from frustrating situations to prevent similar issues in the future\n\n**Important Note:**\nWhile these situations frustrate me, I've learned to channel that frustration constructively. I believe in addressing issues professionally, focusing on solutions, and maintaining positive working relationships even when disagreements arise.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "emotional-intelligence",
+      "values",
+      "conflict-resolution"
+    ]
+  },
+  {
+    "order": 13,
+    "subject": "HR",
+    "question": "Give me an example of your creativity.",
+    "answer": "One example of my creativity was during a college project where we were tasked with building a student management system:\n\n**The Challenge:**\nMost teams were building standard CRUD (Create, Read, Update, Delete) applications with basic forms and tables. While functional, these solutions were predictable and didn't offer much innovation.\n\n**My Creative Solution:**\n\nInstead of a traditional approach, I implemented:\n\n**1. Interactive Dashboard:**\nI created an interactive dashboard using React that visualized student data through charts and graphs, making it easy to understand trends at a glance rather than just viewing raw data in tables.\n\n**2. Smart Search:**\nI implemented a smart search feature that could filter students not just by name or ID, but by combining multiple criteria (like \"students who are in CSE department AND have GPA above 8.5\") with an intuitive interface.\n\n**3. Responsive Design:**\nI ensured the entire application was fully responsive and worked seamlessly on mobile devices, anticipating that administrators might need to access data on the go.\n\n**4. Code Optimization:**\nInstead of writing repetitive code for similar components, I created reusable React components that made the codebase cleaner and easier to maintain.\n\n**The Result:**\nOur project stood out during the presentation and received appreciation from both professors and peers for its user-friendly interface and thoughtful features.\n\n**What This Shows:**\nThis example demonstrates my ability to think beyond basic requirements, anticipate user needs, and apply technical skills creatively to deliver solutions that are both functional and innovative. I believe creativity in software development comes from understanding user problems deeply and finding elegant ways to solve them.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "creativity",
+      "innovation",
+      "problem-solving",
+      "examples"
+    ]
+  },
+  {
+    "order": 14,
+    "subject": "HR",
+    "question": "How long would you expect to work for us if hired?",
+    "answer": "I'm looking for a long-term commitment where I can grow and contribute meaningfully to the company's success.\n\n**My Perspective:**\n\nI'm at the beginning of my career and am seeking a company where I can build a stable foundation, develop my skills, and grow professionally over the years. I'm not looking for a short-term opportunity or a stepping stone - I want to find the right fit where I can invest my time and energy.\n\n**What I'm Looking For:**\n\n- A company that invests in employee development\n- Opportunities for learning and career progression\n- A positive work culture where I can thrive\n- Challenging projects that keep me engaged and growing\n- A team I can build strong professional relationships with\n\n**My Commitment:**\n\nIf this position and company provide these opportunities, I can see myself working here for many years, potentially progressing from a junior developer to senior roles and beyond. I believe in building expertise through experience and loyalty to an organization that values my contributions.\n\n**Realistic Approach:**\n\nThat said, I understand that career paths can evolve. My goal is to contribute as long as there's mutual growth and benefit. If both the company and I continue to grow together, I see no reason to look elsewhere.\n\n**Current Focus:**\n\nRight now, I'm focused on finding the right opportunity where I can establish myself, prove my worth, and build a lasting career. I'm confident that if this role is the right fit, it could be a long-term relationship beneficial for both parties.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "commitment",
+      "loyalty",
+      "career-goals"
+    ]
+  },
+  {
+    "order": 15,
+    "subject": "HR",
+    "question": "Are not you overqualified for this position?",
+    "answer": "I don't believe I'm overqualified for this position. Here's why:\n\n**Right Fit, Not Overqualified:**\n\nI'm a final-year B.Tech student with skills in React, JavaScript, Java, HTML, and CSS. While I have solid technical knowledge, I'm still at the early stage of my career and have much to learn about working in a professional environment, industry best practices, and real-world project execution.\n\n**What I Bring:**\n\n- Relevant technical skills that align with the job requirements\n- Fresh knowledge of current technologies\n- Enthusiasm and eagerness to learn\n- Strong educational foundation in computer science\n\n**What I Need:**\n\n- Practical industry experience\n- Exposure to professional development workflows\n- Mentorship from experienced developers\n- Understanding of how to work in collaborative team environments\n- Experience with real-world projects and their complexities\n\n**Why This Position:**\n\nI'm specifically interested in this role because it offers the right balance - it matches my current skill level while providing opportunities to learn and grow. I'm not looking for a position below my capabilities; I'm looking for one where I can contribute effectively while developing professionally.\n\n**Long-Term Perspective:**\n\nI see this position as the beginning of my career journey with your company, not as a temporary stop. I'm interested in growing within the organization and taking on increasing responsibilities as I gain experience.\n\n**Value to Company:**\n\nMy education and skills mean I can start contributing quickly, require less training on basics, and bring current knowledge of modern technologies. That's not overqualification - that's being well-prepared.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "qualification",
+      "fit",
+      "expectations"
+    ]
+  },
+  {
+    "order": 16,
+    "subject": "HR",
+    "question": "Describe your ideal company, location and job.",
+    "answer": "**Ideal Company:**\n\n- **Learning-Oriented**: A company that invests in employee development through training, mentorship, and opportunities to work on diverse projects\n\n- **Innovation-Driven**: Values creativity, encourages new ideas, and works with modern technologies\n\n- **Collaborative Culture**: Promotes teamwork, open communication, and knowledge sharing among team members\n\n- **Growth Opportunities**: Provides clear career progression paths and recognizes merit\n\n- **Work-Life Balance**: Respects employees' time and promotes healthy work practices\n\n- **Technical Excellence**: Follows best practices, values code quality, and has strong engineering culture\n\n- **Positive Environment**: Supportive management, respectful colleagues, and constructive feedback culture\n\n**Ideal Location:**\n\n- A location with good IT opportunities and infrastructure\n- Preferably a metro city or tech hub with access to learning resources, tech communities, and networking opportunities\n- Good connectivity and reasonable commute time\n- I'm flexible and willing to relocate to any city that offers the right opportunity\n\n**Ideal Job:**\n\n- **Role**: Software Developer or Frontend Developer where I can use my React, JavaScript, and Java skills\n\n- **Responsibilities**: Working on user-facing applications, contributing to design and development, solving technical challenges\n\n- **Learning**: Exposure to new technologies, working with experienced developers, participating in code reviews\n\n- **Impact**: Working on products that users value and where my contributions make a visible difference\n\n- **Team**: Collaborative team environment where I can both learn from others and share my knowledge\n\n- **Challenges**: Projects that push my abilities and help me grow technically\n\n- **Balance**: Enough structure to support learning but also autonomy to take ownership of tasks\n\n**Alignment:**\n\nBased on what I've learned about your company, I believe it aligns well with these preferences, which is why I'm excited about this opportunity.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "preferences",
+      "ideal-job",
+      "expectations",
+      "culture"
+    ]
+  },
+  {
+    "order": 17,
+    "subject": "HR",
+    "question": "What are your career options right now?",
+    "answer": "As a final-year B.Tech CSE student with skills in web development and Java, I have several career options:\n\n**Current Opportunities:**\n\n**1. Campus Placements:**\nMy college has ongoing placement drives with various IT companies offering developer roles, which is a primary path I'm exploring.\n\n**2. Off-Campus Applications:**\nI'm actively applying to companies for entry-level developer positions, particularly roles involving React, JavaScript, or Java development.\n\n**3. Internships to Full-Time:**\nSome companies offer internships with potential for conversion to full-time positions after graduation.\n\n**Why I'm Focused on Your Company:**\n\nWhile I have multiple options, I'm not applying everywhere randomly. I'm selective about where I want to start my career, looking for:\n\n- Companies with strong technical culture\n- Roles that match my skills and interests\n- Organizations that invest in employee growth\n- Positions offering meaningful work and learning\n\nYour company stands out because [mention specific reasons based on the company - their projects, culture, growth opportunities, etc.].\n\n**My Approach:**\n\nI'm treating my job search seriously and professionally. I'm not just looking for any job - I'm looking for the right opportunity where I can contribute effectively and build a career. Each application I submit, including this one, is because I genuinely see potential for a good mutual fit.\n\n**Honesty:**\n\nI am interviewing with a few companies, which is natural for any candidate. However, I evaluate each opportunity carefully, and I'm genuinely interested in this position because it aligns well with my career goals and skills.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "job-search",
+      "opportunities",
+      "honesty"
+    ]
+  },
+  {
+    "order": 18,
+    "subject": "HR",
+    "question": "Explain how would be an asset to this organization?",
+    "answer": "I would be an asset to this organization in several ways:\n\n**1. Technical Skills:**\n\n- I bring relevant technical skills in React, JavaScript, Java, HTML, and CSS that can be immediately applied to your projects\n- My B.Tech education has given me strong fundamentals in data structures, algorithms, and software engineering principles\n- I can contribute to both frontend development with React and backend work with Java\n\n**2. Fresh Perspective:**\n\n- As a recent graduate, I bring current knowledge of modern technologies and development practices\n- I can offer fresh ideas and innovative approaches to problem-solving\n- I'm familiar with the latest trends and tools in web development\n\n**3. Quick Learning Ability:**\n\n- Throughout my academic journey, I've demonstrated the ability to quickly learn and adapt to new technologies\n- I can onboard efficiently and start contributing to projects faster\n- I'm comfortable with self-learning and researching solutions\n\n**4. Strong Work Ethic:**\n\n- I'm dedicated, reliable, and committed to delivering quality work\n- I take ownership of my responsibilities and see tasks through to completion\n- My sports background has taught me discipline and perseverance\n\n**5. Team Collaboration:**\n\n- My experience in cricket and football has honed my teamwork and communication skills\n- I work well in collaborative environments and value team success\n- I'm receptive to feedback and willing to help others\n\n**6. Cost-Effective:**\n\n- As an entry-level candidate with relevant skills, I offer good value - bringing technical competence without senior-level salary expectations\n- I require less training than someone from a non-technical background\n\n**7. Growth Mindset:**\n\n- I'm eager to grow with the company, making me a potential long-term asset\n- I'm open to learning company-specific technologies and processes\n- I view challenges as learning opportunities rather than obstacles\n\n**8. Adaptability:**\n\n- I'm flexible and can adjust to different project requirements and team dynamics\n- I'm willing to relocate or travel as needed\n- I can work under pressure and meet deadlines\n\n**Bottom Line:**\n\nI bring the right combination of technical skills, attitude, and eagerness to learn that makes me a valuable addition to your team. While I'm early in my career, my dedication to growth and contribution ensures that my value to the organization will only increase over time.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "value-proposition",
+      "skills",
+      "contribution"
+    ]
+  },
+  {
+    "order": 19,
+    "subject": "HR",
+    "question": "What are your outside interests?",
+    "answer": "My primary outside interests are playing cricket and football:\n\n**Cricket:**\n\n- I've been playing cricket regularly since my school days\n- I enjoy both casual matches with friends and more competitive games\n- Cricket has taught me valuable lessons about strategy, patience, and teamwork\n- It helps me develop quick decision-making skills and handle pressure situations\n\n**Football:**\n\n- Football is another sport I'm passionate about and play regularly\n- It's a great way to stay physically active and maintain fitness\n- Team sports like football have enhanced my collaboration and communication skills\n- The fast-paced nature of football helps me think and react quickly\n\n**Benefits to Professional Life:**\n\nThese sports activities contribute to my professional development:\n\n- **Teamwork**: Both sports have taught me how to work effectively in teams, trust teammates, and contribute to collective goals\n\n- **Stress Relief**: Physical activity helps me manage stress and maintain mental clarity\n\n- **Discipline**: Regular sports practice has instilled discipline and time management in me\n\n- **Competitive Spirit**: Sports have taught me to strive for excellence while respecting opponents\n\n- **Health**: Staying physically active keeps me energetic and focused in my studies and work\n\n**Balance:**\n\nI believe in maintaining a healthy work-life balance. While I'm dedicated to my career and will prioritize work commitments, having outside interests helps me stay refreshed, energized, and more productive overall.\n\n**Other Interests:**\n\nBesides sports, I enjoy following technology trends, exploring new programming concepts, and occasionally reading about software architecture and design patterns, which helps me stay updated in my field.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "hobbies",
+      "interests",
+      "work-life-balance",
+      "personal"
+    ]
+  },
+  {
+    "order": 20,
+    "subject": "HR",
+    "question": "Would you lie for the company?",
+    "answer": "No, I would not lie for the company.\n\n**My Stance on Integrity:**\n\nHonesty and integrity are fundamental values I hold deeply. I believe that ethical behavior is non-negotiable, regardless of the situation or perceived benefits.\n\n**Why I Won't Lie:**\n\n**1. Personal Values:**\nMy personal integrity is important to me. Lying would compromise my character and self-respect, which I'm not willing to sacrifice.\n\n**2. Long-Term Consequences:**\nLies eventually come to light and can cause far greater damage than the truth. Short-term gains from dishonesty lead to long-term losses in trust, reputation, and relationships.\n\n**3. Legal and Ethical Implications:**\nLying, especially in business contexts, can have serious legal ramifications and ethical violations that could harm both the company and individuals.\n\n**4. Trust Foundation:**\nBusinesses are built on trust - with clients, employees, and stakeholders. Lying undermines this foundation and can destroy the company's reputation.\n\n**What I Would Do Instead:**\n\nIf faced with a difficult situation:\n\n- I would seek ethical solutions that don't require dishonesty\n- I would escalate concerns to appropriate management\n- I would focus on transparent communication about challenges\n- I would help find legitimate ways to address problems\n\n**Company's Benefit:**\n\nA company benefits more from employees who uphold integrity because:\n\n- They build lasting trust with clients and partners\n- They create a culture of transparency and accountability\n- They protect the company from legal and reputational risks\n- They contribute to sustainable, ethical business practices\n\n**My Expectation:**\n\nI hope to work for a company that values integrity and would never put employees in a position where they're expected to lie. I believe your company upholds ethical standards, which is important to me.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "ethics",
+      "integrity",
+      "values",
+      "honesty"
+    ]
+  },
+  {
+    "order": 21,
+    "subject": "HR",
+    "question": "Who has inspired you in your life and why?",
+    "answer": "Several people have inspired me, but I'll highlight a few key influences:\n\n**My Parents:**\n\nMy parents have been my biggest inspiration. Despite whatever challenges they've faced, they've always prioritized my education and supported my decisions. They taught me:\n\n- The value of hard work and perseverance\n- The importance of education and continuous learning\n- To maintain integrity in all situations\n- To be humble and respectful toward others\n\nTheir sacrifices and dedication to providing me with good opportunities motivate me to work hard and make them proud.\n\n**My Teachers/Mentors:**\n\nThroughout my education - from ICSE to my diploma at Techno Main Polytechnic and now in my B.Tech - several teachers have inspired me by:\n\n- Sharing not just knowledge but also their passion for the subject\n- Showing me the practical applications of what I was learning\n- Encouraging me to think critically and solve problems creatively\n- Believing in my potential even when I doubted myself\n\n**Professional Inspiration:**\n\nI'm also inspired by successful technologists and developers who have built innovative products that impact millions of lives. Their journey from learning to code to creating something meaningful shows me what's possible with dedication and the right skills.\n\n**What I've Learned:**\n\nFrom these inspirations, I've learned that:\n\n- Success comes from consistent effort and continuous learning\n- It's important to stay humble and help others along the way\n- Challenges are opportunities to grow stronger\n- Hard work, combined with smart planning, leads to achievement\n- Integrity and honesty are more valuable than short-term gains\n\nThese inspirations have shaped my work ethic, values, and career aspirations, motivating me to continuously improve and contribute meaningfully in whatever I do.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "inspiration",
+      "personal",
+      "values",
+      "background"
+    ]
+  },
+  {
+    "order": 22,
+    "subject": "HR",
+    "question": "What was the toughest decision you ever had to make?",
+    "answer": "One of the toughest decisions I had to make was choosing between pursuing a diploma or directly joining B.Tech after Class X.\n\n**The Situation:**\n\nAfter completing my Class X from ICSE in 2019, I had two options:\n\n1. Continue with traditional Class XI-XII and then pursue B.Tech\n2. Pursue a Diploma in Computer Science and Technology (3 years) and then join B.Tech in the second year through lateral entry\n\n**The Challenge:**\n\nBoth paths had their merits and risks:\n\n- **Traditional Path**: More conventional, socially accepted, but would mean spending more time on general subjects\n- **Diploma Path**: More focused on technical skills, hands-on learning, but less common and some uncertainty about the transition to B.Tech\n\n**My Decision:**\n\nI chose to pursue the diploma in Computer Science and Technology at Techno Main Polytechnic (2020-2023).\n\n**Why It Was Tough:**\n\n- It was a less conventional path that not all my peers were taking\n- There was some uncertainty about how smooth the transition to B.Tech would be\n- It required confidence in a decision that would affect my entire educational trajectory\n\n**Why I Made This Choice:**\n\n- I was genuinely interested in computer science and wanted early, focused exposure to technical subjects\n- The diploma offered more practical, hands-on experience with programming and technology\n- It would allow me to enter the workforce earlier if needed, while still keeping the B.Tech option open\n- I believed that practical skills combined with theoretical knowledge (through B.Tech later) would give me an edge\n\n**The Outcome:**\n\nLooking back, I'm confident it was the right decision:\n\n- I gained valuable technical skills and practical experience during the diploma\n- I successfully transitioned to B.Tech and am now in my final year\n- The early technical foundation has helped me excel in my B.Tech coursework\n- I developed a strong skill set in HTML, CSS, JavaScript, React, and Java\n\n**What I Learned:**\n\nThis experience taught me to:\n\n- Trust my instincts and make decisions based on my interests and goals\n- Take calculated risks when the potential benefits align with my aspirations\n- Research thoroughly before making important decisions\n- Stay committed to my choices and work hard to make them successful",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "decision-making",
+      "experience",
+      "personal",
+      "challenges"
+    ]
+  },
+  {
+    "order": 23,
+    "subject": "HR",
+    "question": "Have you considered starting your own business?",
+    "answer": "While entrepreneurship is an interesting path that I might consider in the future, right now I'm focused on building a strong foundation by working in the industry.\n\n**Why Not Immediately:**\n\n**1. Building Experience:**\nI'm just starting my professional career, and I need to gain substantial industry experience first. Working in established companies will help me:\n\n- Learn best practices and professional workflows\n- Understand how successful businesses operate\n- Develop technical expertise in real-world projects\n- Build a network of professional contacts\n- Learn from experienced mentors and leaders\n\n**2. Developing Skills:**\nBeyond technical skills, I need to develop business acumen, project management abilities, and leadership qualities that come from working in professional environments.\n\n**3. Financial Stability:**\nStarting a business requires financial resources and stability. I need to establish myself professionally first to have the financial cushion necessary for entrepreneurship.\n\n**4. Identifying Opportunities:**\nWorking in the industry will help me identify real problems and opportunities that a business could address, rather than starting something without proper market understanding.\n\n**Future Consideration:**\n\nThat said, I'm not ruling out entrepreneurship entirely:\n\n- If I identify a strong opportunity in the future, I'd be open to exploring it\n- I admire entrepreneurs who've built innovative solutions\n- I believe the experience I gain now will be valuable if I ever pursue entrepreneurship\n\n**Current Focus:**\n\nRight now, my focus is on:\n\n- Starting my career in a good company\n- Learning as much as possible\n- Building expertise in my field\n- Growing professionally and contributing meaningfully\n- Understanding the industry deeply\n\nI believe that being a successful employee and team member is excellent preparation for any future path, whether that involves leadership roles in a company or eventually starting something of my own.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "entrepreneurship",
+      "career-goals",
+      "ambition",
+      "future-plans"
+    ]
+  },
+  {
+    "order": 24,
+    "subject": "HR",
+    "question": "How do you define success and how do you measure up to your own definition?",
+    "answer": "**My Definition of Success:**\n\nSuccess, to me, is not just about achieving specific milestones but about continuous growth, meaningful contribution, and maintaining balance. Here's how I define it:\n\n**1. Personal Growth:**\nSuccessfully learning new skills, overcoming challenges, and becoming better than I was yesterday. It's about continuous improvement in both technical and personal capabilities.\n\n**2. Meaningful Contribution:**\nMaking a positive impact through my work - whether it's building applications that help users, contributing to team success, or helping colleagues solve problems.\n\n**3. Professional Achievement:**\nProgressing in my career, taking on increasing responsibilities, and being recognized for quality work and dedication.\n\n**4. Work-Life Balance:**\nExcelling professionally while maintaining good health, relationships, and personal interests. Success isn't just about work - it's about overall well-being.\n\n**5. Integrity:**\nAchieving goals while maintaining ethical standards and treating people with respect. Success built on compromising values isn't real success.\n\n**How I Measure Up:**\n\n**Areas Where I'm Succeeding:**\n\n- **Education**: Successfully completed my diploma and on track to finish my B.Tech in 2026\n- **Technical Skills**: Developed proficiency in modern technologies like React, JavaScript, and Java\n- **Continuous Learning**: Consistently acquiring new skills and knowledge\n- **Integrity**: Maintained strong ethical standards throughout my journey\n- **Balance**: Managing academics while pursuing my interests in cricket and football\n\n**Areas for Growth:**\n\n- **Professional Experience**: Yet to gain substantial industry experience (which is my immediate goal)\n- **Leadership**: Need to develop leadership skills through professional roles\n- **Specialization**: Want to deepen expertise in specific technical areas\n- **Impact**: Haven't yet contributed to large-scale real-world projects\n\n**My Approach:**\n\nI don't view success as a destination but as a journey. I set incremental goals:\n\n- **Short-term**: Complete B.Tech, secure a good job, learn industry practices\n- **Medium-term**: Become proficient in my role, contribute meaningfully to projects\n- **Long-term**: Grow into senior positions, mentor others, make significant impact\n\nBy this definition, I'm on the right path. I'm building a strong foundation and making steady progress toward my goals. I measure success not by comparing myself to others, but by whether I'm moving forward from where I started.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "success",
+      "values",
+      "self-assessment",
+      "goals"
+    ]
+  },
+  {
+    "order": 25,
+    "subject": "HR",
+    "question": "Tell me something about our company.",
+    "answer": "I've researched your company and am impressed by several aspects:\n\n**[Note: This is a template answer. In an actual interview, research the specific company and mention:]**\n\n**Company Overview:**\n- Your company's main business focus and industry position\n- Key products or services you offer\n- Years in operation and growth trajectory\n\n**What Attracted Me:**\n\n- Your company's reputation for [technical excellence/innovation/employee culture]\n- The use of modern technologies and best practices\n- Your notable projects or clients\n- Company culture and values that align with mine\n\n**Recent Developments:**\n- Recent news, product launches, or achievements\n- Any expansion or growth initiatives\n- Awards or recognition received\n\n**Technical Stack:**\n- Technologies your company uses (especially those matching my skills like React, JavaScript, Java)\n- Your approach to software development\n\n**Why It Matters to Me:**\n\nWhat particularly excites me about your company is:\n\n- The opportunity to work on [specific type of projects]\n- The learning environment and growth opportunities\n- The alignment between my technical skills and your technology stack\n- Your commitment to [quality/innovation/employee development]\n\n**My Research Sources:**\n\nI've gathered this information from:\n\n- Your official website and career page\n- LinkedIn and company social media\n- News articles and industry reports\n- Reviews from current and former employees\n- Your tech blog or GitHub repositories (if applicable)\n\n**My Interest:**\n\nBased on my research, I believe there's strong alignment between what you're looking for and what I can contribute. Your focus on [specific aspect] particularly resonates with my career goals and technical interests.\n\n**Questions:**\n\nI'd love to learn more about [specific aspect of the company/role] to better understand how I can contribute to your team's success.\n\n---\n\n**[In a real interview, replace this template with specific, researched information about the actual company you're interviewing with. Show genuine knowledge and enthusiasm.]**",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "company-research",
+      "preparation",
+      "interest"
+    ]
+  },
+  {
+    "order": 26,
+    "subject": "HR",
+    "question": "How much salary do you expect?",
+    "answer": "**My Approach to Salary Expectations:**\n\nAs a fresher with relevant technical skills, I have researched typical salary ranges for entry-level developers with my background.\n\n**My Expectation:**\n\nBased on industry standards for freshers with B.Tech in CSE and skills in React, JavaScript, and Java, I expect a salary in the range that's standard for this role in your company. I understand that for entry-level positions, the typical range varies based on location, company size, and role specifics.\n\n**Flexible Approach:**\n\nHowever, I'm flexible and open to discussion because:\n\n- I value the learning opportunity and growth potential more than just the starting salary\n- I'm interested in the complete package including benefits, learning opportunities, and career growth\n- I trust that your company offers fair compensation aligned with industry standards and my qualifications\n- I'm more focused on finding the right fit where I can contribute and grow\n\n**What Matters Most:**\n\nWhile compensation is important, I'm primarily looking for:\n\n- A role where I can apply and expand my technical skills\n- Opportunity to work on challenging projects\n- A supportive learning environment\n- Clear career progression path\n- A company culture that values growth and contribution\n\n**My Question:**\n\nCould you share the salary range your company has in mind for this position? I'm confident we can reach a mutually agreeable number that reflects my skills and the value I'll bring to the team.\n\n**Alternative Response (If Pressed for Specific Number):**\n\nBased on my research, I believe ₹[X - Y] lakhs per annum would be appropriate for a fresher with B.Tech in CSE and skills in modern web technologies. However, I'm open to discussing this based on the complete compensation package and growth opportunities your company offers.\n\n**Important Note:**\n\nI'm committed to proving my worth through my work. I'm confident that as I contribute and grow with the company, my compensation will reflect my increased value to the organization.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "salary",
+      "compensation",
+      "negotiation",
+      "expectations"
+    ]
+  },
+  {
+    "order": 27,
+    "subject": "HR",
+    "question": "Where do you see yourself five years from now?",
+    "answer": "Five years from now, I envision myself as an experienced and valuable developer in your organization. Here's my vision:\n\n**Professional Growth (5 Years from Now):**\n\n**1. Technical Expertise:**\n\n- Evolved from an entry-level developer to a senior developer or technical lead\n- Developed deep expertise in full-stack development, architecture, and system design\n- Mastered not just React and JavaScript, but also backend technologies, databases, and cloud platforms\n- Become a go-to person for complex technical challenges in my area of expertise\n\n**2. Leadership and Mentorship:**\n\n- Leading small teams or projects, guiding junior developers\n- Making architectural and technical decisions for projects\n- Mentoring new team members, helping them grow as I was helped\n- Contributing to technical strategy and best practices in the team\n\n**3. Meaningful Contributions:**\n\n- Successfully delivered multiple significant projects that created value for the company\n- Built a strong track record of reliable, high-quality work\n- Contributed to product improvements and innovations\n- Earned the trust and respect of colleagues and management\n\n**4. Within This Organization:**\n\nI see this growth happening within your company because:\n\n- I'm looking for long-term commitment, not job hopping\n- I want to grow with an organization and contribute to its success\n- Your company offers the learning environment and growth opportunities I seek\n\n**5. Continuous Learning:**\n\n- Stayed current with evolving technologies and industry trends\n- Perhaps gained certifications or specialized training in key areas\n- Attended conferences, contributed to open source, or spoken at tech events\n\n**Personal Growth:**\n\n- Developed strong soft skills including communication, leadership, and problem-solving\n- Built a professional network within the industry\n- Maintained work-life balance while achieving professional success\n\n**Realistic Path:**\n\nTo achieve this vision, my plan is to:\n\n- Start strong by learning quickly and contributing effectively in my initial role\n- Consistently take on increasing responsibilities as I prove myself\n- Seek feedback and continuously improve\n- Build strong relationships with team members and stakeholders\n- Stay committed to excellence and continuous learning\n\n**Flexibility:**\n\nWhile this is my vision, I'm also open to where the company and my interests take me. Whether it's specializing in a particular technology, moving into technical leadership, or exploring other growth paths, I'm committed to growing in ways that benefit both the company and my career.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "career-goals",
+      "future-plans",
+      "ambition",
+      "growth"
+    ]
+  },
+  {
+    "order": 28,
+    "subject": "HR",
+    "question": "On a scale of one to ten, rate me as an interviewer.",
+    "answer": "I'd rate you an **8 or 9 out of 10**.\n\n**Here's why:**\n\n**Positive Aspects:**\n\n- **Professional**: You've conducted the interview professionally, making me feel comfortable while maintaining appropriate formality\n\n- **Comprehensive**: Your questions covered various aspects - technical skills, personal qualities, motivations, and cultural fit - giving you a well-rounded view of me as a candidate\n\n- **Listening**: You've listened attentively to my responses and shown genuine interest in understanding my perspective\n\n- **Clear Communication**: Your questions were clear and well-structured, making it easy for me to provide thoughtful responses\n\n- **Fair Opportunity**: You gave me adequate time to express myself and didn't interrupt or rush through responses\n\n**Why Not a 10:**\n\nI'm hesitant to give a perfect 10 because:\n\n- It would seem like I'm just trying to flatter you\n- There's always room for improvement in any process\n- I don't want to appear insincere by giving the maximum score\n\n**What Made This a Good Experience:**\n\n- The flow of questions helped me present my qualifications effectively\n- The balance between behavioral and technical discussion was appropriate\n- You created an environment where I felt I could be honest and authentic\n\n**My Appreciation:**\n\nRegardless of the outcome, I appreciate the opportunity to interview and the professional manner in which you've conducted it. This conversation has reinforced my interest in joining your organization.\n\n**Honest Feedback (If There Was Any Issue):**\n\nIf I had to suggest anything - and this is being very particular - it might be [mention only if there was a genuine issue, otherwise skip this part].\n\n**Closing:**\n\nOverall, you've represented the company well through this interview process, and it's been a positive experience that makes me even more interested in the opportunity to work with your team.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "feedback",
+      "communication",
+      "professionalism"
+    ]
+  },
+  {
+    "order": 29,
+    "subject": "HR",
+    "question": "Do you have any questions for me?",
+    "answer": "Yes, I do have some questions. I believe asking questions shows my genuine interest in the role and helps me understand if this is the right fit:\n\n**About the Role:**\n\n1. **Day-to-Day Responsibilities**: Could you describe what a typical day would look like in this role? What technologies and tools would I be working with?\n\n2. **Team Structure**: Can you tell me about the team I'd be working with? How large is the team, and what are the different roles?\n\n3. **Projects**: What kind of projects would I be involved in initially? Are there any exciting projects coming up that I could contribute to?\n\n4. **Learning Opportunities**: What learning and development opportunities does the company provide for new developers?\n\n**About Success and Expectations:**\n\n5. **Success Metrics**: How do you measure success for someone in this position? What would success look like in the first 3-6 months?\n\n6. **Challenges**: What are the biggest challenges someone in this role typically faces?\n\n7. **Onboarding**: What does the onboarding process look like? How do you help new team members get up to speed?\n\n**About Company Culture:**\n\n8. **Culture**: How would you describe the company culture and work environment?\n\n9. **Collaboration**: How do teams collaborate here? Is it more independent work or highly collaborative?\n\n10. **Work-Life Balance**: How does the company support work-life balance?\n\n**About Growth:**\n\n11. **Career Path**: What career growth opportunities exist for someone starting in this role?\n\n12. **Mentorship**: Is there a mentorship program or will I have a senior developer I can learn from?\n\n**About Next Steps:**\n\n13. **Timeline**: What are the next steps in the interview process? When can I expect to hear back?\n\n14. **Feedback**: Is there anything about my background or skills that gives you concerns about my fit for this role?\n\n**My Priority Questions:**\n\nIf I can only ask a few, I'd most like to know about:\n\n- Day-to-day responsibilities and the tech stack I'd work with\n- What success looks like in the first six months\n- Learning and growth opportunities available\n- Next steps in the process\n\n---\n\n**Note**: I wouldn't ask all these questions at once - I'd select 3-5 most relevant based on what hasn't been covered during the interview and what matters most to me about this specific opportunity.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "questions",
+      "curiosity",
+      "engagement",
+      "preparation"
+    ]
+  }
+]

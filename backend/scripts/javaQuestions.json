@@ -1,0 +1,1238 @@
+[
+  {
+    "order": 1,
+    "subject": "JAVA",
+    "question": "What is Java?",
+    "answer": "Java is a platform-independent high-level programming language. It is platform-independent because its byte codes can run on any system regardless of its operating system.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "basics",
+      "introduction"
+    ]
+  },
+  {
+    "order": 2,
+    "subject": "JAVA",
+    "question": "What are the features of Java?",
+    "answer": "- Object-oriented programming (OOP) concepts\n- Platform independent\n- High performance\n- Multi-threaded",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "basics",
+      "features",
+      "platform-independence"
+    ]
+  },
+  {
+    "order": 3,
+    "subject": "JAVA",
+    "question": "What are the OOP concepts?",
+    "answer": "- Inheritance\n- Encapsulation\n- Polymorphism\n- Abstraction\n- Interface",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "concepts"
+    ]
+  },
+  {
+    "order": 4,
+    "subject": "JAVA",
+    "question": "What is data encapsulation, and why is it useful?",
+    "answer": "Encapsulation is a concept in Object-Oriented Programming for combining properties and methods in a single unit. Encapsulation helps developers follow a modular approach for software development because each object has its own set of methods and variables and serves its functions independent of other objects. In addition to that, encapsulation serves data hiding purposes.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "encapsulation"
+    ]
+  },
+  {
+    "order": 5,
+    "subject": "JAVA",
+    "question": "What is polymorphism?",
+    "answer": "Polymorphism is one interface with many implementations. This characteristic allows you to assign a different meaning or usage to something in different contexts. For example, you can use polymorphisms to enable more than one form for entities, such as variables, functions, or objects.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "polymorphism"
+    ]
+  },
+  {
+    "order": 6,
+    "subject": "JAVA",
+    "question": "What are the types of polymorphism, and how do they differ?",
+    "answer": "There are two types of polymorphism:\n\n- Compile-time polymorphism is method overloading.\n- Run-time polymorphism uses inheritance and interface.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "polymorphism"
+    ]
+  },
+  {
+    "order": 7,
+    "subject": "JAVA",
+    "question": "What does an interface in Java refer to?",
+    "answer": "An interface as it relates to Java is a blueprint of a class or a collection of abstract methods and static constants.\n\n- Each method is public and abstract, but it does not contain any constructor.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "interface"
+    ]
+  },
+  {
+    "order": 8,
+    "subject": "JAVA",
+    "question": "What are constructors in Java?",
+    "answer": "In Java, a constructor refers to a block of code used to initialize an object. In addition:\n\n- Constructors must have the same name as that of the class.\n- Constructors have no return type.\n- Creating an object will call a constructor automatically.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "constructor",
+      "basics"
+    ]
+  },
+  {
+    "order": 9,
+    "subject": "JAVA",
+    "question": "Name and explain the types of constructors in Java.",
+    "answer": "The two types of constructors in Java are the Default Constructor and the Parameterized Constructor.\n\nDefault Constructor:\n- Does not take any inputs\n- Main purpose is to initialize the instance variables with the default values\n- Widely used for object creation\n\nParameterized Constructor:\n- Capable of initializing the instance variables with the provided values\n- These constructors take the arguments",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "constructor"
+    ]
+  },
+  {
+    "order": 10,
+    "subject": "JAVA",
+    "question": "What is JDK?",
+    "answer": "JDK stands for Java development kit.\n\n- It can compile, document, and package Java programs.\n- It contains both JRE and development tools.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "JDK",
+      "basics"
+    ]
+  },
+  {
+    "order": 11,
+    "subject": "JAVA",
+    "question": "What is JVM?",
+    "answer": "JVM stands for Java virtual machine.\n\n- It is an abstract machine that provides a run-time environment that allows programmers to execute Java bytecode.\n- JVM follows specification, implementation, and runtime instance notations.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "JVM",
+      "basics"
+    ]
+  },
+  {
+    "order": 12,
+    "subject": "JAVA",
+    "question": "What is JRE?",
+    "answer": "JRE stands for Java runtime environment.\n\n- JRE refers to a runtime environment that allows programmers to execute Java bytecode.\n- JRE is a physical implementation of the JVM.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "JRE",
+      "basics"
+    ]
+  },
+  {
+    "order": 13,
+    "subject": "JAVA",
+    "question": "In Java, what are the differences between heap and stack memory?",
+    "answer": "| Aspect | Stack Memory | Heap Memory |\n|--------|--------------|-------------|\n| **Memory** | Used only by one thread of execution | All parts of the application use heap memory |\n| **Access** | Other threads can't access stack memory | Objects stored in the heap are globally accessible |\n| **Memory Management** | Follows the LIFO manner to free memory | Memory management stems from the generation associated with each object |\n| **Lifetime** | Exists until the end of the execution of the thread | Lives from the start till the end of application execution |\n| **Usage** | Only contains local primitive and reference variables to objects in heap space | Whenever you create an object, it is always stored away in the heap space |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "memory",
+      "heap",
+      "stack"
+    ]
+  },
+  {
+    "order": 14,
+    "subject": "JAVA",
+    "question": "What is a JIT compiler?",
+    "answer": "A JIT compiler runs after the program is executed and compiles the code into a faster form, hosting the CPU's native instructing set.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "JIT",
+      "compiler",
+      "JVM",
+      "performance"
+    ]
+  },
+  {
+    "order": 15,
+    "subject": "JAVA",
+    "question": "How does a JIT compiler differ from a standard compiler?",
+    "answer": "JIT can access dynamic runtime information, and a standard compiler does not. Therefore, JIT can better optimize frequently used inlining functions.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "JIT",
+      "compiler",
+      "comparison",
+      "performance"
+    ]
+  },
+  {
+    "order": 16,
+    "subject": "JAVA",
+    "question": "What is an inner class?",
+    "answer": "An inner class is a class that is nested within another class. An Inner class has access rights for the class that is nesting it, and it can access all variables and methods defined in the outer class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "classes",
+      "inner-class"
+    ]
+  },
+  {
+    "order": 17,
+    "subject": "JAVA",
+    "question": "What is a subclass?",
+    "answer": "A subclass is a class that inherits from another class called the superclass. Subclass can access all public and protected methods and fields of its superclass.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "classes",
+      "inheritance",
+      "OOP"
+    ]
+  },
+  {
+    "order": 18,
+    "subject": "JAVA",
+    "question": "What is a package in Java?",
+    "answer": "In Java, packages are the collection of related classes and interfaces which bundle together.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "package",
+      "basics"
+    ]
+  },
+  {
+    "order": 19,
+    "subject": "JAVA",
+    "question": "How can developers use packages in Java?",
+    "answer": "Packages in Java allow developers to modularize the code and optimize its reuse easily. In addition, developers can use other classes to import and reuse the code within the packages.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "package"
+    ]
+  },
+  {
+    "order": 20,
+    "subject": "JAVA",
+    "question": "What are the advantages of packages in Java?",
+    "answer": "- Packages help developers avoid name clashes.\n- Packages provide easier access control.\n- Packages can also contain hidden classes that are not visible to the outer classes and are only used within the package.\n- Packages create a standardized hierarchical structure, making it easier to locate related classes.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "package"
+    ]
+  },
+  {
+    "order": 21,
+    "subject": "JAVA",
+    "question": "What is a class in Java?",
+    "answer": "All Java codes are defined in a class. It has variables and methods.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "classes",
+      "basics",
+      "OOP"
+    ]
+  },
+  {
+    "order": 22,
+    "subject": "JAVA",
+    "question": "What is a variable within Java?",
+    "answer": "Variables are attributes that define the state of a class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "variables",
+      "basics"
+    ]
+  },
+  {
+    "order": 23,
+    "subject": "JAVA",
+    "question": "How do you use a method in Java?",
+    "answer": "Methods are the place where the exact business logic has to be done. Methods contain a set of statements or instructions that satisfy specified requirements.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "methods",
+      "basics"
+    ]
+  },
+  {
+    "order": 24,
+    "subject": "JAVA",
+    "question": "What is a Java object?",
+    "answer": "An object is an instance of a class. The object has a state and behavior.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "objects",
+      "basics",
+      "OOP"
+    ]
+  },
+  {
+    "order": 25,
+    "subject": "JAVA",
+    "question": "What is a singleton class, and how can it be used?",
+    "answer": "A singleton class in Java can have only one instance. Therefore, all its methods and variables belong to this instance. The singleton class concept is useful when the developer needs to limit the number of objects for a class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "classes",
+      "singleton",
+      "design-patterns"
+    ]
+  },
+  {
+    "order": 26,
+    "subject": "JAVA",
+    "question": "What is a constructor in Java?",
+    "answer": "The sole purpose of using Constructors in Java is to create an instance of a class. Creating an object of a class will invoke them. Some key features of Java constructors include:\n\n- Constructors can be public, private, or protected.\n- If a class already defines a constructor with arguments, you can no longer use a default no-argument constructor — you have to write one.\n- Instantiating a class will only call them once.\n- They must have the same name as the class itself.\n- They do not return a value, and you do not have to specify the keyword void.\n- If you do not create a constructor for the class, Java helps you by using a so-called default no-argument constructor.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "constructor"
+    ]
+  },
+  {
+    "order": 27,
+    "subject": "JAVA",
+    "question": "What does the term constructor overloading mean?",
+    "answer": "Constructor overloading indicates passing different numbers and types of variables as arguments, all of which are private variables of the class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "constructor",
+      "overloading",
+      "polymorphism"
+    ]
+  },
+  {
+    "order": 28,
+    "subject": "JAVA",
+    "question": "How are non-primitive variables used in Java?",
+    "answer": "Non-primitive variables always refer to objects in Java.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "variables",
+      "data-types"
+    ]
+  },
+  {
+    "order": 29,
+    "subject": "JAVA",
+    "question": "In Java, what is a static variable?",
+    "answer": "A static variable is associated with a class and not objects of that class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "variables",
+      "static",
+      "modifiers"
+    ]
+  },
+  {
+    "order": 30,
+    "subject": "JAVA",
+    "question": "What are Java data types, and how are they grouped?",
+    "answer": "In Java, a variable must be a specified data type such as an integer, floating-point number, character Boolean, or string. The two groups of data types are:\n\n- Primitive data types, which include byte, short, int, long, float, double, boolean, and char\n- Non-primitive data types, which include string, arrays, and classes",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "data-types",
+      "basics"
+    ]
+  },
+  {
+    "order": 31,
+    "subject": "JAVA",
+    "question": "How do you define primitive data types and describe each by size and description?",
+    "answer": "- byte is 1 byte in size. It stores whole numbers from -128 to 127\n- short is 2 bytes in size. It stores whole numbers from -32,768 to 32,767\n- int is 4 bytes in size. It stores whole numbers from -2,147,483,648 to 2,147,483,647\n- long is 8 bytes in size. It stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807\n- float is 4 bytes in size. It stores fractional numbers and is sufficient for storing 6 to 7 decimal digits.\n- double is 8 bytes in size. It stores fractional numbers and is sufficient for storing 15 decimal digits.\n- Boolean is 1 bit in size. It stores true or false values.\n- char is 2 bytes in size. It stores a single character/letter or ASCII values.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "data-types",
+      "primitive"
+    ]
+  },
+  {
+    "order": 32,
+    "subject": "JAVA",
+    "question": "What do the terms autoboxing and unboxing mean in Java?",
+    "answer": "- **Autoboxing** represents the Java compiler that automatically transforms primitive data types into object equivalents or wrapper types to ease compilation.\n- **Unboxing** is the automatic transformation of wrapper types into their primitive equivalent.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "autoboxing",
+      "wrapper-classes"
+    ]
+  },
+  {
+    "order": 33,
+    "subject": "JAVA",
+    "question": "What are wrapper classes in Java?",
+    "answer": "- Every primitive data type has a class dedicated to it, known as wrapper classes.\n- We call them wrapper classes because they \"wrap\" the primitive data type into an object of that class.\n- Wrapper classes convert the Java primitives into reference types (objects).",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "wrapper-classes",
+      "data-types"
+    ]
+  },
+  {
+    "order": 34,
+    "subject": "JAVA",
+    "question": "In Java, what are the differences between methods and constructors?",
+    "answer": "| Aspect | Methods | Constructors |\n|--------|---------|--------------|\n| **Purpose** | Used to represent the behavior of an object | Used to initialize the state of an object |\n| **Return Type** | Must have a return type | Does not have a return type |\n| **Invocation** | Needs to be invoked explicitly | Invoked implicitly |\n| **Default Provision** | The compiler does not provide a default method | The compiler provides a default constructor if the class has none |\n| **Naming** | Method name may or may not be the same as class name | Constructor name must always be the same as the class name |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "methods",
+      "constructor"
+    ]
+  },
+  {
+    "order": 35,
+    "subject": "JAVA",
+    "question": "Can you override a private method or static method in Java?",
+    "answer": "You cannot override a private or static method in Java. You cannot override a private method in subclass because it's not accessible there.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "methods",
+      "override",
+      "static",
+      "modifiers",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 36,
+    "subject": "JAVA",
+    "question": "What is method hiding?",
+    "answer": "Method hiding is an alternative to overriding a private or static method, which occurs when you hide the superclass method. You create a similar method with the same return type and same method arguments in child class. For example, you can create another private method with the same name in the child class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "methods",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 37,
+    "subject": "JAVA",
+    "question": "What is the difference between equals() and == in Java?",
+    "answer": "| Aspect | equals() Method | == (Equality Operator) |\n|--------|----------------|------------------------|\n| **Definition** | Is defined in object class in Java | A binary operator provided by Java programming language |\n| **Purpose** | Used for checking the equality of two objects defined by business logic | Used to compare primitives and objects |\n| **Implementation** | public boolean equals(Object o) is the method provided by the Object class | Default uses == operator to compare two objects |\n| **Behavior** | Can be overridden (like in String class) to compare values of two objects | Compares references for objects, values for primitives |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "methods",
+      "comparison"
+    ]
+  },
+  {
+    "order": 38,
+    "subject": "JAVA",
+    "question": "Can you write multiple catch blocks under a single try block?",
+    "answer": "Yes, you can have multiple catch blocks under a single try block. Your approach should be from specific to general, as shown in the following example:\n\npublic class Example {\n    public static void main(String args[]) {\n        try {\n            int a[]= new int[10];\n            a[10]= 10/0;\n        }\n        catch(ArithmeticException e) {\n            System.out.println(\"Arithmetic exception in first catch block\");\n        }\n        catch(ArrayIndexOutOfBoundsException e) {\n            System.out.println(\"Array index out of bounds in second catch block\");\n        }\n        catch(Exception e) {\n            System.out.println(\"Any exception in third catch block\");\n        }\n    }\n}",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "exception-handling",
+      "try-catch"
+    ]
+  },
+  {
+    "order": 39,
+    "subject": "JAVA",
+    "question": "What is a local variable?",
+    "answer": "Local variables are defined in the method and scope of the variables that exist inside the method itself.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "variables",
+      "scope",
+      "methods"
+    ]
+  },
+  {
+    "order": 40,
+    "subject": "JAVA",
+    "question": "What is an instance variable?",
+    "answer": "An instance variable is defined inside the class and outside the method. The scope of the variables exists throughout the class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "variables",
+      "scope",
+      "classes"
+    ]
+  },
+  {
+    "order": 41,
+    "subject": "JAVA",
+    "question": "How do you use final keywords and final variables in Java?",
+    "answer": "- When Java programmers use final keywords with a variable of primitive data types, they cannot change the variable's value.\n- When you use final with non-primitive variables, you cannot change the members of the referred object.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "keywords",
+      "final",
+      "modifiers"
+    ]
+  },
+  {
+    "order": 42,
+    "subject": "JAVA",
+    "question": "What is inheritance in Java?",
+    "answer": "Inheritance in Java is the concept where the properties of one class can be inherited by the other. It helps to reuse the code and establish a relationship between different classes.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 43,
+    "subject": "JAVA",
+    "question": "In Java, what types of classes perform inheritance?",
+    "answer": "- Parent class\n- Child class",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 44,
+    "subject": "JAVA",
+    "question": "What types of inheritance does Java support?",
+    "answer": "- Single inheritance\n- Multilevel inheritance\n- Hierarchical inheritance\n- Hybrid inheritance",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 45,
+    "subject": "JAVA",
+    "question": "What is Java exception handling?",
+    "answer": "In Java, exceptions are objects. When you throw an exception, you throw an object. However, you can't throw just any object as an exception — only those objects whose classes descend from throwable. Throwable serves as the base class for an entire family of classes, declared in java.lang, that your program can instantiate and throw.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "exception-handling"
+    ]
+  },
+  {
+    "order": 46,
+    "subject": "JAVA",
+    "question": "What are the differences between unchecked exception, checked exception, and errors?",
+    "answer": "- **Unchecked exception** inherits from RuntimeException (which extends from exception). The JVM treats RuntimeException differently as there is no requirement for the application code to deal with them explicitly.\n\n- **Checked exception** inherits from the exception class. The client code has to handle the checked exceptions either in a try-catch clause or has to be thrown for the super-class to catch the same. A checked exception thrown by a lower class (sub-class) enforces a contract on the invoking class (super-class) to catch or throw it.\n\n- **Errors** (members of the error family) usually appear for more serious problems, such as OutOfMemoryError (OOM), that may not be so easy to handle.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "exception-handling"
+    ]
+  },
+  {
+    "order": 47,
+    "subject": "JAVA",
+    "question": "What are loops in Java?",
+    "answer": "You would use a loop to execute a statement or a block of statements repeatedly.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "loops",
+      "control-flow"
+    ]
+  },
+  {
+    "order": 48,
+    "subject": "JAVA",
+    "question": "What are the types of loops in Java, and how are they used?",
+    "answer": "- **For loops** are used in Java to execute statements repeatedly for a given number of times. For loops are used when the programmer knows the number of times to execute the statements.\n\n- **While loop** is useful when certain statements need to execute repeatedly until it fulfills a condition. In while loops, it checks the condition before the execution of statements.\n\n- **Do while loop** is the same as the while loop, except that it checks the condition after the execution of block of statements. Also, do while loop statements execute at least once.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "loops",
+      "control-flow"
+    ]
+  },
+  {
+    "order": 49,
+    "subject": "JAVA",
+    "question": "What is an infinite loop?",
+    "answer": "An infinite loop runs without any condition and runs infinitely. You can break an infinite loop by defining any breaking logic in the body of the statement blocks.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "loops"
+    ]
+  },
+  {
+    "order": 50,
+    "subject": "JAVA",
+    "question": "How do you declare an infinite loop?",
+    "answer": "for (;;) {\n    // Statements to execute\n    // Add any loop breaking logic\n}",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "loops"
+    ]
+  },
+  {
+    "order": 51,
+    "subject": "JAVA",
+    "question": "What is the difference between the continue and break statement?",
+    "answer": "Break and continue are two important keywords used in loops. When using a break keyword in a loop, the loop breaks instantly. The current iteration breaks when using the continue keyword, and the loop continues with the next iteration.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "loops",
+      "keywords"
+    ]
+  },
+  {
+    "order": 52,
+    "subject": "JAVA",
+    "question": "What is the entry point in Java, and how is it written?",
+    "answer": "- main() in Java is the entry point for any Java program.\n- main() is always written as public static void main string args.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "main-method",
+      "basics"
+    ]
+  },
+  {
+    "order": 53,
+    "subject": "JAVA",
+    "question": "In Java, what are public static void main string args?",
+    "answer": "Public static void main string args, also known as public static void main(String[] args), means:\n\n- **Public** is an access modifier used to specify who can access this method. Also, this method is accessible by any class.\n\n- **Static** is a keyword in java that identifies when it is class-based. main() is made static in Java to access it without creating the instance of a class. If main is not made static, the compiler will throw an error as main() is called by the JVM before creating any objects. It can only invoke static methods directly via the class.\n\n- **Void** is the return type of the method that defines the method. That method does not return a value.\n\n- **Main** is the name of the method searched by JVM as a starting point for an application (with a particular signature only). It is also the method where the main execution occurs.\n\n- **String args[]** is the parameter that passes to the main method.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "main-method"
+    ]
+  },
+  {
+    "order": 54,
+    "subject": "JAVA",
+    "question": "In Java, what's the purpose of static methods and static variables?",
+    "answer": "Developers use a static keyword to make a method or variable shared for all objects when there is a requirement to share a method or a variable between multiple objects of a class. This is used instead of creating separate copies for each object.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "static",
+      "methods",
+      "variables",
+      "modifiers"
+    ]
+  },
+  {
+    "order": 55,
+    "subject": "JAVA",
+    "question": "How do you use, call, and access a static method in Java?",
+    "answer": "- You must use the static keyword before the method name.\n- Call a static method using the class (className.methodName).\n- Static methods cannot access any non-static instance variables or methods.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "static",
+      "methods",
+      "modifiers",
+      "access-control"
+    ]
+  },
+  {
+    "order": 56,
+    "subject": "JAVA",
+    "question": "How do you use, call, and access a non-static method in Java?",
+    "answer": "- You do not need to use the static keyword before the method name.\n- Call a non-Static method like any general method.\n- Non-static methods can access any static method or static variables without creating an instance of the class.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "methods"
+    ]
+  },
+  {
+    "order": 57,
+    "subject": "JAVA",
+    "question": "In Java, what are this() and super(), and where are you required to use them?",
+    "answer": "In Java, super() and this() are special keywords used to call the constructor. When using this() and super(), they must be the first line of a block.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "keywords",
+      "constructor"
+    ]
+  },
+  {
+    "order": 58,
+    "subject": "JAVA",
+    "question": "What does this() represent, and how is it used in Java?",
+    "answer": "this() represents the current instance of a class\n\nUsed to:\n- Call the default constructor of the same class\n- Access methods of the current class\n- Point to the current class instance",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "keywords",
+      "this"
+    ]
+  },
+  {
+    "order": 59,
+    "subject": "JAVA",
+    "question": "What does super() represent, and how is it used in Java?",
+    "answer": "super() represents the current instance of a parent/base class\n\nUsed to:\n- Call the default constructor of the parent/base class\n- Access methods of the base class\n- Point to the superclass instance",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "keywords",
+      "super",
+      "inheritance"
+    ]
+  },
+  {
+    "order": 60,
+    "subject": "JAVA",
+    "question": "What is a Java switch statement, and how can it be used?",
+    "answer": "- As a standard programming logic, it can simply be achieved by using if…else conditions.\n- In programs involving more complicated cases, complex scenarios require calling several methods for which switch solves this problem.\n- Switch avoids several nested if…else statements.\n- In Java scenarios that yield a high number of iterations, the switch is typically faster than using if….else statements.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "switch",
+      "control-flow"
+    ]
+  },
+  {
+    "order": 61,
+    "subject": "JAVA",
+    "question": "What is the default of the switch case?",
+    "answer": "In a switch statement, the default case executes when no other switch condition matches. Because the default case is optional, you can only declare it after coding all other switch cases.",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "switch",
+      "control-flow"
+    ]
+  },
+  {
+    "order": 62,
+    "subject": "JAVA",
+    "question": "Why is Java so popular?",
+    "answer": "Java is popular for several key reasons:\n\n- **Platform Independence**: Write once, run anywhere (WORA) capability through JVM\n- **Object-Oriented**: Supports modern programming paradigms with OOP concepts\n- **Robust and Secure**: Strong memory management, exception handling, and security features\n- **Large Ecosystem**: Extensive libraries, frameworks (Spring, Hibernate), and tools\n- **Enterprise Support**: Widely used in enterprise applications, Android development, and web services\n- **Strong Community**: Large developer community with abundant resources and documentation\n- **Backward Compatibility**: New versions maintain compatibility with older code\n- **Performance**: JIT compiler provides near-native performance",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "basics",
+      "introduction",
+      "platform-independence",
+      "OOP"
+    ]
+  },
+  {
+    "order": 63,
+    "subject": "JAVA",
+    "question": "What is platform independence?",
+    "answer": "Platform independence means that Java programs can run on any operating system or hardware platform without modification. This is achieved through:\n\n- **Bytecode**: Java source code is compiled into platform-independent bytecode (.class files)\n- **JVM**: The Java Virtual Machine interprets bytecode and translates it to platform-specific machine code\n- **WORA Principle**: \"Write Once, Run Anywhere\" - same bytecode runs on Windows, Linux, Mac, etc.\n- **Abstraction Layer**: JVM acts as an abstraction layer between the application and the underlying OS",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "basics",
+      "JVM",
+      "platform-independence"
+    ]
+  },
+  {
+    "order": 64,
+    "subject": "JAVA",
+    "question": "What is bytecode?",
+    "answer": "Bytecode is an intermediate, platform-independent code that Java source code is compiled into.\n\n- **Compilation**: Java compiler (javac) converts .java files into .class files containing bytecode\n- **Format**: Bytecode is a set of instructions that the JVM can understand and execute\n- **Platform Independence**: Same bytecode can be executed on any platform with a JVM\n- **Interpretation**: JVM interprets or JIT-compiles bytecode into native machine code at runtime\n- **Verification**: Bytecode is verified by JVM before execution for security\n- **Optimization**: JIT compiler can optimize frequently executed bytecode for better performance",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "bytecode",
+      "JVM",
+      "compilation"
+    ]
+  },
+  {
+    "order": 65,
+    "subject": "JAVA",
+    "question": "Compare JDK vs JVM vs JRE",
+    "answer": "| Component | JDK (Java Development Kit) | JRE (Java Runtime Environment) | JVM (Java Virtual Machine) |\n|-----------|---------------------------|-------------------------------|---------------------------|\n| **Purpose** | Development and execution of Java programs | Execution of Java programs | Executes Java bytecode |\n| **Contains** | JRE + Development tools (compiler, debugger, etc.) | JVM + Libraries + Other files | Core runtime engine |\n| **Target Users** | Java developers | End users running Java applications | Internal component |\n| **Tools Included** | javac, javadoc, jar, debugger | Java class libraries, JVM | Bytecode interpreter, JIT compiler |\n| **Size** | Largest (~150-200 MB) | Medium (~50-100 MB) | Smallest (part of JRE) |\n| **Can Run Programs** | Yes | Yes | Yes (but needs supporting libraries) |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "JDK",
+      "JRE",
+      "JVM",
+      "comparison"
+    ]
+  },
+  {
+    "order": 66,
+    "subject": "JAVA",
+    "question": "What are the important differences between C++ and Java?",
+    "answer": "| Feature | C++ | Java |\n|---------|-----|------|\n| **Platform** | Platform-dependent | Platform-independent |\n| **Memory Management** | Manual (new/delete) | Automatic (Garbage Collection) |\n| **Pointers** | Supports pointers | No explicit pointer support |\n| **Multiple Inheritance** | Supports multiple inheritance | Supports multiple interface inheritance only |\n| **Operator Overloading** | Supported | Not supported |\n| **Compilation** | Compiles to native machine code | Compiles to bytecode |\n| **Performance** | Generally faster | Slightly slower due to JVM overhead |\n| **Exception Handling** | Optional | Mandatory for checked exceptions |\n| **Templates vs Generics** | Templates | Generics (with type erasure) |\n| **Goto Statement** | Supported | Not supported (reserved keyword) |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "C++",
+      "comparison",
+      "basics"
+    ]
+  },
+  {
+    "order": 67,
+    "subject": "JAVA",
+    "question": "What is the role of a classloader in Java?",
+    "answer": "A classloader in Java is responsible for dynamically loading classes into the JVM at runtime.\n\n**Key Responsibilities:**\n- **Loading**: Reads .class files and loads them into memory\n- **Linking**: Verifies bytecode, prepares static fields, and resolves symbolic references\n- **Initialization**: Executes static initializers and initializes static fields\n\n**Types of Classloaders:**\n- **Bootstrap ClassLoader**: Loads core Java classes (java.lang, java.util, etc.)\n- **Extension ClassLoader**: Loads classes from extension directories\n- **Application ClassLoader**: Loads classes from application classpath\n\n**Features:**\n- **Delegation Model**: Follows parent delegation hierarchy\n- **Dynamic Loading**: Classes are loaded on-demand, not all at startup\n- **Namespace Isolation**: Different classloaders can load classes with same name",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "classloader",
+      "JVM",
+      "advanced",
+      "security"
+    ]
+  },
+  {
+    "order": 68,
+    "subject": "JAVA",
+    "question": "Why do we need Wrapper classes in Java?",
+    "answer": "Wrapper classes are essential in Java for several reasons:\n\n- **Object Requirement**: Collections (ArrayList, HashMap) can only store objects, not primitives\n- **Null Values**: Primitives cannot be null, but wrapper objects can represent null\n- **Utility Methods**: Wrapper classes provide useful methods (Integer.parseInt(), Double.toString())\n- **Generics**: Generic types require objects, not primitives (List<Integer> not List<int>)\n- **Synchronization**: Objects can be synchronized, primitives cannot\n- **Serialization**: Only objects can be serialized\n- **Type Conversion**: Easy conversion between different numeric types\n- **Constants**: Provide useful constants (Integer.MAX_VALUE, Double.NaN)",
+    "answerFormat": "text",
+    "difficulty": "",
+    "tags": [
+      "wrapper-classes",
+      "basics",
+      "collections",
+      "generics"
+    ]
+  },
+  {
+    "order": 69,
+    "subject": "JAVA",
+    "question": "What are the different ways of creating Wrapper class instances?",
+    "answer": "There are several ways to create wrapper class instances:\n\n**1. Using Constructors (Deprecated in Java 9+):**\n```java\nInteger num1 = new Integer(10);\nDouble d1 = new Double(3.14);\n```\n\n**2. Using valueOf() method (Recommended):**\n```java\nInteger num2 = Integer.valueOf(10);\nDouble d2 = Double.valueOf(3.14);\n```\n\n**3. Using Autoboxing:**\n```java\nInteger num3 = 10;  // Automatic conversion\nDouble d3 = 3.14;\n```\n\n**4. Using parse methods (for Strings):**\n```java\nInteger num4 = Integer.valueOf(\"10\");\nint num5 = Integer.parseInt(\"10\");  // Returns primitive\n```\n\n**Note:** valueOf() is preferred as it can cache frequently used values for better performance.",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "wrapper-classes",
+      "instantiation"
+    ]
+  },
+  {
+    "order": 70,
+    "subject": "JAVA",
+    "question": "What are differences in the two ways of creating Wrapper classes?",
+    "answer": "| Aspect | Constructor (new Integer()) | valueOf() Method |\n|--------|----------------------------|------------------|\n| **Memory** | Always creates new object | May return cached object |\n| **Performance** | Slower, more memory usage | Faster due to caching |\n| **Status** | Deprecated since Java 9 | Recommended approach |\n| **Caching** | No caching | Caches values (e.g., -128 to 127 for Integer) |\n| **Usage** | `new Integer(10)` | `Integer.valueOf(10)` |\n| **Equality** | Always false with == for same values | May be true with == for cached values |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "wrapper-classes",
+      "comparison",
+      "caching",
+      "performance",
+      "best-practices"
+    ]
+  },
+  {
+    "order": 71,
+    "subject": "JAVA",
+    "question": "What are the advantages of auto boxing?",
+    "answer": "Autoboxing provides several advantages:\n\n- **Cleaner Code**: Reduces boilerplate code for primitive-to-object conversions\n- **Readability**: Makes code more readable and intuitive\n- **Simplifies Collections**: Easy to add primitives directly to collections\n- **Reduces Errors**: Eliminates manual conversion errors\n- **Convenience**: Automatic conversion in method calls and return statements\n\n**Examples:**\n```java\n// Without autoboxing\nList<Integer> list = new ArrayList<>();\nlist.add(Integer.valueOf(10));\n\n// With autoboxing\nList<Integer> list = new ArrayList<>();\nlist.add(10);  // Much simpler\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "autoboxing",
+      "wrapper-classes",
+      "collections"
+    ]
+  },
+  {
+    "order": 72,
+    "subject": "JAVA",
+    "question": "What is casting?",
+    "answer": "Casting is the process of converting a variable from one data type to another in Java.\n\n**Types of Casting:**\n- **Implicit Casting (Widening)**: Automatic conversion from smaller to larger type\n- **Explicit Casting (Narrowing)**: Manual conversion from larger to smaller type\n\n**Primitive Casting:**\n```java\nint i = 100;\nlong l = i;        // Implicit casting\ndouble d = 3.14;\nint x = (int) d;   // Explicit casting\n```\n\n**Reference Casting:**\n```java\nObject obj = \"Hello\";           // Upcasting (implicit)\nString str = (String) obj;      // Downcasting (explicit)\n```\n\n**Purpose:**\n- Convert between compatible types\n- Work with inheritance hierarchies\n- Use objects stored as parent type references",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "casting",
+      "type-conversion"
+    ]
+  },
+  {
+    "order": 73,
+    "subject": "JAVA",
+    "question": "What is implicit casting?",
+    "answer": "Implicit casting (also called widening or automatic type conversion) is when Java automatically converts a smaller data type to a larger data type without explicit casting.\n\n**Characteristics:**\n- **Automatic**: No cast operator needed\n- **Safe**: No data loss occurs\n- **Direction**: From smaller to larger type\n\n**Primitive Type Hierarchy (smallest to largest):**\nbyte → short → int → long → float → double\nchar → int\n\n**Examples:**\n```java\nint i = 100;\nlong l = i;           // int to long (implicit)\nfloat f = l;          // long to float (implicit)\ndouble d = f;         // float to double (implicit)\n\nchar c = 'A';\nint num = c;          // char to int (implicit)\n```\n\n**Reference Types:**\n```java\nString str = \"Hello\";\nObject obj = str;     // Subclass to superclass (upcasting)\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "casting",
+      "implicit-casting",
+      "type-conversion"
+    ]
+  },
+  {
+    "order": 74,
+    "subject": "JAVA",
+    "question": "What is explicit casting?",
+    "answer": "Explicit casting (also called narrowing or manual type conversion) is when you manually convert a larger data type to a smaller data type using the cast operator.\n\n**Characteristics:**\n- **Manual**: Requires cast operator (type)\n- **Risky**: May result in data loss or precision loss\n- **Required**: Compiler won't allow without explicit cast\n\n**Examples:**\n```java\n// Primitive casting - potential data loss\ndouble d = 3.14;\nint i = (int) d;           // i = 3 (decimal lost)\n\nlong l = 1000L;\nint x = (int) l;           // Potential data loss if l > Integer.MAX_VALUE\n\n// Reference casting - downcasting\nObject obj = \"Hello\";\nString str = (String) obj;  // Explicit cast needed\n\n// Can throw ClassCastException at runtime\nObject obj2 = new Integer(10);\nString str2 = (String) obj2;  // Runtime error!\n```\n\n**Best Practice:** Use instanceof before downcasting to avoid ClassCastException.",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "casting",
+      "explicit-casting",
+      "type-conversion"
+    ]
+  },
+  {
+    "order": 75,
+    "subject": "JAVA",
+    "question": "Are all String's immutable?",
+    "answer": "Yes, all String objects in Java are immutable.\n\n**What Immutable Means:**\n- Once a String object is created, its value cannot be changed\n- Any operation that appears to modify a String actually creates a new String object\n\n**Why Strings are Immutable:**\n- **Security**: Prevents malicious modification of String values (file paths, URLs, etc.)\n- **Thread Safety**: Multiple threads can safely share String objects without synchronization\n- **String Pool**: Enables string interning and memory optimization\n- **Hash Code Caching**: Hash code can be cached since value won't change\n- **Performance**: Safe to reuse and share String objects\n\n**Example:**\n```java\nString str = \"Hello\";\nstr.concat(\" World\");  // Creates new String, doesn't modify original\nSystem.out.println(str);  // Still prints \"Hello\"\n\nstr = str.concat(\" World\");  // Must reassign to see change\nSystem.out.println(str);  // Prints \"Hello World\"\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "immutability",
+      "thread-safety",
+      "security"
+    ]
+  },
+  {
+    "order": 76,
+    "subject": "JAVA",
+    "question": "Where are String values stored in memory?",
+    "answer": "String values are stored in different memory locations depending on how they are created:\n\n**1. String Pool (String Constant Pool):**\n- Part of heap memory (in Java 7+)\n- Stores string literals and interned strings\n- Enables string reuse and memory optimization\n\n```java\nString s1 = \"Hello\";  // Stored in String Pool\nString s2 = \"Hello\";  // Points to same object in pool\n// s1 == s2 is true\n```\n\n**2. Heap Memory:**\n- String objects created with 'new' keyword are stored in regular heap\n- Each 'new' creates a separate object even with same value\n\n```java\nString s3 = new String(\"Hello\");  // Stored in heap\nString s4 = new String(\"Hello\");  // Different object in heap\n// s3 == s4 is false\n// s1 == s3 is false\n```\n\n**3. Using intern() method:**\n```java\nString s5 = new String(\"Hello\").intern();  // Moves to String Pool\n// s1 == s5 is true\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "memory",
+      "string-pool"
+    ]
+  },
+  {
+    "order": 77,
+    "subject": "JAVA",
+    "question": "Why should you be careful about String concatenation(+) operator in loops?",
+    "answer": "String concatenation using the + operator in loops is inefficient and should be avoided because Strings are immutable.\n\n**Problem:**\n- Each concatenation creates a new String object\n- Old String objects become garbage\n- Results in poor performance and memory waste\n\n**Example of Bad Practice:**\n```java\nString result = \"\";\nfor (int i = 0; i < 10000; i++) {\n    result = result + i;  // Creates 10,000 new String objects!\n}\n// Time Complexity: O(n²) due to copying\n```\n\n**Why it's Slow:**\n- Each iteration creates a new String object\n- Copies all previous characters to the new object\n- Original String objects are discarded (garbage collection overhead)\n- For n iterations, approximately n²/2 character copies occur\n\n**Impact:**\n- High memory usage\n- Increased garbage collection\n- Significantly slower performance for large loops",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "performance",
+      "loops"
+    ]
+  },
+  {
+    "order": 78,
+    "subject": "JAVA",
+    "question": "How do you solve the String concatenation problem in loops?",
+    "answer": "Use StringBuilder or StringBuffer instead of String concatenation in loops.\n\n**Solution using StringBuilder:**\n```java\nStringBuilder sb = new StringBuilder();\nfor (int i = 0; i < 10000; i++) {\n    sb.append(i);\n}\nString result = sb.toString();\n// Time Complexity: O(n) - much faster!\n```\n\n**Comparison:**\n\n| Aspect | String (+) | StringBuilder | StringBuffer |\n|--------|-----------|---------------|-------------|\n| **Performance in Loops** | Very slow (O(n²)) | Fast (O(n)) | Fast (O(n)) |\n| **Memory** | High (creates many objects) | Low (modifies same object) | Low |\n| **Thread Safety** | Not applicable | Not thread-safe | Thread-safe |\n| **Use Case** | Simple concatenations | Single-threaded loops | Multi-threaded scenarios |\n\n**Best Practice:**\n- Use StringBuilder for single-threaded loops\n- Use StringBuffer only when thread safety is required\n- For simple concatenations outside loops, + operator is fine (compiler optimizes it)",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "StringBuilder",
+      "performance",
+      "best-practices"
+    ]
+  },
+  {
+    "order": 79,
+    "subject": "JAVA",
+    "question": "What are differences between String and StringBuffer?",
+    "answer": "| Feature | String | StringBuffer |\n|---------|--------|-------------|\n| **Mutability** | Immutable (cannot be modified) | Mutable (can be modified) |\n| **Performance** | Slow for frequent modifications | Fast for frequent modifications |\n| **Memory** | Creates new object for each modification | Modifies same object |\n| **Thread Safety** | Thread-safe (immutable) | Thread-safe (synchronized methods) |\n| **Usage** | When value doesn't change often | When frequent modifications needed in multi-threaded environment |\n| **Methods** | Limited (concat, substring, etc.) | Rich (append, insert, delete, reverse, etc.) |\n| **Storage** | String pool + heap | Heap only |\n| **Performance in Loops** | Very slow (O(n²)) | Fast (O(n)) |",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "StringBuffer",
+      "comparison"
+    ]
+  },
+  {
+    "order": 80,
+    "subject": "JAVA",
+    "question": "What are differences between StringBuilder and StringBuffer?",
+    "answer": "| Feature | StringBuilder | StringBuffer |\n|---------|--------------|-------------|\n| **Thread Safety** | Not thread-safe | Thread-safe (synchronized) |\n| **Performance** | Faster | Slower (due to synchronization overhead) |\n| **Introduced** | Java 5 (2004) | Java 1.0 (1996) |\n| **Use Case** | Single-threaded applications | Multi-threaded applications |\n| **Synchronization** | No synchronization | All methods are synchronized |\n| **Recommendation** | Preferred for most cases | Use only when thread safety needed |\n\n**Example:**\n```java\n// StringBuilder - faster, not thread-safe\nStringBuilder sb = new StringBuilder();\nsb.append(\"Hello\");\nsb.append(\" World\");\n\n// StringBuffer - slower, thread-safe\nStringBuffer sbuf = new StringBuffer();\nsbuf.append(\"Hello\");\nsbuf.append(\" World\");\n```\n\n**Best Practice:** Use StringBuilder unless you specifically need thread safety.",
+    "answerFormat": "markdown",
+    "difficulty": "",
+    "tags": [
+      "StringBuilder",
+      "StringBuffer",
+      "comparison",
+      "thread-safety"
+    ]
+  },
+  {
+    "order": 81,
+    "subject": "JAVA",
+    "question": "Can you give examples of different utility methods in String class?",
+    "answer": "The String class provides many useful utility methods:\n\n```java\nString str = \"  Hello World  \";\n\n// Length and character access\nstr.length()                    // Returns 15\nstr.charAt(2)                   // Returns 'H'\nstr.indexOf('o')                // Returns 4\nstr.lastIndexOf('o')            // Returns 9\n\n// Case conversion\nstr.toUpperCase()               // \"  HELLO WORLD  \"\nstr.toLowerCase()               // \"  hello world  \"\n\n// Trimming and checking\nstr.trim()                      // \"Hello World\"\nstr.isEmpty()                   // false\nstr.isBlank()                   // false (Java 11+)\n\n// Substring and splitting\nstr.substring(2, 7)             // \"Hello\"\nstr.split(\" \")                  // Array of words\n\n// Replacement\nstr.replace('o', 'a')           // \"  Hella Warld  \"\nstr.replaceAll(\"\\\\s+\", \"-\")    // \"-Hello-World-\"\n\n// Checking content\nstr.startsWith(\"Hello\")         // false (has spaces)\nstr.contains(\"World\")           // true\nstr.endsWith(\"  \")              // true\nstr.equals(\"Hello World\")       // false\nstr.equalsIgnoreCase(\"HELLO\")  // false\n\n// Conversion\nString.valueOf(123)             // \"123\"\nstr.toCharArray()               // char array\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "string",
+      "methods",
+      "utility"
+    ]
+  },
+  {
+    "order": 82,
+    "subject": "JAVA",
+    "question": "What is state of an object?",
+    "answer": "The state of an object refers to the data or values stored in the object's instance variables (fields) at any given time.\n\n**Key Points:**\n- **Represented by**: Instance variables (attributes/fields)\n- **Dynamic**: Can change over the object's lifetime\n- **Unique**: Each object has its own state\n- **Storage**: Stored in heap memory\n\n**Example:**\n```java\npublic class Car {\n    // These instance variables define the state\n    private String color;\n    private String model;\n    private int speed;\n    private boolean engineOn;\n    \n    public Car(String color, String model) {\n        this.color = color;    // Initial state\n        this.model = model;\n        this.speed = 0;\n        this.engineOn = false;\n    }\n    \n    public void accelerate() {\n        speed += 10;  // State changes\n    }\n}\n\nCar car1 = new Car(\"Red\", \"Tesla\");\n// State: color=\"Red\", model=\"Tesla\", speed=0, engineOn=false\n\nCar car2 = new Car(\"Blue\", \"BMW\");\n// Different state: color=\"Blue\", model=\"BMW\", speed=0, engineOn=false\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "objects",
+      "state"
+    ]
+  },
+  {
+    "order": 83,
+    "subject": "JAVA",
+    "question": "What is behavior of an object?",
+    "answer": "The behavior of an object refers to the actions or operations that an object can perform, defined by its methods.\n\n**Key Points:**\n- **Represented by**: Methods (functions)\n- **Purpose**: Define what the object can do\n- **Operation**: Can modify object state or perform calculations\n- **Shared**: All objects of a class have the same behaviors\n\n**Example:**\n```java\npublic class Car {\n    private String color;\n    private int speed;\n    private boolean engineOn;\n    \n    // Behaviors (methods)\n    public void startEngine() {\n        engineOn = true;\n        System.out.println(\"Engine started\");\n    }\n    \n    public void accelerate(int increment) {\n        if (engineOn) {\n            speed += increment;\n        }\n    }\n    \n    public void brake() {\n        speed = Math.max(0, speed - 10);\n    }\n    \n    public int getSpeed() {\n        return speed;\n    }\n}\n\nCar car = new Car(\"Red\");\ncar.startEngine();    // Behavior: starting engine\ncar.accelerate(20);   // Behavior: increasing speed\ncar.brake();          // Behavior: reducing speed\n```\n\n**State vs Behavior:**\n- State = WHAT the object is (data)\n- Behavior = WHAT the object does (actions)",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "OOP",
+      "objects",
+      "behavior",
+      "methods"
+    ]
+  },
+  {
+    "order": 84,
+    "subject": "JAVA",
+    "question": "What is the super class of every class in Java?",
+    "answer": "The `Object` class is the superclass of every class in Java.\n\n**Key Points:**\n- **Root Class**: Every class in Java directly or indirectly inherits from Object\n- **Automatic**: Even if you don't explicitly extend Object, it's implicit\n- **Package**: Located in java.lang package\n\n**Important Methods in Object Class:**\n```java\npublic class Object {\n    // String representation\n    public String toString() { }\n    \n    // Object equality\n    public boolean equals(Object obj) { }\n    \n    // Hash code for hash-based collections\n    public int hashCode() { }\n    \n    // Create and return a copy\n    protected Object clone() { }\n    \n    // Get runtime class\n    public final Class<?> getClass() { }\n    \n    // Thread-related methods\n    public final void wait() { }\n    public final void notify() { }\n    public final void notifyAll() { }\n    \n    // Called by garbage collector\n    protected void finalize() { }\n}\n```\n\n**Example:**\n```java\npublic class MyClass {  // Implicitly extends Object\n    // ...\n}\n\n// This is equivalent to:\npublic class MyClass extends Object {\n    // ...\n}\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "Object",
+      "inheritance",
+      "basics"
+    ]
+  },
+  {
+    "order": 85,
+    "subject": "JAVA",
+    "question": "Explain about toString method?",
+    "answer": "The toString() method returns a string representation of an object. It's defined in the Object class and can be overridden.\n\n**Default Implementation:**\n- Returns: ClassName@HashCodeInHex\n- Example: \"Car@15db9742\"\n\n**Why Override toString():**\n- Provide meaningful string representation\n- Useful for debugging and logging\n- Called automatically by System.out.println()\n\n**Example:**\n```java\npublic class Student {\n    private String name;\n    private int age;\n    private String major;\n    \n    public Student(String name, int age, String major) {\n        this.name = name;\n        this.age = age;\n        this.major = major;\n    }\n    \n    // Override toString for meaningful output\n    @Override\n    public String toString() {\n        return \"Student{name='\" + name + \"', age=\" + age + \n               \", major='\" + major + \"'}\";\n    }\n}\n\nStudent s = new Student(\"John\", 20, \"CS\");\nSystem.out.println(s);  \n// Without override: Student@15db9742\n// With override: Student{name='John', age=20, major='CS'}\n```\n\n**Best Practice:** Always override toString() for better debugging and logging.",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "toString",
+      "Object",
+      "methods"
+    ]
+  },
+  {
+    "order": 86,
+    "subject": "JAVA",
+    "question": "What are the important things to consider when implementing equals method?",
+    "answer": "When implementing equals() method, follow these important guidelines:\n\n**1. Contract Requirements:**\n- **Reflexive**: x.equals(x) must return true\n- **Symmetric**: If x.equals(y) is true, then y.equals(x) must be true\n- **Transitive**: If x.equals(y) and y.equals(z), then x.equals(z) must be true\n- **Consistent**: Multiple calls return same result if objects unchanged\n- **Null check**: x.equals(null) must return false\n\n**2. Implementation Steps:**\n```java\n@Override\npublic boolean equals(Object obj) {\n    // 1. Check if same reference\n    if (this == obj) return true;\n    \n    // 2. Check if null\n    if (obj == null) return false;\n    \n    // 3. Check if same class\n    if (getClass() != obj.getClass()) return false;\n    \n    // 4. Cast and compare fields\n    Person other = (Person) obj;\n    return age == other.age && \n           Objects.equals(name, other.name);\n}\n```\n\n**3. Always Override hashCode():**\n- If equals() is overridden, hashCode() must also be overridden\n- Equal objects must have equal hash codes\n- Use same fields in both methods\n\n**4. Use Objects.equals() for null-safe comparison:**\n```java\nObjects.equals(this.name, other.name);  // Handles nulls\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "equals",
+      "Object",
+      "best-practices"
+    ]
+  },
+  {
+    "order": 87,
+    "subject": "JAVA",
+    "question": "What is the Hashcode method used for in Java?",
+    "answer": "The hashCode() method returns an integer hash code value for an object, primarily used in hash-based collections.\n\n**Primary Purpose:**\n- Used by HashMap, HashSet, Hashtable to determine bucket location\n- Enables fast lookup, insertion, and deletion in hash-based collections\n\n**Hash Code Contract:**\n- **Consistency**: Same object must return same hash code (if not modified)\n- **Equality**: If two objects are equal (equals() returns true), they MUST have same hash code\n- **Inequality**: Different objects CAN have same hash code (hash collision)\n\n**Example:**\n```java\npublic class Person {\n    private String name;\n    private int age;\n    \n    @Override\n    public boolean equals(Object obj) {\n        if (this == obj) return true;\n        if (obj == null || getClass() != obj.getClass()) return false;\n        Person person = (Person) obj;\n        return age == person.age && Objects.equals(name, person.name);\n    }\n    \n    @Override\n    public int hashCode() {\n        return Objects.hash(name, age);  // Combine fields\n    }\n}\n```\n\n**Impact on Collections:**\n```java\nSet<Person> set = new HashSet<>();\nPerson p1 = new Person(\"John\", 25);\nset.add(p1);\n\n// Without proper hashCode(), this may not work correctly:\nboolean found = set.contains(new Person(\"John\", 25));\n```\n\n**Golden Rule:** Always override hashCode() when overriding equals()!",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "hashCode",
+      "Object",
+      "collections",
+      "best-practices"
+    ]
+  },
+  {
+    "order": 88,
+    "subject": "JAVA",
+    "question": "Can super class reference variable hold an object of sub class?",
+    "answer": "Yes, a super class reference variable can hold an object of a sub class. This is called **upcasting** or **polymorphism**.\n\n**Example:**\n```java\nclass Animal {\n    public void makeSound() {\n        System.out.println(\"Animal sound\");\n    }\n}\n\nclass Dog extends Animal {\n    @Override\n    public void makeSound() {\n        System.out.println(\"Bark\");\n    }\n    \n    public void fetch() {\n        System.out.println(\"Fetching...\");\n    }\n}\n\n// Super class reference holding sub class object\nAnimal animal = new Dog();  // Valid - Upcasting\nanimal.makeSound();  // Output: \"Bark\" (runtime polymorphism)\n\n// But cannot access Dog-specific methods\n// animal.fetch();  // Compile error!\n\n// To access Dog methods, need to downcast\nif (animal instanceof Dog) {\n    Dog dog = (Dog) animal;\n    dog.fetch();  // Now works\n}\n```\n\n**Key Points:**\n- Allows polymorphism and flexibility\n- Can only access methods defined in super class\n- Actual method called is determined at runtime (dynamic binding)\n- Useful for writing generic code that works with multiple subclasses",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "inheritance",
+      "polymorphism",
+      "upcasting"
+    ]
+  },
+  {
+    "order": 89,
+    "subject": "JAVA",
+    "question": "How do you define an interface?",
+    "answer": "An interface in Java is defined using the `interface` keyword and contains abstract method declarations.\n\n**Syntax:**\n```java\npublic interface InterfaceName {\n    // Abstract methods (implicitly public and abstract)\n    returnType methodName(parameters);\n    \n    // Constants (implicitly public, static, and final)\n    int CONSTANT_NAME = value;\n    \n    // Default methods (Java 8+)\n    default void defaultMethod() {\n        // implementation\n    }\n    \n    // Static methods (Java 8+)\n    static void staticMethod() {\n        // implementation\n    }\n    \n    // Private methods (Java 9+)\n    private void helperMethod() {\n        // implementation\n    }\n}\n```\n\n**Example:**\n```java\npublic interface Drawable {\n    // Abstract method (no body)\n    void draw();\n    \n    // Constant\n    String TYPE = \"2D\";\n    \n    // Default method\n    default void display() {\n        System.out.println(\"Displaying \" + TYPE);\n    }\n    \n    // Static method\n    static void info() {\n        System.out.println(\"Drawable interface\");\n    }\n}\n```\n\n**Rules:**\n- All methods are public by default\n- All fields are public, static, and final by default\n- Cannot have constructors\n- Cannot be instantiated directly",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "interface",
+      "OOP",
+      "definition"
+    ]
+  },
+  {
+    "order": 90,
+    "subject": "JAVA",
+    "question": "How do you implement an interface?",
+    "answer": "You implement an interface using the `implements` keyword. A class must provide implementations for all abstract methods declared in the interface.\n\n**Syntax:**\n```java\npublic class ClassName implements InterfaceName {\n    // Must implement all abstract methods\n    @Override\n    public void methodName() {\n        // implementation\n    }\n}\n```\n\n**Example:**\n```java\ninterface Drawable {\n    void draw();\n    void resize(int width, int height);\n}\n\ninterface Colorable {\n    void setColor(String color);\n}\n\n// Implementing single interface\nclass Circle implements Drawable {\n    @Override\n    public void draw() {\n        System.out.println(\"Drawing circle\");\n    }\n    \n    @Override\n    public void resize(int width, int height) {\n        System.out.println(\"Resizing circle\");\n    }\n}\n\n// Implementing multiple interfaces\nclass Rectangle implements Drawable, Colorable {\n    private String color;\n    \n    @Override\n    public void draw() {\n        System.out.println(\"Drawing \" + color + \" rectangle\");\n    }\n    \n    @Override\n    public void resize(int width, int height) {\n        System.out.println(\"Resizing to \" + width + \"x\" + height);\n    }\n    \n    @Override\n    public void setColor(String color) {\n        this.color = color;\n    }\n}\n```\n\n**Key Points:**\n- Use `implements` keyword\n- Can implement multiple interfaces (separated by commas)\n- Must implement all abstract methods or declare class as abstract",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "interface",
+      "OOP",
+      "implementation"
+    ]
+  },
+  {
+    "order": 91,
+    "subject": "JAVA",
+    "question": "Can you explain a few tricky things about interfaces?",
+    "answer": "Here are some tricky and important aspects of interfaces in Java:\n\n**1. Diamond Problem with Default Methods:**\n```java\ninterface A {\n    default void show() { System.out.println(\"A\"); }\n}\n\ninterface B {\n    default void show() { System.out.println(\"B\"); }\n}\n\n// Must explicitly resolve conflict\nclass C implements A, B {\n    @Override\n    public void show() {\n        A.super.show();  // Choose which one to call\n    }\n}\n```\n\n**2. All Fields are Constants:**\n```java\ninterface MyInterface {\n    int VALUE = 10;  // Automatically public static final\n    // VALUE = 20;  // Compile error - cannot modify\n}\n```\n\n**3. Interfaces Can Extend Multiple Interfaces:**\n```java\ninterface A { }\ninterface B { }\ninterface C extends A, B { }  // Valid\n```\n\n**4. Functional Interfaces:**\n```java\n@FunctionalInterface\ninterface Calculator {\n    int calculate(int a, int b);  // Only one abstract method\n    // int subtract(int a, int b);  // Error - not functional interface\n}\n```\n\n**5. Private Methods (Java 9+):**\n```java\ninterface Helper {\n    default void method1() { common(); }\n    default void method2() { common(); }\n    \n    private void common() {  // Can be reused\n        System.out.println(\"Common logic\");\n    }\n}\n```\n\n**6. Static Methods Not Inherited:**\n```java\ninterface Parent {\n    static void staticMethod() { }\n}\n\nclass Child implements Parent {\n    // Cannot override staticMethod()\n    // Must call as Parent.staticMethod()\n}\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "interface",
+      "OOP",
+      "advanced",
+      "tricky"
+    ]
+  },
+  {
+    "order": 92,
+    "subject": "JAVA",
+    "question": "What is a default constructor?",
+    "answer": "A default constructor is a no-argument constructor that is automatically provided by the Java compiler if no constructors are explicitly defined in a class.\n\n**Characteristics:**\n- **No Parameters**: Takes no arguments\n- **Implicit**: Created automatically by compiler if no constructor is defined\n- **Initialization**: Initializes instance variables to default values (0, null, false)\n- **Same Access**: Has same access modifier as the class\n\n**Example:**\n```java\n// Class without explicit constructor\nclass Student {\n    String name;\n    int age;\n    // Compiler adds: public Student() { }\n}\n\nStudent s = new Student();  // Works - default constructor called\n// name = null, age = 0\n```\n\n**When Default Constructor is NOT Created:**\n```java\nclass Student {\n    String name;\n    int age;\n    \n    // Explicit constructor defined\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n    // No default constructor now!\n}\n\nStudent s1 = new Student();  // Compile error!\nStudent s2 = new Student(\"John\", 20);  // Works\n```\n\n**Explicit Default Constructor:**\n```java\nclass Student {\n    String name;\n    int age;\n    \n    // Explicitly defined default constructor\n    public Student() {\n        this.name = \"Unknown\";\n        this.age = 0;\n    }\n    \n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n}\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "constructor",
+      "default",
+      "basics"
+    ]
+  },
+  {
+    "order": 93,
+    "subject": "JAVA",
+    "question": "What is the use of instanceof operator in Java?",
+    "answer": "The `instanceof` operator is used to test whether an object is an instance of a specific class or implements a specific interface.\n\n**Syntax:**\n```java\nobject instanceof Type\n```\n\n**Returns:**\n- `true` if object is an instance of the specified type\n- `false` otherwise\n- `false` if object is null\n\n**Examples:**\n```java\nclass Animal { }\nclass Dog extends Animal { }\nclass Cat extends Animal { }\n\nDog dog = new Dog();\nAnimal animal = new Dog();\n\n// Basic usage\nSystem.out.println(dog instanceof Dog);      // true\nSystem.out.println(dog instanceof Animal);   // true (inheritance)\nSystem.out.println(dog instanceof Cat);      // false\nSystem.out.println(dog instanceof Object);   // true (all objects)\n\n// With null\nDog nullDog = null;\nSystem.out.println(nullDog instanceof Dog);  // false\n\n// Practical use - safe downcasting\nAnimal a = new Dog();\nif (a instanceof Dog) {\n    Dog d = (Dog) a;  // Safe cast\n    d.bark();\n}\n```\n\n**With Interfaces:**\n```java\ninterface Swimmable { }\nclass Fish implements Swimmable { }\n\nFish fish = new Fish();\nSystem.out.println(fish instanceof Swimmable);  // true\n```\n\n**Pattern Matching (Java 16+):**\n```java\nif (animal instanceof Dog dog) {\n    dog.bark();  // No explicit cast needed\n}\n```\n\n**Use Cases:**\n- Prevent ClassCastException before downcasting\n- Type checking in polymorphic code\n- Implementing equals() method safely",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "instanceof",
+      "operators",
+      "type-checking"
+    ]
+  },
+  {
+    "order": 94,
+    "subject": "JAVA",
+    "question": "What is coupling?",
+    "answer": "Coupling refers to the degree of dependency between classes or modules in a software system. It measures how closely connected different components are.\n\n**Types of Coupling:**\n\n**1. Tight Coupling (Bad):**\n- High dependency between classes\n- Changes in one class affect other classes\n- Difficult to test and maintain\n\n```java\n// Tight coupling - bad\nclass OrderProcessor {\n    private MySQLDatabase db = new MySQLDatabase();  // Direct dependency\n    \n    public void processOrder(Order order) {\n        db.save(order);  // Tightly coupled to MySQL\n    }\n}\n// Cannot easily switch to PostgreSQL or test with mock database\n```\n\n**2. Loose Coupling (Good):**\n- Low dependency between classes\n- Changes in one class minimally affect others\n- Easy to test, maintain, and extend\n\n```java\n// Loose coupling - good\ninterface Database {\n    void save(Order order);\n}\n\nclass OrderProcessor {\n    private Database db;  // Depends on interface\n    \n    public OrderProcessor(Database db) {\n        this.db = db;  // Dependency injection\n    }\n    \n    public void processOrder(Order order) {\n        db.save(order);\n    }\n}\n// Can easily use MySQL, PostgreSQL, or MockDatabase\n```\n\n**Benefits of Loose Coupling:**\n- Easier maintenance and testing\n- Better code reusability\n- Flexibility to change implementations\n- Reduced impact of changes\n\n**How to Achieve Loose Coupling:**\n- Use interfaces instead of concrete classes\n- Dependency injection\n- Follow SOLID principles\n- Avoid direct instantiation",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "coupling",
+      "OOP",
+      "design-principles"
+    ]
+  },
+  {
+    "order": 95,
+    "subject": "JAVA",
+    "question": "What is cohesion?",
+    "answer": "Cohesion refers to how closely related and focused the responsibilities of a single class or module are. It measures how well the elements within a module belong together.\n\n**Types of Cohesion:**\n\n**1. Low Cohesion (Bad):**\n- Class has unrelated responsibilities\n- Methods don't work together toward a common purpose\n- Difficult to understand and maintain\n\n```java\n// Low cohesion - bad\nclass UserManager {\n    public void createUser() { }\n    public void deleteUser() { }\n    public void sendEmail() { }        // Email not related to user management\n    public void generateReport() { }   // Report not related\n    public void connectDatabase() { }  // Database not related\n}\n```\n\n**2. High Cohesion (Good):**\n- Class has single, well-defined purpose\n- All methods work together for that purpose\n- Easy to understand and maintain\n\n```java\n// High cohesion - good\nclass UserManager {\n    public void createUser() { }\n    public void updateUser() { }\n    public void deleteUser() { }\n    public void findUser() { }\n    // All methods related to user management\n}\n\nclass EmailService {\n    public void sendEmail() { }\n    public void sendBulkEmail() { }\n    public void validateEmail() { }\n    // All methods related to email operations\n}\n\nclass ReportGenerator {\n    public void generateReport() { }\n    public void exportToPDF() { }\n    public void exportToExcel() { }\n    // All methods related to reporting\n}\n```\n\n**Benefits of High Cohesion:**\n- Easier to understand and maintain\n- Better code organization\n- Improved reusability\n- Easier to test\n\n**Golden Rule:**\n- **High Cohesion + Loose Coupling = Good Design**",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "cohesion",
+      "OOP",
+      "design-principles"
+    ]
+  },
+  {
+    "order": 96,
+    "subject": "JAVA",
+    "question": "What is a static inner class?",
+    "answer": "A static inner class (also called static nested class) is a nested class that is declared with the `static` keyword. It doesn't require an instance of the outer class to be instantiated.\n\n**Key Characteristics:**\n- Can access only static members of outer class\n- Can be instantiated without outer class instance\n- Cannot access non-static members of outer class\n- Behaves like a regular top-level class but is nested for logical grouping\n\n**Example:**\n```java\nclass OuterClass {\n    private static String staticVar = \"Static Variable\";\n    private String instanceVar = \"Instance Variable\";\n    \n    // Static inner class\n    static class StaticInnerClass {\n        public void display() {\n            // Can access static members\n            System.out.println(staticVar);\n            \n            // Cannot access instance members\n            // System.out.println(instanceVar);  // Compile error!\n        }\n    }\n}\n\n// Usage - no outer class instance needed\nOuterClass.StaticInnerClass inner = new OuterClass.StaticInnerClass();\ninner.display();\n```\n\n**Comparison with Non-Static Inner Class:**\n```java\nclass OuterClass {\n    private String instanceVar = \"Instance Var\";\n    \n    // Non-static inner class\n    class InnerClass {\n        public void display() {\n            System.out.println(instanceVar);  // Can access\n        }\n    }\n    \n    // Static inner class\n    static class StaticInnerClass {\n        public void display() {\n            // System.out.println(instanceVar);  // Cannot access\n        }\n    }\n}\n\n// Non-static inner class needs outer instance\nOuterClass outer = new OuterClass();\nOuterClass.InnerClass inner1 = outer.new InnerClass();\n\n// Static inner class doesn't need outer instance\nOuterClass.StaticInnerClass inner2 = new OuterClass.StaticInnerClass();\n```\n\n**Use Cases:**\n- Builder pattern (e.g., StringBuilder)\n- Logical grouping of helper classes\n- When inner class doesn't need outer class instance",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "inner-class",
+      "static",
+      "nested-class"
+    ]
+  },
+  {
+    "order": 97,
+    "subject": "JAVA",
+    "question": "Can you create an inner class inside a method?",
+    "answer": "Yes, you can create an inner class inside a method. This is called a **local inner class** or **method-local inner class**.\n\n**Characteristics:**\n- Defined inside a method\n- Scope limited to the method\n- Can access final or effectively final local variables\n- Cannot have access modifiers (public, private, etc.)\n- Cannot be static\n\n**Example:**\n```java\nclass OuterClass {\n    public void myMethod() {\n        final String localVar = \"Local Variable\";\n        int effectivelyFinal = 10;  // Not modified, so effectively final\n        \n        // Local inner class inside method\n        class LocalInnerClass {\n            public void display() {\n                System.out.println(localVar);         // Can access\n                System.out.println(effectivelyFinal); // Can access\n            }\n        }\n        \n        // Can only be used within this method\n        LocalInnerClass local = new LocalInnerClass();\n        local.display();\n    }\n}\n```\n\n**With Non-Final Variables (Compile Error):**\n```java\npublic void myMethod() {\n    int count = 0;\n    \n    class LocalInner {\n        public void increment() {\n            // count++;  // Compile error! count must be final/effectively final\n        }\n    }\n    \n    count++;  // Makes count not effectively final\n}\n```\n\n**Practical Use Case:**\n```java\npublic List<String> filterNames(List<String> names, String prefix) {\n    // Local inner class for custom comparison\n    class NameFilter {\n        public boolean matches(String name) {\n            return name.startsWith(prefix);  // Can access method parameter\n        }\n    }\n    \n    NameFilter filter = new NameFilter();\n    List<String> result = new ArrayList<>();\n    \n    for (String name : names) {\n        if (filter.matches(name)) {\n            result.add(name);\n        }\n    }\n    \n    return result;\n}\n```\n\n**Note:** With Java 8+ lambdas, local inner classes are less common for simple cases.",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "inner-class",
+      "local-class",
+      "method"
+    ]
+  },
+  {
+    "order": 98,
+    "subject": "JAVA",
+    "question": "What is an anonymous class?",
+    "answer": "An anonymous class is an inner class without a name that is declared and instantiated in a single expression. It's used to create one-time use classes.\n\n**Characteristics:**\n- No class name\n- Declared and instantiated at the same time\n- Can extend a class or implement an interface\n- Cannot have constructors (since no name)\n- Used for one-off implementations\n\n**Syntax:**\n```java\nSuperType obj = new SuperType() {\n    // Override methods or add new ones\n};\n```\n\n**Example 1: Implementing Interface:**\n```java\ninterface Greeting {\n    void sayHello(String name);\n}\n\n// Anonymous class implementing interface\nGreeting greeting = new Greeting() {\n    @Override\n    public void sayHello(String name) {\n        System.out.println(\"Hello, \" + name);\n    }\n};\n\ngreeting.sayHello(\"John\");  // Output: Hello, John\n```\n\n**Example 2: Extending Class:**\n```java\nabstract class Animal {\n    abstract void makeSound();\n}\n\n// Anonymous class extending abstract class\nAnimal dog = new Animal() {\n    @Override\n    void makeSound() {\n        System.out.println(\"Bark\");\n    }\n};\n\ndog.makeSound();  // Output: Bark\n```\n\n**Example 3: Event Handling (Common Use):**\n```java\nbutton.addActionListener(new ActionListener() {\n    @Override\n    public void actionPerformed(ActionEvent e) {\n        System.out.println(\"Button clicked\");\n    }\n});\n```\n\n**With Variables:**\n```java\npublic void processData() {\n    final String prefix = \"User: \";\n    \n    Runnable task = new Runnable() {\n        @Override\n        public void run() {\n            System.out.println(prefix + \"Processing...\");\n        }\n    };\n    \n    new Thread(task).start();\n}\n```\n\n**Modern Alternative (Lambda):**\n```java\n// Anonymous class\nRunnable r1 = new Runnable() {\n    public void run() {\n        System.out.println(\"Running\");\n    }\n};\n\n// Lambda (Java 8+) - cleaner for functional interfaces\nRunnable r2 = () -> System.out.println(\"Running\");\n```",
+    "answerFormat": "code",
+    "difficulty": "",
+    "tags": [
+      "anonymous-class",
+      "inner-class",
+      "OOP"
+    ]
+  }
+]
