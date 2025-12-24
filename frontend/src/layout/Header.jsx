@@ -247,9 +247,11 @@ export const Header = () => {
               return (
                 <div key={section.label} className="py-2">
                   <button
-                    onClick={() =>
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
                       setActiveDropdown(activeDropdown === section.label ? null : section.label)
-                    }
+                    }}
                     className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300"
                   >
                     <span className="flex items-center gap-3">
@@ -269,19 +271,22 @@ export const Header = () => {
                         <Link
                           key={item.to}
                           to={item.to}
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation()
                             setMenuOpen(false)
                             setActiveDropdown(null)
                           }}
                           className={clsx(
-                            'flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors',
+                            'block px-3 py-2 text-sm rounded-lg transition-colors',
                             location.pathname === item.to
                               ? 'text-primary bg-primary/10 font-medium'
                               : 'text-slate-600 dark:text-slate-300 hover:bg-surface-muted'
                           )}
                         >
-                          <item.icon className="h-4 w-4" />
-                          {item.label}
+                          <span className="flex items-center gap-3">
+                            <item.icon className="h-4 w-4" />
+                            {item.label}
+                          </span>
                         </Link>
                       ))}
                     </div>
