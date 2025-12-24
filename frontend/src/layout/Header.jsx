@@ -102,9 +102,9 @@ export const Header = () => {
           <Link
             to="/"
             className="flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-slate-100"
-            aria-label="Road2DSA home"
+            aria-label="Road@Success home"
           >
-            <img src="/logo.png" alt="Road2DSA logo" className="h-10 w-auto" />
+            <img src="/LOGO_2.png" alt="Road@Success logo" className="h-12 w-auto" />
             
           </Link>
         </div>
