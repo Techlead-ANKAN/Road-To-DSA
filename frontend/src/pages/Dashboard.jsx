@@ -10,6 +10,7 @@ import { UserSetupCard } from '../components/UserSetupCard.jsx'
 import { SmallStatCard } from '../components/SmallStatCard.jsx'
 import { DashboardCharts } from '../components/DashboardCharts.jsx'
 import { RecentActivity } from '../components/RecentActivity.jsx'
+import { NoticeBoard } from '../components/NoticeBoard.jsx'
 import { useProgressData } from '../hooks/useProgressData.js'
 import { fetchTodayCount, fetchCompletedCount, fetchWeeklyStats, fetchTasksByDate, fetchWorkStreak } from '../api/task.js'
 import { fetchMonthCount, fetchStreak, fetchMonthlyStats, fetchGymLogByDate } from '../api/gym.js'
@@ -203,6 +204,9 @@ const DashboardPage = () => {
           accent="orange"
         />
       </div>
+
+      {/* Notice Board */}
+      <NoticeBoard />
 
       {/* Today's Tasks & Weekly Stats */}
       <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">

@@ -93,7 +93,7 @@ export const Header = () => {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="rounded-lg border border-surface-border p-2 text-slate-600 hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary"
+            className="rounded-lg border border-surface-border p-2 text-slate-600 hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary lg:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle navigation"
           >
@@ -178,14 +178,6 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="rounded-full border border-surface-border p-2 text-slate-600 hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <MoonStar className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-          </button>
           <div className="relative" ref={userMenuRef}>
             <button
               type="button"
