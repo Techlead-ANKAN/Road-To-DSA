@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { 
   Menu, 
   MoonStar, 
@@ -50,9 +50,11 @@ export const Header = () => {
   const { theme, toggleTheme } = useTheme()
   const { user, logout } = useUser()
   const location = useLocation()
+  const navigate = useNavigate()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [isUserMenuOpen, setUserMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [mobileActiveDropdown, setMobileActiveDropdown] = useState(null)
   const userMenuRef = useRef(null)
   const dropdownRefs = useRef({})
 
@@ -232,62 +234,59 @@ export const Header = () => {
                     to={section.to}
                     onClick={() => setMenuOpen(false)}
                     className={clsx(
-                      'flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+                      'flex items-center gap-3 px-3 py-3 text-sm font-medium rounded-lg transition-colors touch-manipulation active:scale-95',
                       location.pathname === section.to
                         ? 'text-primary bg-primary/10'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-surface-muted'
+                        : 'text-slate-600 dark:text-slate-300 active:bg-surface-muted'
                     )}
                   >
-                    <section.icon className="h-4 w-4" />
+                    <section.icon className="h-5 w-5" />
                     {section.label}
                   </Link>
                 )
               }
               
               return (
-                <div key={section.label} className="py-2">
+                <div key={section.label}>
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      setActiveDropdown(activeDropdown === section.label ? null : section.label)
+                    onClick={() => {
+                      setMobileActiveDropdown(mobileActiveDropdown === section.label ? null : section.label)
                     }}
-                    className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300"
+                    className="flex w-full items-center justify-between px-3 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 touch-manipulation active:bg-surface-muted"
                   >
                     <span className="flex items-center gap-3">
-                      <section.icon className="h-4 w-4" />
+                      <section.icon className="h-5 w-5" />
                       {section.label}
                     </span>
                     <ChevronDown
                       className={clsx(
                         'h-4 w-4 transition-transform',
-                        activeDropdown === section.label && 'rotate-180'
+                        mobileActiveDropdown === section.label && 'rotate-180'
                       )}
                     />
                   </button>
-                  {activeDropdown === section.label && (
-                    <div className="ml-4 mt-1 space-y-1">
+                  {mobileActiveDropdown === section.label && (
+                    <div className="ml-6 space-y-1 pb-2">
                       {section.items.map((item) => (
-                        <Link
+                        <button
                           key={item.to}
-                          to={item.to}
-                          onClick={(e) => {
-                            e.stopPropagation()
+                          type="button"
+                          onClick={() => {
+                            navigate(item.to)
                             setMenuOpen(false)
-                            setActiveDropdown(null)
+                            setMobileActiveDropdown(null)
                           }}
                           className={clsx(
-                            'block px-3 py-2 text-sm rounded-lg transition-colors',
+                            'flex w-full items-center gap-3 px-3 py-3 text-sm rounded-lg transition-colors touch-manipulation active:scale-95',
                             location.pathname === item.to
                               ? 'text-primary bg-primary/10 font-medium'
-                              : 'text-slate-600 dark:text-slate-300 hover:bg-surface-muted'
+                              : 'text-slate-600 dark:text-slate-300 active:bg-surface-muted'
                           )}
                         >
-                          <span className="flex items-center gap-3">
-                            <item.icon className="h-4 w-4" />
-                            {item.label}
-                          </span>
-                        </Link>
+                          <item.icon className="h-5 w-5" />
+                          {item.label}
+                        </button>
                       ))}
                     </div>
                   )}
@@ -298,13 +297,13 @@ export const Header = () => {
               to="/profile"
               onClick={() => setMenuOpen(false)}
               className={clsx(
-                'flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+                'flex items-center gap-3 px-3 py-3 text-sm font-medium rounded-lg transition-colors touch-manipulation active:scale-95',
                 location.pathname === '/profile'
                   ? 'text-primary bg-primary/10'
-                  : 'text-slate-600 dark:text-slate-300 hover:bg-surface-muted'
+                  : 'text-slate-600 dark:text-slate-300 active:bg-surface-muted'
               )}
             >
-              <User className="h-4 w-4" />
+              <User className="h-5 w-5" />
               Profile
             </Link>
           </div>
