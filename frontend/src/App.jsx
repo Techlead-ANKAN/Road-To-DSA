@@ -11,6 +11,9 @@ import AdminInterviewQuestionsPage from './pages/AdminInterviewQuestions.jsx'
 import AdminWebAssignmentsPage from './pages/AdminWebAssignments.jsx'
 import WebPracticePage from './pages/WebPractice.jsx'
 import CodeVisualizePage from './pages/CodeVisualize.jsx'
+import ProductivityCalendar from './pages/ProductivityCalendar.jsx'
+import GymTracker from './pages/GymTracker.jsx'
+import AdminGymPrograms from './pages/AdminGymPrograms.jsx'
 import { Toaster } from 'react-hot-toast'
 
 const queryClient = new QueryClient()
@@ -24,6 +27,9 @@ function App() {
             <AppLayout>
               <Routes>
                 <Route path="/" element={<DashboardPage />} />
+                <Route path="/productivity-calendar" element={<ProductivityCalendar />} />
+                <Route path="/gym-tracker" element={<GymTracker />} />
+                <Route path="/admin/gym-programs" element={<AdminGymPrograms />} />
                 <Route path="/course" element={<CoursePage />} />
                 <Route path="/visualize" element={<CodeVisualizePage />} />
                 <Route path="/interview-prep" element={<InterviewPrepPage />} />

@@ -10,6 +10,8 @@ import userRoutes from './routes/userRoutes.js'
 import interviewQuestionRoutes from './routes/interviewQuestionRoutes.js'
 import visualizeRoutes from './routes/visualizeRoutes.js'
 import webAssignmentRoutes from './routes/webAssignmentRoutes.js'
+import taskRoutes from './routes/taskRoutes.js'
+import gymRoutes from './routes/gymRoutes.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 
 export const createApp = () => {
@@ -34,6 +36,8 @@ export const createApp = () => {
   app.use('/api/interview-questions', interviewQuestionRoutes)
   app.use('/api/visualize', visualizeRoutes)
   app.use('/api/web-assignments', webAssignmentRoutes)
+  app.use('/api/tasks', taskRoutes)
+  app.use('/api/gym', gymRoutes)
 
   app.use(notFoundHandler)
   app.use(errorHandler)

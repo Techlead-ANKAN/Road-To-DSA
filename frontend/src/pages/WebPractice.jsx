@@ -334,7 +334,7 @@ const WebPractice = () => {
   // Mark complete mutation
   const markCompleteMutation = useMutation({
     mutationFn: ({ assignmentId, completed }) =>
-      webAssignmentAPI.markComplete(assignmentId, { userId: user._id, completed }),
+      webAssignmentAPI.markComplete(assignmentId, { userId: user.userId, completed }),
     onSuccess: () => {
       queryClient.invalidateQueries(['webAssignments']);
       toast.success('Assignment status updated!');
@@ -348,7 +348,7 @@ const WebPractice = () => {
   const saveSolutionMutation = useMutation({
     mutationFn: ({ assignmentId, code }) =>
       webAssignmentAPI.saveSolution(assignmentId, {
-        userId: user._id,
+        userId: user.userId,
         ...code,
       }),
     onSuccess: () => {
@@ -383,7 +383,7 @@ const WebPractice = () => {
   // Get user's solution for each assignment
   const getAssignmentSolution = (assignment) => {
     if (!user) return null;
-    return assignment.solutions?.find((sol) => sol.userId === user._id);
+    return assignment.solutions?.find((sol) => sol.userId === user.userId);
   };
 
   if (isLoading) {
