@@ -76,6 +76,17 @@ export const addExercise = async (req, res) => {
     return res.status(404).json({ error: 'Workout day not found' });
   }
 
+  // Calculate the next order value within the same category
+  const category = exercise.category || 'main';
+  const sameCategoryExercises = workoutDay.exercises.filter(
+    (ex) => (ex.category || 'main') === category
+  );
+  const maxOrder = sameCategoryExercises.length > 0
+    ? Math.max(...sameCategoryExercises.map((ex) => ex.order || 0))
+    : -1;
+  
+  exercise.order = maxOrder + 1;
+
   workoutDay.exercises.push(exercise);
   await workoutDay.save();
 

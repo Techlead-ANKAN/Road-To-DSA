@@ -12,6 +12,15 @@ const exerciseSchema = new mongoose.Schema(
       enum: ['count', 'time'],
       required: true,
     },
+    category: {
+      type: String,
+      enum: ['warmup', 'main', 'cardio'],
+      default: 'main',
+    },
+    order: {
+      type: Number,
+      default: 0,
+    },
     // For count-based exercises (e.g., bench press)
     defaultSets: {
       type: Number,

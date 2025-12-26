@@ -12,6 +12,11 @@ import {
   Weight,
   X,
   Save,
+  ArrowUp,
+  ArrowDown,
+  Flame,
+  Zap,
+  Heart,
 } from 'lucide-react';
 import {
   fetchAllWorkoutDays,
@@ -106,6 +111,44 @@ const AdminGymPrograms = () => {
       toast.error(error.response?.data?.error || 'Failed to delete exercise');
     },
   });
+
+  // Reorder exercises within the same category
+  const handleMoveExercise = (category, currentIndex, direction) => {
+    const categoryExercises = selectedWorkoutDay.exercises.filter(
+      (ex) => (ex.category || 'main') === category
+    );
+    if (
+      (direction === 'up' && currentIndex === 0) ||
+      (direction === 'down' && currentIndex === categoryExercises.length - 1)
+    ) {
+      return;
+    }
+
+    const targetIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+    const exercise1 = categoryExercises[currentIndex];
+    const exercise2 = categoryExercises[targetIndex];
+
+    // Swap order values
+    const updates = [
+      updateExerciseAPI(selectedWorkoutDay._id, exercise1._id, {
+        order: exercise2.order || 0,
+      }),
+      updateExerciseAPI(selectedWorkoutDay._id, exercise2._id, {
+        order: exercise1.order || 0,
+      }),
+    ];
+
+    Promise.all(updates)
+      .then(() => {
+        queryClient.invalidateQueries(['workoutDays']);
+        // Find and update selected workout day
+        const updatedDay = workoutDays.find((d) => d._id === selectedWorkoutDay._id);
+        if (updatedDay) setSelectedWorkoutDay(updatedDay);
+      })
+      .catch((error) => {
+        toast.error('Failed to reorder exercise');
+      });
+  };
 
   if (isLoading) {
     return (
@@ -204,28 +247,130 @@ const AdminGymPrograms = () => {
                   </p>
                 </div>
 
-                {/* Exercise List */}
+                {/* Exercise List - Grouped by Category */}
                 <div className="mb-6">
                   <h3 className="text-lg xl:text-xl font-semibold mb-4">
                     Exercises ({selectedWorkoutDay.exercises?.length || 0})
                   </h3>
 
                   {selectedWorkoutDay.exercises && selectedWorkoutDay.exercises.length > 0 ? (
-                    <div className="space-y-3">
-                      {selectedWorkoutDay.exercises.map((exercise, index) => (
-                        <ExerciseCard
-                          key={exercise._id}
-                          exercise={exercise}
-                          index={index}
-                          onEdit={() => setEditingExercise(exercise)}
-                          onDelete={() =>
-                            deleteExerciseMutation.mutate({
-                              workoutDayId: selectedWorkoutDay._id,
-                              exerciseId: exercise._id,
-                            })
-                          }
-                        />
-                      ))}
+                    <div className="space-y-6">
+                      {/* Warmup Section */}
+                      {(() => {
+                        const warmupExercises = selectedWorkoutDay.exercises
+                          .filter((ex) => (ex.category || 'main') === 'warmup')
+                          .sort((a, b) => (a.order || 0) - (b.order || 0));
+                        if (warmupExercises.length === 0) return null;
+                        return (
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <Flame className="w-5 h-5 text-orange-500" />
+                              <h4 className="text-base xl:text-lg font-semibold text-orange-500">
+                                WARM-UP
+                              </h4>
+                              <div className="flex-1 h-px bg-orange-500/20"></div>
+                            </div>
+                            <div className="space-y-3 bg-orange-50/30 dark:bg-orange-950/10 rounded-lg p-3">
+                              {warmupExercises.map((exercise, index) => (
+                                <ExerciseCard
+                                  key={exercise._id}
+                                  exercise={exercise}
+                                  index={index}
+                                  category="warmup"
+                                  categoryExercises={warmupExercises}
+                                  onEdit={() => setEditingExercise(exercise)}
+                                  onDelete={() =>
+                                    deleteExerciseMutation.mutate({
+                                      workoutDayId: selectedWorkoutDay._id,
+                                      exerciseId: exercise._id,
+                                    })
+                                  }
+                                  onMoveUp={() => handleMoveExercise('warmup', index, 'up')}
+                                  onMoveDown={() => handleMoveExercise('warmup', index, 'down')}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
+
+                      {/* Main Exercises Section */}
+                      {(() => {
+                        const mainExercises = selectedWorkoutDay.exercises
+                          .filter((ex) => (ex.category || 'main') === 'main')
+                          .sort((a, b) => (a.order || 0) - (b.order || 0));
+                        if (mainExercises.length === 0) return null;
+                        return (
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <Zap className="w-5 h-5 text-blue-500" />
+                              <h4 className="text-base xl:text-lg font-semibold text-blue-500">
+                                MAIN WORKOUT
+                              </h4>
+                              <div className="flex-1 h-px bg-blue-500/20"></div>
+                            </div>
+                            <div className="space-y-3 bg-blue-50/30 dark:bg-blue-950/10 rounded-lg p-3">
+                              {mainExercises.map((exercise, index) => (
+                                <ExerciseCard
+                                  key={exercise._id}
+                                  exercise={exercise}
+                                  index={index}
+                                  category="main"
+                                  categoryExercises={mainExercises}
+                                  onEdit={() => setEditingExercise(exercise)}
+                                  onDelete={() =>
+                                    deleteExerciseMutation.mutate({
+                                      workoutDayId: selectedWorkoutDay._id,
+                                      exerciseId: exercise._id,
+                                    })
+                                  }
+                                  onMoveUp={() => handleMoveExercise('main', index, 'up')}
+                                  onMoveDown={() => handleMoveExercise('main', index, 'down')}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
+
+                      {/* Cardio Section */}
+                      {(() => {
+                        const cardioExercises = selectedWorkoutDay.exercises
+                          .filter((ex) => (ex.category || 'main') === 'cardio')
+                          .sort((a, b) => (a.order || 0) - (b.order || 0));
+                        if (cardioExercises.length === 0) return null;
+                        return (
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <Heart className="w-5 h-5 text-red-500" />
+                              <h4 className="text-base xl:text-lg font-semibold text-red-500">
+                                CARDIO
+                              </h4>
+                              <div className="flex-1 h-px bg-red-500/20"></div>
+                            </div>
+                            <div className="space-y-3 bg-red-50/30 dark:bg-red-950/10 rounded-lg p-3">
+                              {cardioExercises.map((exercise, index) => (
+                                <ExerciseCard
+                                  key={exercise._id}
+                                  exercise={exercise}
+                                  index={index}
+                                  category="cardio"
+                                  categoryExercises={cardioExercises}
+                                  onEdit={() => setEditingExercise(exercise)}
+                                  onDelete={() =>
+                                    deleteExerciseMutation.mutate({
+                                      workoutDayId: selectedWorkoutDay._id,
+                                      exerciseId: exercise._id,
+                                    })
+                                  }
+                                  onMoveUp={() => handleMoveExercise('cardio', index, 'up')}
+                                  onMoveDown={() => handleMoveExercise('cardio', index, 'down')}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
                   ) : (
                     <div className="text-center py-8 text-text-secondary">
@@ -301,7 +446,7 @@ const AdminGymPrograms = () => {
 };
 
 // Exercise Card Component
-const ExerciseCard = ({ exercise, index, onEdit, onDelete }) => {
+const ExerciseCard = ({ exercise, index, category, categoryExercises, onEdit, onDelete, onMoveUp, onMoveDown }) => {
   return (
     <div className="bg-surface-hover rounded-lg p-3 xl:p-4 border border-surface-border">
       <div className="flex items-start justify-between gap-3">
@@ -343,7 +488,26 @@ const ExerciseCard = ({ exercise, index, onEdit, onDelete }) => {
             )}
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-1">
+          {/* Reorder buttons */}
+          <div className="flex flex-col gap-0.5">
+            <button
+              onClick={onMoveUp}
+              disabled={index === 0}
+              className="p-1 hover:bg-surface rounded transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              title="Move up"
+            >
+              <ArrowUp className="w-3 h-3" />
+            </button>
+            <button
+              onClick={onMoveDown}
+              disabled={index === categoryExercises.length - 1}
+              className="p-1 hover:bg-surface rounded transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              title="Move down"
+            >
+              <ArrowDown className="w-3 h-3" />
+            </button>
+          </div>
           <button
             onClick={onEdit}
             className="p-2 hover:bg-surface rounded-lg transition-colors"
@@ -367,6 +531,7 @@ const ExerciseForm = ({ workoutDayId, exercise, onSubmit, onCancel }) => {
   const [formData, setFormData] = useState({
     name: exercise?.name || '',
     type: exercise?.type || 'count',
+    category: exercise?.category || 'main',
     defaultSets: exercise?.defaultSets || 3,
     defaultReps: exercise?.defaultReps || 10,
     defaultWeight: exercise?.defaultWeight || 0,
@@ -384,6 +549,7 @@ const ExerciseForm = ({ workoutDayId, exercise, onSubmit, onCancel }) => {
       setFormData({
         name: '',
         type: 'count',
+        category: 'main',
         defaultSets: 3,
         defaultReps: 10,
         defaultWeight: 0,
@@ -408,6 +574,48 @@ const ExerciseForm = ({ workoutDayId, exercise, onSubmit, onCancel }) => {
             placeholder="e.g., Bench Press, Squats, Pull-ups"
             className="w-full px-4 py-2 bg-background border border-surface-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">Category</label>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setFormData({ ...formData, category: 'warmup' })}
+              className={`flex-1 px-3 py-2.5 rounded-lg border-2 transition-all ${
+                formData.category === 'warmup'
+                  ? 'bg-orange-50 border-orange-500 text-orange-600 dark:bg-orange-950/30'
+                  : 'bg-surface border-surface-border hover:border-orange-500/30'
+              }`}
+            >
+              <Flame className="w-4 h-4 mx-auto mb-1" />
+              <span className="text-xs font-medium">Warmup</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setFormData({ ...formData, category: 'main' })}
+              className={`flex-1 px-3 py-2.5 rounded-lg border-2 transition-all ${
+                formData.category === 'main'
+                  ? 'bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-950/30'
+                  : 'bg-surface border-surface-border hover:border-blue-500/30'
+              }`}
+            >
+              <Zap className="w-4 h-4 mx-auto mb-1" />
+              <span className="text-xs font-medium">Main</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setFormData({ ...formData, category: 'cardio' })}
+              className={`flex-1 px-3 py-2.5 rounded-lg border-2 transition-all ${
+                formData.category === 'cardio'
+                  ? 'bg-red-50 border-red-500 text-red-600 dark:bg-red-950/30'
+                  : 'bg-surface border-surface-border hover:border-red-500/30'
+              }`}
+            >
+              <Heart className="w-4 h-4 mx-auto mb-1" />
+              <span className="text-xs font-medium">Cardio</span>
+            </button>
+          </div>
         </div>
 
         <div>

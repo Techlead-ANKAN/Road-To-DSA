@@ -13,6 +13,9 @@ import {
   Minus,
   X,
   Trash2,
+  Flame,
+  Zap,
+  Heart,
 } from 'lucide-react';
 import {
   fetchAllWorkoutDays,
@@ -233,17 +236,17 @@ const GymTracker = () => {
           </div>
 
           {/* Workout Panel */}
-          <div className="w-full lg:w-96 xl:w-[26rem] 2xl:w-[30rem] bg-surface rounded-2xl border border-surface-border p-4 xl:p-6 2xl:p-8">
-            <div className="flex items-center justify-between mb-4 xl:mb-6">
-              <div>
-                <h3 className="text-lg xl:text-xl 2xl:text-2xl font-semibold">
+          <div className="w-full lg:w-96 xl:w-[26rem] 2xl:w-[30rem] bg-surface rounded-xl lg:rounded-2xl border border-surface-border p-3 sm:p-4 xl:p-6 2xl:p-8">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 xl:mb-6">
+              <div className="flex-1 min-w-0 mr-2">
+                <h3 className="text-base sm:text-lg xl:text-xl 2xl:text-2xl font-semibold truncate">
                   {selectedDate.format('MMM D, YYYY')}
                 </h3>
-                <p className="text-xs xl:text-sm text-text-secondary">
+                <p className="text-xs xl:text-sm text-text-secondary truncate">
                   {selectedDayLog ? selectedDayLog.workoutDayId?.name : 'No workout assigned'}
                 </p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                 {selectedDayLog ? (
                   <button
                     onClick={() => {
@@ -251,17 +254,17 @@ const GymTracker = () => {
                         deleteLogMutation.mutate(selectedDayLog._id);
                       }
                     }}
-                    className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                    className="p-1.5 sm:p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
                     title="Unassign workout"
                   >
-                    <Trash2 className="w-5 h-5" />
+                    <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 ) : (
                   <button
                     onClick={() => setIsAssignModalOpen(true)}
-                    className="p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                    className="p-1.5 sm:p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
                   >
-                    <Plus className="w-5 h-5" />
+                    <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 )}
               </div>
@@ -303,17 +306,42 @@ const GymTracker = () => {
 
 // Workout Logger Component
 const WorkoutLogger = ({ log, onUpdate }) => {
-  const [exercises, setExercises] = useState(
-    log.exercises.length > 0
-      ? log.exercises
-      : log.workoutDayId?.exercises.map((ex) => ({
-          name: ex.name,
-          type: ex.type,
-          sets: ex.type === 'count' ? Array(ex.defaultSets).fill({ reps: ex.defaultReps, weight: ex.defaultWeight }) : [],
-          time: ex.type === 'time' ? ex.defaultTime : 0,
-          notes: '',
-        })) || []
-  );
+  const [exercises, setExercises] = useState(() => {
+    // If log has exercises, merge with template to get categories
+    if (log.exercises.length > 0) {
+      // Create a map of template exercises by name for lookup
+      const templateMap = {};
+      log.workoutDayId?.exercises?.forEach((ex) => {
+        templateMap[ex.name] = { category: ex.category || 'main', order: ex.order || 0 };
+      });
+
+      // Merge saved exercises with template data to ensure categories exist
+      return log.exercises.map((ex) => ({
+        ...ex,
+        category: ex.category || templateMap[ex.name]?.category || 'main',
+      }));
+    }
+
+    // Initialize from template
+    return log.workoutDayId?.exercises
+      ?.sort((a, b) => {
+        // Sort by category order: warmup, main, cardio
+        const categoryOrder = { warmup: 0, main: 1, cardio: 2 };
+        const catA = categoryOrder[a.category || 'main'];
+        const catB = categoryOrder[b.category || 'main'];
+        if (catA !== catB) return catA - catB;
+        // Within same category, sort by order field
+        return (a.order || 0) - (b.order || 0);
+      })
+      .map((ex) => ({
+        name: ex.name,
+        type: ex.type,
+        category: ex.category || 'main',
+        sets: ex.type === 'count' ? Array(ex.defaultSets).fill({ reps: ex.defaultReps, weight: ex.defaultWeight }) : [],
+        time: ex.type === 'time' ? ex.defaultTime : 0,
+        notes: '',
+      })) || [];
+  });
 
   const handleAddSet = (exerciseIndex) => {
     const newExercises = [...exercises];
@@ -356,94 +384,145 @@ const WorkoutLogger = ({ log, onUpdate }) => {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="max-h-[600px] overflow-y-auto space-y-4">
-        {exercises.map((exercise, exerciseIndex) => (
-          <div
-            key={exerciseIndex}
-            className="bg-surface-hover rounded-lg p-3 xl:p-4 border border-surface-border"
-          >
-            <h4 className="text-sm xl:text-base font-semibold mb-3">{exercise.name}</h4>
+    <div className="space-y-3 sm:space-y-4">
+      <div className="max-h-[50vh] sm:max-h-[500px] lg:max-h-[600px] overflow-y-auto space-y-3 sm:space-y-4 pr-1">
+        {/* Group exercises by category */}
+        {['warmup', 'main', 'cardio'].map((category) => {
+          const categoryExercises = exercises
+            .map((ex, idx) => ({ ...ex, originalIndex: idx }))
+            .filter((ex) => (ex.category || 'main') === category);
 
-            {exercise.type === 'count' ? (
-              <div className="space-y-2">
-                {exercise.sets.map((set, setIndex) => (
-                  <div key={setIndex} className="flex items-center gap-2">
-                    <span className="text-xs font-medium text-text-secondary w-12">
-                      Set {setIndex + 1}
-                    </span>
-                    <input
-                      type="number"
-                      placeholder="Reps"
-                      value={set.reps || ''}
-                      onChange={(e) =>
-                        handleSetChange(exerciseIndex, setIndex, 'reps', e.target.value)
-                      }
-                      className="flex-1 px-2 py-1 text-sm bg-background border border-surface-border rounded focus:ring-2 focus:ring-primary"
+          if (categoryExercises.length === 0) return null;
+
+          const categoryConfig = {
+            warmup: {
+              icon: Flame,
+              label: 'WARM-UP',
+              color: 'orange',
+              bgClass: 'bg-orange-50/50 dark:bg-orange-950/20',
+              borderClass: 'border-orange-500/20',
+              textClass: 'text-orange-500',
+            },
+            main: {
+              icon: Zap,
+              label: 'MAIN WORKOUT',
+              color: 'blue',
+              bgClass: 'bg-blue-50/50 dark:bg-blue-950/20',
+              borderClass: 'border-blue-500/20',
+              textClass: 'text-blue-500',
+            },
+            cardio: {
+              icon: Heart,
+              label: 'CARDIO',
+              color: 'red',
+              bgClass: 'bg-red-50/50 dark:bg-red-950/20',
+              borderClass: 'border-red-500/20',
+              textClass: 'text-red-500',
+            },
+          };
+
+          const config = categoryConfig[category];
+          const Icon = config.icon;
+
+          return (
+            <div key={category} className={`rounded-lg border ${config.borderClass} ${config.bgClass} p-2 sm:p-3`}>
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${config.textClass} flex-shrink-0`} />
+                <h3 className={`text-xs sm:text-sm font-semibold ${config.textClass}`}>{config.label}</h3>
+                <div className={`flex-1 h-px ${config.borderClass}`}></div>
+              </div>
+              
+              <div className="space-y-2 sm:space-y-3">
+                {categoryExercises.map(({ originalIndex, ...exercise }) => (
+                  <div
+                    key={originalIndex}
+                    className="bg-surface-hover rounded-lg p-2 sm:p-3 xl:p-4 border border-surface-border"
+                  >
+                    <h4 className="text-xs sm:text-sm xl:text-base font-semibold mb-2 sm:mb-3">{exercise.name}</h4>
+
+                    {exercise.type === 'count' ? (
+                      <div className="space-y-1.5 sm:space-y-2">
+                        {exercise.sets.map((set, setIndex) => (
+                          <div key={setIndex} className="flex items-center gap-1 sm:gap-2">
+                            <span className="text-[10px] sm:text-xs font-medium text-text-secondary w-8 sm:w-12 flex-shrink-0">
+                              {setIndex + 1}
+                            </span>
+                            <input
+                              type="number"
+                              placeholder="Reps"
+                              value={set.reps || ''}
+                              onChange={(e) =>
+                                handleSetChange(originalIndex, setIndex, 'reps', e.target.value)
+                              }
+                              className="flex-1 min-w-0 px-1.5 sm:px-2 py-1 text-xs sm:text-sm bg-background border border-surface-border rounded focus:ring-1 focus:ring-primary"
+                            />
+                            <span className="text-[10px] sm:text-xs flex-shrink-0">×</span>
+                            <input
+                              type="number"
+                              placeholder="kg"
+                              value={set.weight || ''}
+                              onChange={(e) =>
+                                handleSetChange(originalIndex, setIndex, 'weight', e.target.value)
+                              }
+                              className="flex-1 min-w-0 px-1.5 sm:px-2 py-1 text-xs sm:text-sm bg-background border border-surface-border rounded focus:ring-1 focus:ring-primary"
+                            />
+                            <span className="text-[10px] sm:text-xs flex-shrink-0">kg</span>
+                            <button
+                              onClick={() => handleRemoveSet(originalIndex, setIndex)}
+                              className="p-0.5 sm:p-1 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 rounded flex-shrink-0"
+                            >
+                              <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
+                            </button>
+                          </div>
+                        ))}
+                        <button
+                          onClick={() => handleAddSet(originalIndex)}
+                          className="w-full py-1 text-[10px] sm:text-xs text-primary hover:bg-primary/10 rounded transition-colors"
+                        >
+                          + Add Set
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <input
+                          type="number"
+                          placeholder="Duration"
+                          value={exercise.time || ''}
+                          onChange={(e) => handleTimeChange(originalIndex, e.target.value)}
+                          className="flex-1 min-w-0 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-background border border-surface-border rounded-lg focus:ring-1 sm:focus:ring-2 focus:ring-primary"
+                        />
+                        <span className="text-xs sm:text-sm flex-shrink-0">min</span>
+                      </div>
+                    )}
+
+                    <textarea
+                      placeholder="Notes (optional)"
+                      value={exercise.notes || ''}
+                      onChange={(e) => handleNotesChange(originalIndex, e.target.value)}
+                      rows={2}
+                      className="w-full mt-1.5 sm:mt-2 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-background border border-surface-border rounded-lg focus:ring-1 sm:focus:ring-2 focus:ring-primary resize-none"
                     />
-                    <span className="text-xs">×</span>
-                    <input
-                      type="number"
-                      placeholder="Weight"
-                      value={set.weight || ''}
-                      onChange={(e) =>
-                        handleSetChange(exerciseIndex, setIndex, 'weight', e.target.value)
-                      }
-                      className="flex-1 px-2 py-1 text-sm bg-background border border-surface-border rounded focus:ring-2 focus:ring-primary"
-                    />
-                    <span className="text-xs">kg</span>
-                    <button
-                      onClick={() => handleRemoveSet(exerciseIndex, setIndex)}
-                      className="p-1 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 rounded"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
                   </div>
                 ))}
-                <button
-                  onClick={() => handleAddSet(exerciseIndex)}
-                  className="w-full py-1 text-xs text-primary hover:bg-primary/10 rounded transition-colors"
-                >
-                  + Add Set
-                </button>
               </div>
-            ) : (
-              <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  placeholder="Duration"
-                  value={exercise.time || ''}
-                  onChange={(e) => handleTimeChange(exerciseIndex, e.target.value)}
-                  className="flex-1 px-3 py-2 bg-background border border-surface-border rounded-lg focus:ring-2 focus:ring-primary"
-                />
-                <span className="text-sm">minutes</span>
-              </div>
-            )}
-
-            <textarea
-              placeholder="Notes (optional)"
-              value={exercise.notes || ''}
-              onChange={(e) => handleNotesChange(exerciseIndex, e.target.value)}
-              rows={2}
-              className="w-full mt-2 px-3 py-2 text-sm bg-background border border-surface-border rounded-lg focus:ring-2 focus:ring-primary resize-none"
-            />
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
 
-      <div className="flex gap-3 pt-4">
+      <div className="flex gap-2 sm:gap-3 pt-3 sm:pt-4">
         <button
           onClick={handleSave}
-          className="flex-1 px-4 py-2 bg-surface-hover rounded-lg hover:bg-surface transition-colors"
+          className="flex-1 px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-surface-hover rounded-lg hover:bg-surface transition-colors"
         >
-          Save Progress
+          Save
         </button>
         <button
           onClick={handleMarkAsDone}
           disabled={log.completed}
-          className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {log.completed ? 'Completed' : 'Mark as Done'}
+          {log.completed ? 'Done ✓' : 'Mark Done'}
         </button>
       </div>
     </div>
