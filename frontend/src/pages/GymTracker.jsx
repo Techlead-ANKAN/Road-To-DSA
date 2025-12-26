@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useUser } from '../context/UserContext';
 import dayjs from 'dayjs';
@@ -306,24 +306,24 @@ const GymTracker = () => {
 
 // Workout Logger Component
 const WorkoutLogger = ({ log, onUpdate }) => {
-  const [exercises, setExercises] = useState(() => {
+  const initializeExercises = (logData) => {
     // If log has exercises, merge with template to get categories
-    if (log.exercises.length > 0) {
+    if (logData.exercises.length > 0) {
       // Create a map of template exercises by name for lookup
       const templateMap = {};
-      log.workoutDayId?.exercises?.forEach((ex) => {
+      logData.workoutDayId?.exercises?.forEach((ex) => {
         templateMap[ex.name] = { category: ex.category || 'main', order: ex.order || 0 };
       });
 
       // Merge saved exercises with template data to ensure categories exist
-      return log.exercises.map((ex) => ({
+      return logData.exercises.map((ex) => ({
         ...ex,
         category: ex.category || templateMap[ex.name]?.category || 'main',
       }));
     }
 
     // Initialize from template
-    return log.workoutDayId?.exercises
+    return logData.workoutDayId?.exercises
       ?.sort((a, b) => {
         // Sort by category order: warmup, main, cardio
         const categoryOrder = { warmup: 0, main: 1, cardio: 2 };
@@ -341,7 +341,14 @@ const WorkoutLogger = ({ log, onUpdate }) => {
         time: ex.type === 'time' ? ex.defaultTime : 0,
         notes: '',
       })) || [];
-  });
+  };
+
+  const [exercises, setExercises] = useState(() => initializeExercises(log));
+
+  // Update exercises when log changes (e.g., when user selects a different date)
+  useEffect(() => {
+    setExercises(initializeExercises(log));
+  }, [log]);
 
   const handleAddSet = (exerciseIndex) => {
     const newExercises = [...exercises];
