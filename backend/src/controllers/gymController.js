@@ -367,18 +367,23 @@ export const getStreak = async (req, res) => {
   res.json({ streak });
 };
 
-// Get monthly gym activity stats (last 30 days)
+// Get monthly gym activity stats (entire current month)
 export const getMonthlyStats = async (req, res) => {
   const { userId } = req.params;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const thirtyDaysAgo = new Date(today);
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 29); // 30 days total
+  
+  // Get first and last day of current month
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  firstDayOfMonth.setHours(0, 0, 0, 0);
+  const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  lastDayOfMonth.setHours(23, 59, 59, 999);
+  const daysInMonth = lastDayOfMonth.getDate();
 
   const logs = await GymLog.find({
     userId,
-    date: { $gte: thirtyDaysAgo, $lte: today },
+    date: { $gte: firstDayOfMonth, $lte: lastDayOfMonth },
   }).populate('workoutDayId');
 
   // Create a map of logs by date
@@ -391,10 +396,10 @@ export const getMonthlyStats = async (req, res) => {
     logsByDate[dateKey] = log;
   });
 
-  // Generate stats for each day
+  // Generate stats for each day of the current month
   const stats = [];
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(thirtyDaysAgo);
+  for (let i = 0; i < daysInMonth; i++) {
+    const date = new Date(firstDayOfMonth);
     date.setDate(date.getDate() + i);
 
     const year = date.getFullYear();
