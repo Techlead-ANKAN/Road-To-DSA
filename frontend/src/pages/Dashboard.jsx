@@ -271,8 +271,45 @@ const DashboardPage = () => {
                   dataKey="day" 
                   stroke="var(--color-text-secondary)"
                   style={{ fontSize: '12px' }}
+                  tick={({ x, y, payload }) => {
+                    const today = dayjs().format('ddd')
+                    const isToday = payload.value === today
+                    return (
+                      <g transform={`translate(${x},${y})`}>
+                        <text
+                          x={0}
+                          y={0}
+                          dy={16}
+                          textAnchor="middle"
+                          fill="var(--color-text-secondary)"
+                          fontSize={12}
+                        >
+                          {payload.value}
+                        </text>
+                        {isToday && (
+                          <text
+                            x={0}
+                            y={0}
+                            dy={30}
+                            textAnchor="middle"
+                            fill="#2563eb"
+                            fontSize={10}
+                            fontWeight="600"
+                          >
+                            Today
+                          </text>
+                        )}
+                      </g>
+                    )
+                  }}
+                  height={50}
                 />
-                <YAxis stroke="var(--color-text-secondary)" />
+                <YAxis 
+                  stroke="var(--color-text-secondary)"
+                  allowDecimals={false}
+                  domain={[0, 'dataMax + 1']}
+                  ticks={[0, 1, 2, 3, 4, 5]}
+                />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: 'var(--color-surface)',
@@ -403,13 +440,11 @@ const DashboardPage = () => {
                   const daysInMonth = today.daysInMonth()
                   const startDayOfWeek = firstDay.day()
                   
-                  // Create a map from gymMonthlyStats for quick lookup
+                  // Create a map from gymMonthlyStats for quick lookup by date string
                   const statsMap = new Map()
                   gymMonthlyStats.forEach(stat => {
-                    const date = dayjs(stat.date)
-                    if (date.month() === today.month() && date.year() === today.year()) {
-                      statsMap.set(date.date(), stat)
-                    }
+                    // Use the date string as key for direct matching
+                    statsMap.set(stat.date, stat)
                   })
                   
                   const cells = []
@@ -423,9 +458,11 @@ const DashboardPage = () => {
                   
                   // Days of the month
                   for (let day = 1; day <= daysInMonth; day++) {
-                    const stat = statsMap.get(day)
-                    const isToday = today.date() === day
-                    const isFuture = dayjs().date(`${today.year()}-${today.month() + 1}-${day}`) > today
+                    const currentDate = dayjs().year(today.year()).month(today.month()).date(day)
+                    const dateKey = currentDate.format('YYYY-MM-DD')
+                    const stat = statsMap.get(dateKey)
+                    const isToday = currentDate.isSame(today, 'day')
+                    const isPast = currentDate.isBefore(today, 'day')
                     
                     let bgColor = 'bg-slate-100 dark:bg-slate-800' // Default: no workout
                     let textColor = 'text-slate-400'
@@ -437,7 +474,7 @@ const DashboardPage = () => {
                         bgColor = 'bg-green-500 hover:bg-green-600'
                         textColor = 'text-white font-semibold'
                         title = `✓ Completed - ${stat.workoutName || 'Workout'}`
-                      } else if (!isFuture) {
+                      } else if (isPast) {
                         bgColor = 'bg-red-500 hover:bg-red-600'
                         textColor = 'text-white font-semibold'
                         title = `✗ Missed - ${stat.workoutName || 'Workout'}`
