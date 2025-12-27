@@ -247,59 +247,65 @@ export const getWorkStreak = async (req, res) => {
     return res.json({ streak: 0 });
   }
 
-  // Group tasks by date
+  // Group tasks by date and filter qualifying days (>75% completion)
+  const qualifyingDates = [];
   const tasksByDate = {};
+  
   tasks.forEach((task) => {
-    const year = task.date.getFullYear();
-    const month = String(task.date.getMonth() + 1).padStart(2, '0');
-    const day = String(task.date.getDate()).padStart(2, '0');
-    const dateKey = `${year}-${month}-${day}`;
+    const taskDate = new Date(task.date);
+    taskDate.setHours(0, 0, 0, 0);
+    const dateKey = taskDate.getTime();
+    
     if (!tasksByDate[dateKey]) {
-      tasksByDate[dateKey] = [];
+      tasksByDate[dateKey] = {
+        date: taskDate,
+        tasks: [],
+      };
     }
-    tasksByDate[dateKey].push(task);
+    tasksByDate[dateKey].tasks.push(task);
   });
 
-  // Calculate streak from today backwards
-  let streak = 0;
-  let currentDate = new Date(today);
-  let foundFirstQualifyingDay = false;
-
-  while (true) {
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    const dateKey = `${year}-${month}-${day}`;
-
-    const dayTasks = tasksByDate[dateKey] || [];
-
-    if (dayTasks.length === 0) {
-      // No tasks assigned, skip this day
-      currentDate.setDate(currentDate.getDate() - 1);
-      // But break if we've gone back more than 30 days
-      if (today.getTime() - currentDate.getTime() > 30 * 24 * 60 * 60 * 1000) {
-        break;
-      }
-      continue;
-    }
-
-    const completedCount = dayTasks.filter(task => task.completed).length;
-    const completionRate = completedCount / dayTasks.length;
-
+  // Calculate completion rate for each day and filter qualifying days
+  Object.values(tasksByDate).forEach((dayData) => {
+    const completedCount = dayData.tasks.filter(task => task.completed).length;
+    const completionRate = completedCount / dayData.tasks.length;
+    
     if (completionRate >= 0.75) {
-      if (foundFirstQualifyingDay) {
-        // Increment only for days after the first (first day = 0)
+      qualifyingDates.push(dayData.date);
+    }
+  });
+
+  if (qualifyingDates.length === 0) {
+    return res.json({ streak: 0 });
+  }
+
+  // Sort dates descending
+  qualifyingDates.sort((a, b) => b.getTime() - a.getTime());
+
+  // Check if the most recent qualifying day is today or yesterday
+  const mostRecentDate = qualifyingDates[0];
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  if (mostRecentDate < yesterday) {
+    return res.json({ streak: 0 });
+  }
+
+  // Count consecutive days (first day = 0, then increment for each additional day)
+  let streak = 0;
+  let currentDate = new Date(mostRecentDate);
+  let foundFirstDay = false;
+
+  for (const qualifyingDate of qualifyingDates) {
+    if (qualifyingDate.getTime() === currentDate.getTime()) {
+      if (foundFirstDay) {
+        // Increment for days after the first
         streak++;
       }
-      foundFirstQualifyingDay = true;
+      foundFirstDay = true;
       currentDate.setDate(currentDate.getDate() - 1);
-    } else {
-      // Streak broken
-      break;
-    }
-
-    // Safety check to avoid infinite loop
-    if (today.getTime() - currentDate.getTime() > 365 * 24 * 60 * 60 * 1000) {
+    } else if (qualifyingDate < currentDate) {
+      // Gap found, break
       break;
     }
   }
