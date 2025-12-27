@@ -379,65 +379,118 @@ const DashboardPage = () => {
         {/* Monthly Gym Activity */}
         {gymMonthlyStats && (
           <div className="bg-surface rounded-2xl border border-surface-border p-6">
-            <h3 className="text-lg font-semibold mb-4">Monthly Gym Activity (Last 30 Days)</h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={gymMonthlyStats}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-surface-border)" />
-                <XAxis 
-                  dataKey="day" 
-                  stroke="var(--color-text-secondary)"
-                  style={{ fontSize: '10px' }}
-                  angle={-45}
-                  textAnchor="end"
-                  height={60}
-                />
-                <YAxis hide />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: 'var(--color-surface)',
-                    border: '1px solid var(--color-surface-border)',
-                    borderRadius: '8px',
-                  }}
-                  content={({ active, payload }) => {
-                    if (active && payload && payload.length) {
-                      const data = payload[0].payload;
-                      return (
-                        <div className="bg-surface border border-surface-border rounded-lg p-3 shadow-lg">
-                          <p className="font-semibold text-sm mb-1">{data.day}</p>
-                          {data.assigned ? (
-                            <>
-                              <p className={`text-xs ${data.completed ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                                {data.completed ? '✓ Completed' : '✗ Not Done'}
-                              </p>
-                              {data.workoutName && (
-                                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                                  {data.workoutName}
-                                </p>
-                              )}
-                            </>
-                          ) : (
-                            <p className="text-xs text-slate-500">No workout assigned</p>
-                          )}
-                        </div>
-                      );
+            <h3 className="text-lg font-semibold mb-4">
+              Monthly Gym Activity - {dayjs().format('MMMM YYYY')}
+            </h3>
+            <div className="space-y-3">
+              {/* Weekday headers */}
+              <div className="grid grid-cols-7 gap-1 sm:gap-2">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                  <div 
+                    key={day} 
+                    className="text-center text-xs font-medium text-slate-500 py-1"
+                  >
+                    {day}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Calendar grid */}
+              <div className="grid grid-cols-7 gap-1 sm:gap-2">
+                {(() => {
+                  const today = dayjs()
+                  const firstDay = today.startOf('month')
+                  const daysInMonth = today.daysInMonth()
+                  const startDayOfWeek = firstDay.day()
+                  
+                  // Create a map from gymMonthlyStats for quick lookup
+                  const statsMap = new Map()
+                  gymMonthlyStats.forEach(stat => {
+                    const date = dayjs(stat.date)
+                    if (date.month() === today.month() && date.year() === today.year()) {
+                      statsMap.set(date.date(), stat)
                     }
-                    return null;
-                  }}
-                />
-                <Bar 
-                  dataKey={(entry) => entry.assigned ? 1 : 0} 
-                  radius={[4, 4, 0, 0]}
-                  fill="transparent"
-                >
-                  {gymMonthlyStats.map((entry, index) => (
-                    <Cell 
-                      key={`cell-${index}`}
-                      fill={entry.assigned ? (entry.completed ? '#10b98120' : '#ef444420') : '#e5e7eb20'}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
+                  })
+                  
+                  const cells = []
+                  
+                  // Empty cells before first day
+                  for (let i = 0; i < startDayOfWeek; i++) {
+                    cells.push(
+                      <div key={`empty-${i}`} className="aspect-square" />
+                    )
+                  }
+                  
+                  // Days of the month
+                  for (let day = 1; day <= daysInMonth; day++) {
+                    const stat = statsMap.get(day)
+                    const isToday = today.date() === day
+                    const isFuture = dayjs().date(`${today.year()}-${today.month() + 1}-${day}`) > today
+                    
+                    let bgColor = 'bg-slate-100 dark:bg-slate-800' // Default: no workout
+                    let textColor = 'text-slate-400'
+                    let borderColor = ''
+                    let title = 'No workout assigned'
+                    
+                    if (stat?.assigned) {
+                      if (stat.completed) {
+                        bgColor = 'bg-green-500 hover:bg-green-600'
+                        textColor = 'text-white font-semibold'
+                        title = `✓ Completed - ${stat.workoutName || 'Workout'}`
+                      } else if (!isFuture) {
+                        bgColor = 'bg-red-500 hover:bg-red-600'
+                        textColor = 'text-white font-semibold'
+                        title = `✗ Missed - ${stat.workoutName || 'Workout'}`
+                      } else {
+                        bgColor = 'bg-orange-200 dark:bg-orange-800'
+                        textColor = 'text-slate-700 dark:text-slate-200'
+                        title = `Scheduled - ${stat.workoutName || 'Workout'}`
+                      }
+                    }
+                    
+                    if (isToday) {
+                      borderColor = 'ring-2 ring-blue-500 ring-offset-2 ring-offset-surface'
+                    }
+                    
+                    cells.push(
+                      <div
+                        key={day}
+                        title={title}
+                        className={`
+                          aspect-square rounded-md flex items-center justify-center
+                          text-xs sm:text-sm transition-all cursor-pointer
+                          ${bgColor} ${textColor} ${borderColor}
+                        `}
+                      >
+                        {day}
+                      </div>
+                    )
+                  }
+                  
+                  return cells
+                })()}
+              </div>
+              
+              {/* Legend */}
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-3 border-t border-surface-border text-xs">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded bg-green-500" />
+                  <span className="text-slate-600 dark:text-slate-400">Completed</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded bg-red-500" />
+                  <span className="text-slate-600 dark:text-slate-400">Missed</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded bg-orange-200 dark:bg-orange-800" />
+                  <span className="text-slate-600 dark:text-slate-400">Scheduled</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded bg-slate-100 dark:bg-slate-800" />
+                  <span className="text-slate-600 dark:text-slate-400">No workout</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
