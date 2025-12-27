@@ -37,12 +37,10 @@ const gymLogSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
-      index: true,
     },
     date: {
       type: Date,
       required: true,
-      index: true,
     },
     workoutDayId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -60,10 +58,7 @@ const gymLogSchema = new mongoose.Schema(
   }
 );
 
-// Compound index for efficient queries by user and date
-gymLogSchema.index({ userId: 1, date: 1 });
-
-// Ensure one log per day per user
+// Compound unique index for efficient queries and ensure one log per day per user
 gymLogSchema.index({ userId: 1, date: 1 }, { unique: true });
 
 const GymLog = mongoose.model('GymLog', gymLogSchema);

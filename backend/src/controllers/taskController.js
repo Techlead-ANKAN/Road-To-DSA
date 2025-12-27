@@ -263,6 +263,7 @@ export const getWorkStreak = async (req, res) => {
   // Calculate streak from today backwards
   let streak = 0;
   let currentDate = new Date(today);
+  let foundFirstQualifyingDay = false;
 
   while (true) {
     const year = currentDate.getFullYear();
@@ -286,7 +287,11 @@ export const getWorkStreak = async (req, res) => {
     const completionRate = completedCount / dayTasks.length;
 
     if (completionRate >= 0.75) {
-      streak++;
+      if (foundFirstQualifyingDay) {
+        // Increment only for days after the first (first day = 0)
+        streak++;
+      }
+      foundFirstQualifyingDay = true;
       currentDate.setDate(currentDate.getDate() - 1);
     } else {
       // Streak broken

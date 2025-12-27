@@ -304,22 +304,33 @@ export const getStreak = async (req, res) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Get all completed gym logs sorted by date descending
+  // Get all gym logs sorted by date descending
   const logs = await GymLog.find({
     userId,
-    completed: true,
     date: { $lte: today },
-  }).sort({ date: -1 });
+  }).sort({ date: -1 }).populate('workoutDayId');
 
   if (logs.length === 0) {
+    return res.json({ streak: 0 });
+  }
+
+  // Filter logs that have at least 2 exercises completed
+  const qualifyingLogs = logs.filter(log => {
+    const totalExercises = log.workoutDayId?.exercises?.length || 0;
+    const completedExercises = log.exercises?.length || 0;
+    // A day counts if at least 2 exercises were completed
+    return completedExercises >= 2;
+  });
+
+  if (qualifyingLogs.length === 0) {
     return res.json({ streak: 0 });
   }
 
   let streak = 0;
   let currentDate = new Date(today);
 
-  // Check if there's a workout today or yesterday
-  const mostRecentLog = logs[0];
+  // Check if there's a qualifying workout today or yesterday
+  const mostRecentLog = qualifyingLogs[0];
   const mostRecentDate = new Date(mostRecentLog.date);
   mostRecentDate.setHours(0, 0, 0, 0);
 
@@ -334,12 +345,18 @@ export const getStreak = async (req, res) => {
   // Start from most recent workout
   currentDate = new Date(mostRecentDate);
 
-  for (const log of logs) {
+  // Count consecutive days (first day = 0, then increment for each additional day)
+  let foundFirstDay = false;
+  for (const log of qualifyingLogs) {
     const logDate = new Date(log.date);
     logDate.setHours(0, 0, 0, 0);
 
     if (logDate.getTime() === currentDate.getTime()) {
-      streak++;
+      if (foundFirstDay) {
+        // Increment for days after the first
+        streak++;
+      }
+      foundFirstDay = true;
       currentDate.setDate(currentDate.getDate() - 1);
     } else if (logDate < currentDate) {
       // Gap found, break
