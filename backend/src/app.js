@@ -13,6 +13,7 @@ import webAssignmentRoutes from './routes/webAssignmentRoutes.js'
 import taskRoutes from './routes/taskRoutes.js'
 import gymRoutes from './routes/gymRoutes.js'
 import noticeRoutes from './routes/noticeRoutes.js'
+import timeLogRoutes from './routes/timeLogRoutes.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 
 export const createApp = () => {
@@ -40,6 +41,7 @@ export const createApp = () => {
   app.use('/api/tasks', taskRoutes)
   app.use('/api/gym', gymRoutes)
   app.use('/api/notices', noticeRoutes)
+  app.use('/api/time-logs', timeLogRoutes)
 
   app.use(notFoundHandler)
   app.use(errorHandler)

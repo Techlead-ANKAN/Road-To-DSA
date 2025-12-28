@@ -7,6 +7,7 @@ import {
   ChevronDown, 
   LayoutDashboard,
   Calendar,
+  Clock,
   Dumbbell,
   Settings,
   BookOpen,
@@ -30,6 +31,7 @@ const navSections = [
     icon: Calendar,
     items: [
       { label: 'Calendar', to: '/productivity-calendar', icon: Calendar },
+      { label: 'Work Records', to: '/work-records', icon: Clock },
       { label: 'Gym Tracker', to: '/gym-tracker', icon: Dumbbell },
       { label: 'Gym Admin', to: '/admin/gym-programs', icon: Settings }
     ]

@@ -12,6 +12,7 @@ import AdminWebAssignmentsPage from './pages/AdminWebAssignments.jsx'
 import WebPracticePage from './pages/WebPractice.jsx'
 import CodeVisualizePage from './pages/CodeVisualize.jsx'
 import ProductivityCalendar from './pages/ProductivityCalendar.jsx'
+import WorkRecords from './pages/WorkRecords.jsx'
 import GymTracker from './pages/GymTracker.jsx'
 import AdminGymPrograms from './pages/AdminGymPrograms.jsx'
 import { Toaster } from 'react-hot-toast'
@@ -28,6 +29,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="/productivity-calendar" element={<ProductivityCalendar />} />
+                <Route path="/work-records" element={<WorkRecords />} />
                 <Route path="/gym-tracker" element={<GymTracker />} />
                 <Route path="/admin/gym-programs" element={<AdminGymPrograms />} />
                 <Route path="/course" element={<CoursePage />} />

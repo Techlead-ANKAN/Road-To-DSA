@@ -11,9 +11,11 @@ import { SmallStatCard } from '../components/SmallStatCard.jsx'
 import { DashboardCharts } from '../components/DashboardCharts.jsx'
 import { RecentActivity } from '../components/RecentActivity.jsx'
 import { NoticeBoard } from '../components/NoticeBoard.jsx'
+import TimelineTracker from '../components/TimelineTracker.jsx'
 import { useProgressData } from '../hooks/useProgressData.js'
 import { fetchTodayCount, fetchCompletedCount, fetchWeeklyStats, fetchTasksByDate, fetchWorkStreak } from '../api/task.js'
 import { fetchMonthCount, fetchStreak, fetchMonthlyStats, fetchGymLogByDate } from '../api/gym.js'
+import { fetchTodayTotal } from '../api/timeLog.js'
 
 const LoadingState = () => (
   <div className="rounded-2xl border border-dashed border-surface-border bg-surface p-8 text-center text-sm text-slate-500">
@@ -102,6 +104,13 @@ const DashboardPage = () => {
     enabled: !!user.userId,
   })
 
+  // Fetch today's work hours
+  const { data: todayTimeTotal } = useQuery({
+    queryKey: ['todayTotal', user.userId],
+    queryFn: () => fetchTodayTotal(user.userId),
+    enabled: !!user.userId,
+  })
+
   const statCards = useMemo(() => {
     const total = metrics?.totalProblems ?? courseQuery.data?.totalProblems ?? 0
     const completed = metrics?.completedProblems ?? 0
@@ -174,7 +183,7 @@ const DashboardPage = () => {
       </div>
 
       {/* New Productivity & Gym Stats */}
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5">
         <SmallStatCard
           label="Tasks Today"
           value={`${todayTaskCount?.completed ?? 0} / ${todayTaskCount?.assigned ?? 0}`}
@@ -188,6 +197,13 @@ const DashboardPage = () => {
           helper={todayGymLog?.workoutDayId?.name || 'No workout'}
           icon={Dumbbell}
           accent={todayGymLog?.completed ? 'emerald' : 'orange'}
+        />
+        <SmallStatCard
+          label="Hours Today"
+          value={`${todayTimeTotal?.totalHours ?? '0.0'}h`}
+          helper={`${todayTimeTotal?.entriesCount ?? 0} sessions`}
+          icon={Clock}
+          accent="indigo"
         />
         <SmallStatCard
           label="Work Streak"
@@ -207,6 +223,9 @@ const DashboardPage = () => {
 
       {/* Notice Board */}
       <NoticeBoard />
+
+      {/* Time Tracking Timeline */}
+      <TimelineTracker />
 
       {/* Today's Tasks & Weekly Stats */}
       <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
