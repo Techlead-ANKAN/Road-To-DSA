@@ -305,8 +305,8 @@ export const deleteTimeLog = async (req, res, next) => {
 export const getTodayTotal = async (req, res, next) => {
   try {
     const { userId } = req.params;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const todayString = formatDate(new Date());
+    const today = parseLocalDate(todayString);
 
     const timeLog = await TimeLog.findOne({ userId, date: today });
 
@@ -329,8 +329,8 @@ export const getTodayTotal = async (req, res, next) => {
 export const getWeeklyStats = async (req, res, next) => {
   try {
     const { userId } = req.params;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const todayString = formatDate(new Date());
+    const today = parseLocalDate(todayString);
 
     const sevenDaysAgo = new Date(today);
     sevenDaysAgo.setDate(today.getDate() - 6);
