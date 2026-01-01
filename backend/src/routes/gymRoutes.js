@@ -17,6 +17,7 @@ import {
   getMonthCount,
   getStreak,
   getMonthlyStats,
+  getGymStatistics,
 } from '../controllers/gymController.js';
 
 const router = express.Router();
@@ -45,5 +46,6 @@ router.delete('/logs/:id', deleteGymLog);
 router.get('/stats/:userId/month-count', getMonthCount);
 router.get('/stats/:userId/streak', getStreak);
 router.get('/stats/:userId/monthly', getMonthlyStats);
+router.get('/stats/:userId/comprehensive', getGymStatistics);
 
 export default router;

@@ -23,7 +23,9 @@ import {
   createGymLog,
   updateGymLog,
   deleteGymLog,
+  fetchGymStatistics,
 } from '../api/gym';
+import GymStatistics from '../components/GymStatistics';
 
 const GymTracker = () => {
   const { user } = useUser();
@@ -43,6 +45,14 @@ const GymTracker = () => {
     queryFn: () =>
       fetchGymLogsForMonth(user.userId, currentDate.year(), currentDate.month() + 1),
     enabled: !!user?.userId,
+  });
+
+  // Fetch comprehensive gym statistics
+  const { data: gymStatistics, isLoading: isLoadingStats, error: statsError } = useQuery({
+    queryKey: ['gymStatistics', user?.userId],
+    queryFn: () => fetchGymStatistics(user.userId),
+    enabled: !!user?.userId,
+    retry: 1,
   });
 
   // Get log for selected date
@@ -66,6 +76,7 @@ const GymTracker = () => {
     mutationFn: ({ logId, updates }) => updateGymLog(logId, updates),
     onSuccess: () => {
       queryClient.invalidateQueries(['gymLogs', user.userId]);
+      queryClient.invalidateQueries(['gymStatistics', user.userId]);
       toast.success('Workout updated!');
     },
     onError: (error) => {
@@ -141,6 +152,14 @@ const GymTracker = () => {
           <p className="text-sm xl:text-base 2xl:text-lg text-text-secondary">
             Plan workouts and track your fitness journey
           </p>
+        </div>
+
+        {/* Statistics Section */}
+        <div className="mb-4 xl:mb-6 2xl:mb-8">
+          <h2 className="text-lg xl:text-xl 2xl:text-2xl font-semibold text-text-primary mb-3 xl:mb-4">
+            Your Progress & Analytics
+          </h2>
+          <GymStatistics statistics={gymStatistics} isLoading={isLoadingStats} error={statsError} />
         </div>
 
         <div className="flex flex-col lg:flex-row gap-4 xl:gap-6 2xl:gap-8">

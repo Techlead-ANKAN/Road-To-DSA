@@ -421,3 +421,186 @@ export const getMonthlyStats = async (req, res) => {
 
   res.json(stats);
 };
+
+// Get comprehensive gym statistics
+export const getGymStatistics = async (req, res) => {
+  const { userId } = req.params;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Get first and last day of current month
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  firstDayOfMonth.setHours(0, 0, 0, 0);
+  const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  lastDayOfMonth.setHours(23, 59, 59, 999);
+
+  // Get first day of current week (Sunday)
+  const firstDayOfWeek = new Date(today);
+  const dayOfWeek = firstDayOfWeek.getDay();
+  firstDayOfWeek.setDate(firstDayOfWeek.getDate() - dayOfWeek);
+  firstDayOfWeek.setHours(0, 0, 0, 0);
+
+  // Fetch all gym logs for this user
+  const allLogs = await GymLog.find({ userId }).populate('workoutDayId').sort({ date: 1 });
+
+  // Fetch logs for current month
+  const monthLogs = await GymLog.find({
+    userId,
+    date: { $gte: firstDayOfMonth, $lte: lastDayOfMonth },
+  }).populate('workoutDayId');
+
+  // Fetch logs for current week
+  const weekLogs = await GymLog.find({
+    userId,
+    date: { $gte: firstDayOfWeek, $lte: today },
+  }).populate('workoutDayId');
+
+  // Calculate total sessions overall
+  const totalSessions = allLogs.filter(log => log.completed).length;
+
+  // Calculate total sessions this month
+  const totalSessionsThisMonth = monthLogs.filter(log => log.completed).length;
+
+  // Calculate total sessions this week
+  const totalSessionsThisWeek = weekLogs.filter(log => log.completed).length;
+
+  // Calculate most frequent workout
+  const workoutFrequency = {};
+  allLogs.filter(log => log.completed && log.workoutDayId).forEach(log => {
+    const workoutName = log.workoutDayId.name;
+    workoutFrequency[workoutName] = (workoutFrequency[workoutName] || 0) + 1;
+  });
+
+  let mostFrequentWorkout = null;
+  let maxFrequency = 0;
+  Object.entries(workoutFrequency).forEach(([name, count]) => {
+    if (count > maxFrequency) {
+      maxFrequency = count;
+      mostFrequentWorkout = { name, count };
+    }
+  });
+
+  // Calculate total exercises completed
+  let totalExercisesCompleted = 0;
+  allLogs.filter(log => log.completed).forEach(log => {
+    totalExercisesCompleted += log.exercises?.length || 0;
+  });
+
+  // Calculate average exercises per session
+  const avgExercisesPerSession = totalSessions > 0 
+    ? Math.round(totalExercisesCompleted / totalSessions) 
+    : 0;
+
+  // Calculate total weight lifted (sum of all sets * weight)
+  let totalWeightLifted = 0;
+  allLogs.filter(log => log.completed).forEach(log => {
+    log.exercises?.forEach(exercise => {
+      if (exercise.sets && Array.isArray(exercise.sets)) {
+        exercise.sets.forEach(set => {
+          if (set.weight && set.reps) {
+            totalWeightLifted += (set.weight * set.reps);
+          }
+        });
+      }
+    });
+  });
+
+  // Calculate total workout time (cardio time)
+  let totalWorkoutTime = 0;
+  allLogs.filter(log => log.completed).forEach(log => {
+    log.exercises?.forEach(exercise => {
+      if (exercise.time) {
+        totalWorkoutTime += exercise.time;
+      }
+    });
+  });
+
+  // Calculate weekly consistency (percentage of days with workouts in current week)
+  const daysInCurrentWeek = Math.floor((today - firstDayOfWeek) / (1000 * 60 * 60 * 24)) + 1;
+  const weeklyConsistency = daysInCurrentWeek > 0 
+    ? Math.round((totalSessionsThisWeek / daysInCurrentWeek) * 100)
+    : 0;
+
+  // Calculate monthly consistency (percentage of days with workouts in current month)
+  const daysPassedInMonth = today.getDate();
+  const monthlyConsistency = daysPassedInMonth > 0
+    ? Math.round((totalSessionsThisMonth / daysPassedInMonth) * 100)
+    : 0;
+
+  // Get current streak
+  const qualifyingLogs = allLogs.filter(log => {
+    const totalExercises = log.workoutDayId?.exercises?.length || 0;
+    const completedExercises = log.exercises?.length || 0;
+    return completedExercises >= 2;
+  }).sort((a, b) => b.date - a.date);
+
+  let currentStreak = 0;
+  if (qualifyingLogs.length > 0) {
+    const mostRecentLog = qualifyingLogs[0];
+    const mostRecentDate = new Date(mostRecentLog.date);
+    mostRecentDate.setHours(0, 0, 0, 0);
+
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (mostRecentDate.getTime() >= yesterday.getTime()) {
+      let currentDate = new Date(mostRecentDate);
+      let foundFirstDay = false;
+
+      for (const log of qualifyingLogs) {
+        const logDate = new Date(log.date);
+        logDate.setHours(0, 0, 0, 0);
+
+        if (logDate.getTime() === currentDate.getTime()) {
+          if (foundFirstDay) {
+            currentStreak++;
+          }
+          foundFirstDay = true;
+          currentDate.setDate(currentDate.getDate() - 1);
+        } else if (logDate < currentDate) {
+          break;
+        }
+      }
+    }
+  }
+
+  // Calculate longest streak
+  let longestStreak = 0;
+  let tempStreak = 0;
+  let previousDate = null;
+
+  qualifyingLogs.reverse().forEach(log => {
+    const logDate = new Date(log.date);
+    logDate.setHours(0, 0, 0, 0);
+
+    if (!previousDate) {
+      tempStreak = 1;
+    } else {
+      const dayDiff = Math.floor((logDate - previousDate) / (1000 * 60 * 60 * 24));
+      if (dayDiff === 1) {
+        tempStreak++;
+      } else {
+        longestStreak = Math.max(longestStreak, tempStreak);
+        tempStreak = 1;
+      }
+    }
+    previousDate = logDate;
+  });
+  longestStreak = Math.max(longestStreak, tempStreak);
+
+  res.json({
+    totalSessions,
+    totalSessionsThisMonth,
+    totalSessionsThisWeek,
+    mostFrequentWorkout,
+    totalExercisesCompleted,
+    avgExercisesPerSession,
+    totalWeightLifted: Math.round(totalWeightLifted),
+    totalWorkoutTime,
+    weeklyConsistency,
+    monthlyConsistency,
+    currentStreak,
+    longestStreak,
+  });
+};

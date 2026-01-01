@@ -111,3 +111,9 @@ export const fetchMonthlyStats = async (userId) => {
   const { data } = await apiClient.get(`/gym/stats/${userId}/monthly`);
   return data;
 };
+
+// Get comprehensive gym statistics
+export const fetchGymStatistics = async (userId) => {
+  const { data } = await apiClient.get(`/gym/stats/${userId}/comprehensive`);
+  return data;
+};
