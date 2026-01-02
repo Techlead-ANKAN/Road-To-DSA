@@ -18,6 +18,7 @@ import {
   getStreak,
   getMonthlyStats,
   getGymStatistics,
+  getExerciseHistory,
 } from '../controllers/gymController.js';
 
 const router = express.Router();
@@ -47,5 +48,8 @@ router.get('/stats/:userId/month-count', getMonthCount);
 router.get('/stats/:userId/streak', getStreak);
 router.get('/stats/:userId/monthly', getMonthlyStats);
 router.get('/stats/:userId/comprehensive', getGymStatistics);
+
+// Exercise History
+router.get('/history/:userId/exercises', getExerciseHistory);
 
 export default router;

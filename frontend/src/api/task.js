@@ -65,7 +65,7 @@ export const fetchWeeklyStats = async (userId) => {
   return data;
 };
 
-// Get work streak (75% completion rule)
+// Get work streak (50% completion rule)
 export const fetchWorkStreak = async (userId) => {
   const { data } = await apiClient.get(`/tasks/${userId}/stats/work-streak`);
   return data;

@@ -604,3 +604,147 @@ export const getGymStatistics = async (req, res) => {
     longestStreak,
   });
 };
+
+// Get exercise history with progress tracking
+export const getExerciseHistory = async (req, res) => {
+  const { userId } = req.params;
+  const { page = 1, limit = 20, exerciseName, startDate, endDate } = req.query;
+
+  // Build query for completed workouts only
+  const query = { userId, completed: true };
+
+  // Add date range filter if provided
+  if (startDate && endDate) {
+    const [sYear, sMonth, sDay] = startDate.split('-').map(Number);
+    const [eYear, eMonth, eDay] = endDate.split('-').map(Number);
+    query.date = {
+      $gte: new Date(sYear, sMonth - 1, sDay, 0, 0, 0, 0),
+      $lte: new Date(eYear, eMonth - 1, eDay, 23, 59, 59, 999),
+    };
+  }
+
+  // Fetch all completed logs with populated workout data
+  const allLogs = await GymLog.find(query)
+    .populate('workoutDayId')
+    .sort({ date: -1 });
+
+  // Group exercises by name with their history
+  const exerciseMap = {};
+
+  allLogs.forEach((log) => {
+    const dateStr = log.date.toISOString().split('T')[0];
+    const workoutName = log.workoutDayId?.name || 'Unknown Workout';
+
+    log.exercises?.forEach((exercise) => {
+      const exerciseName = exercise.name;
+      
+      // Initialize exercise entry if not exists
+      if (!exerciseMap[exerciseName]) {
+        exerciseMap[exerciseName] = {
+          name: exerciseName,
+          type: exercise.type,
+          category: exercise.category || 'main',
+          sessions: [],
+          totalSessions: 0,
+          personalRecords: {
+            maxWeight: 0,
+            maxReps: 0,
+            maxVolume: 0, // total weight × reps in a session
+            maxTime: 0,
+          },
+        };
+      }
+
+      const exerciseData = exerciseMap[exerciseName];
+      
+      // Build session data
+      const sessionData = {
+        date: dateStr,
+        workoutName,
+        type: exercise.type,
+        category: exercise.category || 'main',
+        notes: exercise.notes || '',
+      };
+
+      if (exercise.type === 'count' && exercise.sets) {
+        // Calculate metrics for count-based exercises
+        let totalVolume = 0;
+        let maxWeightInSession = 0;
+        let maxRepsInSession = 0;
+
+        sessionData.sets = exercise.sets.map((set) => {
+          const weight = set.weight || 0;
+          const reps = set.reps || 0;
+          const volume = weight * reps;
+          
+          totalVolume += volume;
+          maxWeightInSession = Math.max(maxWeightInSession, weight);
+          maxRepsInSession = Math.max(maxRepsInSession, reps);
+
+          return { reps, weight };
+        });
+
+        sessionData.totalSets = exercise.sets.length;
+        sessionData.totalVolume = totalVolume;
+        sessionData.avgWeight = exercise.sets.length > 0
+          ? exercise.sets.reduce((sum, s) => sum + (s.weight || 0), 0) / exercise.sets.length
+          : 0;
+        sessionData.avgReps = exercise.sets.length > 0
+          ? exercise.sets.reduce((sum, s) => sum + (s.reps || 0), 0) / exercise.sets.length
+          : 0;
+
+        // Update personal records
+        exerciseData.personalRecords.maxWeight = Math.max(
+          exerciseData.personalRecords.maxWeight,
+          maxWeightInSession
+        );
+        exerciseData.personalRecords.maxReps = Math.max(
+          exerciseData.personalRecords.maxReps,
+          maxRepsInSession
+        );
+        exerciseData.personalRecords.maxVolume = Math.max(
+          exerciseData.personalRecords.maxVolume,
+          totalVolume
+        );
+      } else if (exercise.type === 'time') {
+        // Handle time-based exercises
+        sessionData.time = exercise.time || 0;
+        
+        exerciseData.personalRecords.maxTime = Math.max(
+          exerciseData.personalRecords.maxTime,
+          exercise.time || 0
+        );
+      }
+
+      exerciseData.sessions.push(sessionData);
+      exerciseData.totalSessions++;
+    });
+  });
+
+  // Convert map to array and filter by exercise name if provided
+  let exercises = Object.values(exerciseMap);
+  
+  if (exerciseName) {
+    exercises = exercises.filter((ex) =>
+      ex.name.toLowerCase().includes(exerciseName.toLowerCase())
+    );
+  }
+
+  // Sort exercises by total sessions (most practiced first)
+  exercises.sort((a, b) => b.totalSessions - a.totalSessions);
+
+  // Implement pagination
+  const total = exercises.length;
+  const skip = (page - 1) * limit;
+  const paginatedExercises = exercises.slice(skip, skip + parseInt(limit));
+
+  res.json({
+    exercises: paginatedExercises,
+    pagination: {
+      currentPage: parseInt(page),
+      totalPages: Math.ceil(total / limit),
+      totalExercises: total,
+      limit: parseInt(limit),
+    },
+  });
+};

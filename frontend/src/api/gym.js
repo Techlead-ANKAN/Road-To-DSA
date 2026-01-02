@@ -117,3 +117,16 @@ export const fetchGymStatistics = async (userId) => {
   const { data } = await apiClient.get(`/gym/stats/${userId}/comprehensive`);
   return data;
 };
+
+// Get exercise history with pagination
+export const fetchExerciseHistory = async (userId, filters = {}) => {
+  const params = new URLSearchParams();
+  if (filters.page) params.append('page', filters.page);
+  if (filters.limit) params.append('limit', filters.limit);
+  if (filters.exerciseName) params.append('exerciseName', filters.exerciseName);
+  if (filters.startDate) params.append('startDate', filters.startDate);
+  if (filters.endDate) params.append('endDate', filters.endDate);
+  
+  const { data } = await apiClient.get(`/gym/history/${userId}/exercises?${params}`);
+  return data;
+};

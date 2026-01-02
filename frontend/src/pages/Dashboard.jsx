@@ -208,7 +208,7 @@ const DashboardPage = () => {
         <SmallStatCard
           label="Work Streak"
           value={workStreak?.streak ?? 0}
-          helper="Days (75%+ completion)"
+          helper="Days (50%+ completion)"
           icon={Target}
           accent="purple"
         />

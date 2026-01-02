@@ -230,7 +230,7 @@ export const getWeeklyStats = async (req, res) => {
   res.json(stats);
 };
 
-// Get work streak (consecutive days with >75% task completion)
+// Get work streak (consecutive days with ≥50% task completion)
 export const getWorkStreak = async (req, res) => {
   const { userId } = req.params;
 
@@ -270,7 +270,7 @@ export const getWorkStreak = async (req, res) => {
     const completedCount = dayData.tasks.filter(task => task.completed).length;
     const completionRate = completedCount / dayData.tasks.length;
     
-    if (completionRate >= 0.75) {
+    if (completionRate >= 0.5) {
       qualifyingDates.push(dayData.date);
     }
   });

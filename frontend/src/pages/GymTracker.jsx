@@ -24,8 +24,10 @@ import {
   updateGymLog,
   deleteGymLog,
   fetchGymStatistics,
+  fetchExerciseHistory,
 } from '../api/gym';
 import GymStatistics from '../components/GymStatistics';
+import ExerciseHistory from '../components/ExerciseHistory';
 
 const GymTracker = () => {
   const { user } = useUser();
@@ -33,6 +35,12 @@ const GymTracker = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
+  const [historyPage, setHistoryPage] = useState(1);
+  const [historyFilters, setHistoryFilters] = useState({
+    exerciseName: '',
+    startDate: '',
+    endDate: '',
+  });
 
   // Fetch workout days and gym logs
   const { data: workoutDays = [] } = useQuery({
@@ -53,6 +61,25 @@ const GymTracker = () => {
     queryFn: () => fetchGymStatistics(user.userId),
     enabled: !!user?.userId,
     retry: 1,
+  });
+
+  // Fetch exercise history
+  const { data: exerciseHistory, isLoading: isLoadingHistory } = useQuery({
+    queryKey: [
+      'exerciseHistory',
+      user?.userId,
+      historyPage,
+      historyFilters.exerciseName,
+      historyFilters.startDate,
+      historyFilters.endDate,
+    ],
+    queryFn: () =>
+      fetchExerciseHistory(user.userId, {
+        page: historyPage,
+        limit: 20,
+        ...historyFilters,
+      }),
+    enabled: !!user?.userId,
   });
 
   // Get log for selected date
@@ -125,6 +152,24 @@ const GymTracker = () => {
       exercises: [],
       completed: false,
     });
+  };
+
+  const handleHistoryPageChange = (page) => {
+    setHistoryPage(page);
+  };
+
+  const handleHistorySearch = (searchQuery) => {
+    setHistoryFilters({ ...historyFilters, exerciseName: searchQuery });
+    setHistoryPage(1); // Reset to page 1 on new search
+  };
+
+  const handleHistoryDateFilter = (dateRange) => {
+    setHistoryFilters({
+      ...historyFilters,
+      startDate: dateRange.start,
+      endDate: dateRange.end,
+    });
+    setHistoryPage(1); // Reset to page 1 on new filter
   };
 
   if (!user || !user.userId) {
@@ -309,6 +354,20 @@ const GymTracker = () => {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Exercise History Section */}
+        <div className="mt-6 xl:mt-8 2xl:mt-10">
+          <h2 className="text-lg xl:text-xl 2xl:text-2xl font-semibold text-text-primary mb-4 xl:mb-6">
+            Exercise History & Progress
+          </h2>
+          <ExerciseHistory
+            historyData={exerciseHistory}
+            isLoading={isLoadingHistory}
+            onPageChange={handleHistoryPageChange}
+            onSearch={handleHistorySearch}
+            onDateFilter={handleHistoryDateFilter}
+          />
         </div>
       </div>
 
