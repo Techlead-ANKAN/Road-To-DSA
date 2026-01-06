@@ -28,6 +28,7 @@ import {
 } from '../api/gym';
 import GymStatistics from '../components/GymStatistics';
 import ExerciseHistory from '../components/ExerciseHistory';
+import { WorkoutImage } from '../utils/workoutIcons';
 
 const GymTracker = () => {
   const { user } = useUser();
@@ -278,8 +279,8 @@ const GymTracker = () => {
 
                     {/* Workout indicator */}
                     {hasWorkout && !isCompleted && (
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
-                        <Dumbbell className="w-4 h-4 text-orange-500" />
+                      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 max-w-[90%]">
+                        <WorkoutImage workoutDayName={log.workoutDayId?.name} size="md" />
                       </div>
                     )}
 
@@ -288,9 +289,12 @@ const GymTracker = () => {
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="absolute inset-0 flex items-center justify-center bg-green-500/10 rounded-lg"
+                        className="absolute inset-0 flex flex-col items-center justify-center bg-green-500/10 rounded-lg p-1"
                       >
-                        <Check className="w-6 h-6 xl:w-8 xl:h-8 text-green-500" />
+                        <Check className="w-5 h-5 md:w-6 md:h-6 xl:w-8 xl:h-8 text-green-500" />
+                        {log.workoutDayId?.name && (
+                          <WorkoutImage workoutDayName={log.workoutDayId.name} size="sm" className="mt-0.5 opacity-70 max-w-[90%]" />
+                        )}
                       </motion.div>
                     )}
                   </button>

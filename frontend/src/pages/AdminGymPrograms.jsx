@@ -27,6 +27,7 @@ import {
   updateExercise as updateExerciseAPI,
   deleteExercise as deleteExerciseAPI,
 } from '../api/gym';
+import { WorkoutImage } from '../utils/workoutIcons';
 
 const AdminGymPrograms = () => {
   const queryClient = useQueryClient();
@@ -208,14 +209,17 @@ const AdminGymPrograms = () => {
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm xl:text-base font-semibold truncate">
-                          {day.name}
-                        </h3>
-                        <p className="text-xs xl:text-sm text-text-secondary">
-                          {day.exercises?.length || 0} exercise
-                          {day.exercises?.length !== 1 ? 's' : ''}
-                        </p>
+                      <div className="flex items-center gap-3 flex-1 min-w-0">
+                        <WorkoutImage workoutDayName={day.name} size="lg" />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm xl:text-base font-semibold truncate">
+                            {day.name}
+                          </h3>
+                          <p className="text-xs xl:text-sm text-text-secondary">
+                            {day.exercises?.length || 0} exercise
+                            {day.exercises?.length !== 1 ? 's' : ''}
+                          </p>
+                        </div>
                       </div>
                       <button
                         onClick={(e) => {
